@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     <!-- Place favicon.ico in the root directory -->
-    <link rel="icon" href="favicon.ico"/>
+    <link rel="icon" href="<?= BASE_URL; ?>/public/img/favicon.ico"/>
     <link rel="stylesheet" href="<?= BASE_URL; ?>/public/css/bootstrap.css">
     <link rel="stylesheet" href="<?= BASE_URL; ?>/public/css/screen.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
@@ -51,7 +51,7 @@
                 <?php else : ?>
                     <nav>
                         <a href="<?= BASE_URL; ?>/admin/create">Créer</a>
-                        <a href=""></a>
+                        <a href="<?= BASE_URL; ?>/admin/competence">Competences</a>
                         <a href=""></a>
                     </nav>
                 <?php endif; ?>
@@ -60,6 +60,14 @@
             <!-- /.container -->
         </header>
         <!-- /.header -->
+        <?php if (isset($_SESSION['flash'])): ?>
+            <?php foreach ($_SESSION['flash'] as $type => $message): ?>
+                <div class="alert alert-<?= $type; ?>">
+                    <?= $message; ?>
+                </div>
+            <?php endforeach; ?>
+            <?php unset($_SESSION['flash']); ?>
+        <?php endif; ?>
         <div class="site-content">
             <main class="container">
                 <?= $content; ?>
