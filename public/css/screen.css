@@ -1,0 +1,606 @@
+@charset "UTF-8";
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/*==============================================================================================================
+html, body
+=================================================================================================================*/
+/* line 15, ../sass/screen.scss */
+html, body {
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 16px;
+  line-height: 1.4;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 24, ../sass/screen.scss */
+a {
+  text-decoration: none;
+  color: inherit;
+  text-transform: uppercase;
+}
+
+/*===========================================================================================================
+header
+============================================================================================================*/
+/* line 34, ../sass/screen.scss */
+.header {
+  height: 80px;
+  position: static;
+  border-bottom: 1px dashed grey;
+}
+/* line 39, ../sass/screen.scss */
+.header .header_logo svg {
+  width: 100px;
+  margin-top: 10px;
+  padding: 0 25px;
+  height: 50px;
+}
+/* line 44, ../sass/screen.scss */
+.header .header_logo svg .inside {
+  fill: #bcbcad;
+  fill-opacity: 1;
+}
+/* line 48, ../sass/screen.scss */
+.header .header_logo svg .init {
+  fill: #595963;
+  fill-opacity: 1;
+}
+/* line 53, ../sass/screen.scss */
+.header .header_logo svg .init:hover, .header .header_logo svg .inside:hover {
+  fill: #1f55ff;
+  fill-opacity: 0.5;
+}
+
+/*============================================================================================================
+hamburger icon
+=============================================================================================================*/
+/* line 65, ../sass/screen.scss */
+.header_icon {
+  position: relative;
+  display: block;
+  float: right;
+  height: 80px;
+  width: 50px;
+  height: 80px;
+  cursor: pointer;
+}
+/* line 73, ../sass/screen.scss */
+.header_icon:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 22px;
+  height: 0;
+  top: 14px;
+  left: 16px;
+  -moz-box-shadow: 0 10px 0 2px black, 0 20px 0 2px black, 0 30px 0 2px black;
+  -webkit-box-shadow: 0 10px 0 2px black, 0 20px 0 2px black, 0 30px 0 2px black;
+  box-shadow: 0 10px 0 2px black, 0 20px 0 2px black, 0 30px 0 2px black;
+}
+
+/*=========================================================================================================
+hidden menu
+===========================================================================================================*/
+/* line 90, ../sass/screen.scss */
+.container-top .menu {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #34667e;
+  width: 250px;
+  -moz-transform: translateX(250px);
+  -ms-transform: translateX(250px);
+  -webkit-transform: translateX(250px);
+  transform: translateX(250px);
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+/* line 99, ../sass/screen.scss */
+.container-top .menu a {
+  display: block;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid grey;
+}
+
+/*============================================================================================================
+menu desktop
+==============================================================================================================*/
+/* line 112, ../sass/screen.scss */
+.menu-desktop {
+  display: none;
+}
+
+/*=================================================================================================================
+visible menu
+when the body have a with side bar class
+==================================================================================================================*/
+/* line 121, ../sass/screen.scss */
+.with--sidebar .site-pusher {
+  -moz-transform: translateX(-250px);
+  -ms-transform: translateX(-250px);
+  -webkit-transform: translateX(-250px);
+  transform: translateX(-250px);
+}
+/* line 124, ../sass/screen.scss */
+.with--sidebar .site-cache {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/*============================================================================================================
+container
+===============================================================================================================*/
+/* line 137, ../sass/screen.scss */
+.stripe {
+  position: relative;
+}
+/* line 139, ../sass/screen.scss */
+.stripe:after {
+  position: absolute;
+  content: '';
+  background: url("../../img/stripes.png-vsnd") repeat-x center center;
+  top: 10px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* line 150, ../sass/screen.scss */
+.site-pusher, .site-container {
+  height: 100%;
+}
+
+/* line 154, ../sass/screen.scss */
+.site-pusher {
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -moz-transform: translateX(0px);
+  -ms-transform: translateX(0px);
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+}
+
+/* line 159, ../sass/screen.scss */
+.site-container {
+  overflow: hidden;
+}
+
+/* line 163, ../sass/screen.scss */
+.site-content {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 0;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* line 174, ../sass/screen.scss */
+.container {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+/* line 178, ../sass/screen.scss */
+.site-content {
+  padding-top: 30px;
+}
+
+/* line 182, ../sass/screen.scss */
+.border {
+  border-bottom: 1px dashed grey;
+}
+
+/*===========================================================================================================
+my picture
+==============================================================================================================*/
+/* line 189, ../sass/screen.scss */
+.figure {
+  display: none;
+}
+
+/*===========================================================================================================
+article
+=======================================================================================================*/
+/* line 196, ../sass/screen.scss */
+.description {
+  padding: 0;
+  margin: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 200, ../sass/screen.scss */
+.description h1 {
+  font-size: 24px;
+}
+/* line 203, ../sass/screen.scss */
+.description h2 {
+  font-size: 24px;
+}
+/* line 205, ../sass/screen.scss */
+.description h2 em {
+  font-size: 16px;
+  color: #C4B2FF;
+}
+/* line 210, ../sass/screen.scss */
+.description img {
+  width: 50px;
+  margin: 30px;
+}
+/* line 214, ../sass/screen.scss */
+.description p {
+  color: #C4B2FF;
+}
+/* line 217, ../sass/screen.scss */
+.description span {
+  text-transform: uppercase;
+}
+/* line 220, ../sass/screen.scss */
+.description .simplon {
+  overflow: auto;
+}
+/* line 222, ../sass/screen.scss */
+.description .simplon img {
+  height: 50px;
+  width: 50px;
+  float: left;
+}
+
+/*=============================================================================
+card
+==============================================================================*/
+/* line 234, ../sass/screen.scss */
+.card .content-image {
+  cursor: pointer;
+  height: 150px;
+  width: 240px;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+/* line 239, ../sass/screen.scss */
+.card .content-image:hover {
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  opacity: 0.5;
+}
+/* line 242, ../sass/screen.scss */
+.card .content-image:hover .image {
+  margin: auto auto;
+  height: 30px;
+  width: 30px;
+  opacity: 1;
+  content: url("../../img/link-3.svg");
+}
+
+/*=======================================================================
+form
+===========================================================================*/
+/* line 256, ../sass/screen.scss */
+.field {
+  position: relative;
+  height: 72px;
+  padding: 16px 0 8px 0;
+}
+
+/* line 262, ../sass/screen.scss */
+.field-label {
+  position: relative;
+  margin: 0;
+  color: #bfbfbf;
+  line-height: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  display: block;
+  -moz-transform: translateY(24px);
+  -ms-transform: translateY(24px);
+  -webkit-transform: translateY(24px);
+  transform: translateY(24px);
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+/* line 274, ../sass/screen.scss */
+.field-input {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 32px;
+  padding: 8px 0;
+  line-height: 16px;
+  border: none;
+  background: transparent;
+  -webkit-appearance: none;
+  font-size: 16px;
+  outline: none;
+}
+
+/* line 288, ../sass/screen.scss */
+.field::after, .field::before {
+  content: '';
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  background-color: #e7e7e7;
+}
+
+/* line 298, ../sass/screen.scss */
+.field::after {
+  background-color: #ff85a4;
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+/* line 304, ../sass/screen.scss */
+.has-label .field-label {
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+/* line 308, ../sass/screen.scss */
+.is-focused .field-label {
+  font-size: 12px;
+  color: #ff85a4;
+}
+
+/* line 314, ../sass/screen.scss */
+.field.is-focused::after {
+  -moz-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+/* line 318, ../sass/screen.scss */
+.message {
+  color: #bfbfbf;
+}
+
+/*=============================================================================
+competence
+==============================================================================*/
+/* line 325, ../sass/screen.scss */
+.language {
+  height: 200px;
+}
+
+/*==============================================================================
+footer
+================================================================================*/
+/* line 332, ../sass/screen.scss */
+footer {
+  border-top: 1px dashed grey;
+  background-color: #CCCCCC;
+}
+/* line 334, ../sass/screen.scss */
+footer h4 {
+  font-size: 20px;
+}
+/* line 338, ../sass/screen.scss */
+footer .dashed {
+  border-left: 1px dashed grey;
+}
+/* line 341, ../sass/screen.scss */
+footer img {
+  height: 30px;
+}
+/* line 345, ../sass/screen.scss */
+footer .article-footer p {
+  font-size: 10px;
+}
+
+/*===========================================================================
+tablet format
+===============================================================================*/
+/*===============================================================================
+tablet landscape format
+==================================================================================*/
+@media only screen and (min-width: 1024px) {
+  /*=================================================================
+  menu hidden
+  ===================================================================*/
+  /* line 14, ../sass/_tablet.scss */
+  .menu-desktop {
+    display: block;
+    height: 66px;
+    line-height: 66px;
+    float: right;
+    padding: 0 25px;
+  }
+  /* line 20, ../sass/_tablet.scss */
+  .menu-desktop a {
+    padding: 0 10px;
+  }
+
+  /*=====================================================================
+header
+  ====================================================================*/
+  /* line 27, ../sass/_tablet.scss */
+  .header {
+    border-bottom: 1px dashed grey;
+  }
+
+  /* line 30, ../sass/_tablet.scss */
+  .header_logo {
+    padding: 0 40px;
+  }
+
+  /* line 33, ../sass/_tablet.scss */
+  .header_icon {
+    display: none;
+  }
+
+  /*=========================================================================
+  my picture
+  =============================================================================*/
+  /* line 39, ../sass/_tablet.scss */
+  .figure {
+    display: block;
+  }
+
+  /*============================================================================
+description
+  ==============================================================================*/
+  /* line 46, ../sass/_tablet.scss */
+  .title h1 {
+    font-size: 45px;
+  }
+  /* line 49, ../sass/_tablet.scss */
+  .title p {
+    font-size: 25px;
+  }
+}
+/*==============================================================
+desktop format
+================================================================*/
+@media only screen and (min-width: 1200px) {
+  /* line 6, ../sass/_desktop.scss */
+  .header {
+    position: static;
+    top: 80px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    line-height: 66px;
+    border-bottom: 1px dashed black;
+  }
+
+  /* line 15, ../sass/_desktop.scss */
+  .container-top {
+    width: 80%;
+    margin: 0 auto;
+  }
+  /* line 18, ../sass/_desktop.scss */
+  .container-top .header_logo {
+    padding: 0 25px;
+    float: left;
+  }
+  /* line 22, ../sass/_desktop.scss */
+  .container-top .header_icon {
+    display: none;
+  }
+  /* line 25, ../sass/_desktop.scss */
+  .container-top .menu {
+    float: right;
+  }
+  /* line 27, ../sass/_desktop.scss */
+  .container-top .menu a {
+    padding: 0 10px;
+    text-transform: uppercase;
+  }
+  /* line 30, ../sass/_desktop.scss */
+  .container-top .menu a:hover {
+    color: grey;
+  }
+
+  /* line 36, ../sass/_desktop.scss */
+  .media-back {
+    background-image: url("../../img/sites/mac.png-vsnd");
+    background-size: cover;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    width: 400px;
+    height: 280px;
+  }
+  /* line 42, ../sass/_desktop.scss */
+  .media-back .carousel-item {
+    margin-top: 45px;
+    margin-left: 15px;
+    padding-bottom: 10px;
+    width: 370px;
+    height: 230px;
+  }
+
+  /* line 50, ../sass/_desktop.scss */
+  .link {
+    width: 25px;
+  }
+
+  /* line 53, ../sass/_desktop.scss */
+  .photo {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* line 57, ../sass/_desktop.scss */
+  .card {
+    /*================================================================================
+image portfolio
+================================================================================*/
+  }
+  /* line 61, ../sass/_desktop.scss */
+  .card .first {
+    background: url("../../img/sites/archiduchesse/archiduchesse_s.png");
+  }
+  /* line 64, ../sass/_desktop.scss */
+  .card .second {
+    background: url("../../img/sites/leboncoin/leboncoin_s.png");
+  }
+  /* line 67, ../sass/_desktop.scss */
+  .card .third {
+    background: url("../../img/sites/coachsportif/coachSporstif_s.png");
+  }
+  /* line 70, ../sass/_desktop.scss */
+  .card .fourth {
+    background: url("../../img/sites/airbnb/airbnb_s.png");
+  }
+  /* line 74, ../sass/_desktop.scss */
+  .card .five:after {
+    content: 'Image à venir';
+  }
+  /* line 79, ../sass/_desktop.scss */
+  .card .six:after {
+    content: 'Image à venir';
+  }
+  /* line 84, ../sass/_desktop.scss */
+  .card .seven:after {
+    content: 'Image à venir';
+  }
+  /* line 89, ../sass/_desktop.scss */
+  .card .eight:after {
+    content: 'Image à venir';
+  }
+  /* line 93, ../sass/_desktop.scss */
+  .card .card-title {
+    font-size: 15px;
+  }
+  /* line 96, ../sass/_desktop.scss */
+  .card .card-text {
+    font-size: 10px;
+    color: grey;
+  }
+}

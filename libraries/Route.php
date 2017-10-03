@@ -17,12 +17,14 @@ class Route
             $this->loadControllerDefault();
         } elseif(!empty($this->url[0])&& !empty($this->url[1])) {
             $this->loadController();
+            $this->methodExist();
             $this->views->render($this->url[0], $this->url[1]);
         }else{
             $this->errors();
             die();
         }
     }
+
 
     /**
      *cut the url
@@ -51,15 +53,15 @@ class Route
      */
     private function loadController()
     {
-        $page = ROOT . '/controllers/' . $this->url[0] . '/' . $this->url[1] . 'Controller.php';
+        $page = ROOT . '/controllers/' . $this->url[0] . '/' . ucfirst($this->url[1]) . 'Controller.php';
 
         if (file_exists($page)) {
             require $page;
             //$this->loadModel($this->url[1]);
             //$this->controller = new $this->url[1];
             //$this->controller->{$this->url[1]}();
-            $this->methodExist();
         } else {
+            echo 111;
             $this->errors();
             die();
         }
@@ -73,28 +75,26 @@ class Route
     {
         $length = count($this->url);
         $this->controller = new $this->url[1];
-        if ($length > 2) {
-            if (!method_exists($this->controller, $this->url[2])) {
+        if ($length > 1) {
+            if (!method_exists($this->controller, $this->url[1])) {
+                echo 1111;
                 $this->errors();
                 die();
             }
         }
+
         switch ($length) {
-            case 6:
-                //$controller->method(param1, param2,param3)
-                $this->controller->{$this->url[2]}($this->url[3], $this->url[4], $this->url[5]);
-                break;
             case 5:
-                //$controller->method(param1, param2)
-                $this->controller->{$this->url[2]}($this->url[3], $this->url[4]);
+                //$controller->method(param1, param2,param3)
+                $this->controller->{$this->url[1]}($this->url[2], $this->url[3], $this->url[4]);
                 break;
             case 4:
-                //$controller->method(param1)
-                $this->controller->{$this->url[2]}($this->url[3]);
+                //$controller->method(param1, param2)
+                $this->controller->{$this->url[1]}($this->url[2], $this->url[3]);
                 break;
             case 3:
                 //$controller->method(param1)
-                $this->controller->{$this->url[2]}();
+                $this->controller->{$this->url[1]}($this->url[2]);
                 break;
             case 2:
                 //$controller->method()
@@ -104,6 +104,7 @@ class Route
                 $this->controller->index();
                 break;
             default:
+                echo 111;
                 $this->errors();
                 break;
         }

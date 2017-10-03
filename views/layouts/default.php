@@ -3,86 +3,121 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?= isset($title) ? $title : 'Construction'; ?></title>
+    <title><?= $title; ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
-    <link rel="icon" href="<?php echo BASE_URL; ?>/public/img/favicon.ico">
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/main.css">
-
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    <link rel="icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="<?= BASE_URL; ?>/public/css/bootstrap.css">
+    <link rel="stylesheet" href="<?= BASE_URL; ?>/public/css/screen.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
-<![endif]-->
-<nav class="navbar navbar-light bg-faded rounded navbar-toggleable-md">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-            data-target="#containerNavbar" aria-controls="containerNavbar" aria-expanded="false"
-            aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">CONSTRUCTION MANAGEMENT</a>
+<div class="site-container">
+    <div class="site-pusher">
+        <header class="header">
+            <div class="container-top">
+                <a href="#" class="header_icon" id="header_icon"></a>
+                <a href="index.html" class="header_logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 943.9 1000" version="1.1" id="svg1499">
+                        <g>
+                            <path class="inside"
+                                  d="M876.5 636.7h-392l254.8-254.8-12.6-12.6-260.9 260.8V60.3H448v272.9L189.6 74.8 177 87.4l252.2 252.2H67.4v17.8h367.7L177.3 615.2l12.6 12.6L448 369.7v570h17.8V664.1l257.9 257.8 12.6-12.6-254.8-254.8h395"/>
+                            <path class="init"
+                                  d="M591.8 295.7H472.4c-2.4 0-5.7.5-9.1 1.2-2 .3-3.9.8-5.9 1.4-2.1.6-4.1 1.1-5.6 1.6-20.5 6.4-31.2 23.4-32.2 45.4-.1 1.2-.1 2.4-.1 3.7v250.9h-66.8c-136.2 0-247.1-110.8-247.1-247.1s110.9-247.1 247.1-247.1h119.6c29.2 0 52.9-23.7 52.9-52.8 0-29.2-23.7-52.9-52.8-52.9H352.8C158.3 0 0 158.3 0 352.8s158.3 352.8 352.8 352.8h119.6c29.1 0 52.8-23.7 52.8-52.9V401.3h66.5c131.7 0 239.7 103.8 246.3 233.9.2 4.2.3 8.4.3 12.7 0 8.5-.4 16.9-1.3 25.2-12.7 124.2-117.9 221.4-245.3 221.4H472.4c-29.1 0-52.8 23.7-52.8 52.7 0 23.6 15.6 43.7 37.1 50.4 5 1.5 10.2 2.4 15.7 2.4h119.4c194.2 0 352.1-158 352.1-352.1 0-194.2-157.9-352.2-352.1-352.2z"/>
+                        </g>
+                    </svg>
+                </a>
+                <?php if (!isset($_SESSION['admin'])): ?>
+                    <nav class="menu">
 
-    <div class="collapse navbar-collapse" id="containerNavbar">
-        <ul class="navbar-nav mr-auto">
-            <?php if (!isset($_SESSION['user']) && !isset($_SESSION['admin'])): ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="">management works</a>
-                </li>
-            <?php else: ?>
-            <li class="nav-item">
-                <a class="nav-link" href="<?= BASE_URL; ?>/users/logout">Se déconnecter</a>
-            </li>
+                        <a href="pages/competence.html">mes compétences</a>
+                        <a href="pages/portfolio.html">mon portfolio</a>
+                        <a href="pages/contact.html">me contacter</a>
+                        <a href="https://gustavofringe.github.io/Cv_guillaume/">cv</a>
+                        <a href=""></a>
+                    </nav>
+                    <!-- /.menu -->
+                    <nav class="menu-desktop">
 
-        </ul>
-    </div>
-    <?php if (!isset($_SESSION['admin'])):?>
-        <p>
-            Choice your category</p>
-    <form action="" method="post" name="categori">
-    <select class="form-control nav-item" name="categori" onchange="document.forms.categori.submit();">
-        <option value="test">Categories</option>
-        <?php foreach ($categories as $category): ?>
-            <option class="nav-link" value="<?= $category->id?>"><?= $category->name; ?></option>
-        <?php endforeach; ?>
-    </select>
-    </form>
-    <?php endif; ?>
-    <?php endif;?>
-</nav>
-
-<?php if (isset($_SESSION['flash'])): ?>
-    <?php foreach ($_SESSION['flash'] as $type => $message): ?>
-        <div class="alert alert-<?= $type; ?>">
-            <?= $message; ?>
+                        <a href="pages/competence.html">mes compétences</a>
+                        <a href="pages/portfolio.html">mon portfolio</a>
+                        <a href="pages/contact.html">me contacter</a>
+                        <a href="https://gustavofringe.github.io/Cv_guillaume/">cv</a>
+                        <a href=""></a>
+                    </nav>
+                <?php else : ?>
+                    <nav>
+                        <a href="<?= BASE_URL; ?>/admin/create">Créer</a>
+                        <a href=""></a>
+                        <a href=""></a>
+                    </nav>
+                <?php endif; ?>
+                <!-- /.menu-desktop -->
+            </div>
+            <!-- /.container -->
+        </header>
+        <!-- /.header -->
+        <div class="site-content">
+            <main class="container">
+                <?= $content; ?>
+            </main>
+            <div class="site-cache" id="site-cache"></div>
+            <!-- /.site-cache -->
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-xl-4 dashed pt-3">
+                            <article class="article-footer">
+                                <h4>à propos</h4>
+                                <p class="text-justify">Je m'appelle Guillaume Dussart, j'ai commencé le développement
+                                    web pour développer des petits sites perso et c'est très vite devenu une vraie
+                                    vocation. J'aime expérimenter, découvrir et apprendre au fur et à mesure de mes
+                                    projets perso pour le moment.</p>
+                            </article>
+                        </div>
+                        <div class="col-12 col-sm-6 col-xl-4 dashed pt-3">
+                            <h4>Mes coordonées</h4>
+                        </div>
+                        <!-- /.col-12 col-sm-6 col-xl-4 dashed pt-3 -->
+                        <div class="col-12 col-sm-6 col-xl-4 dashed pb-3 pt-3">
+                            <h4>Où me trouver ?</h4>
+                            <a href="https://github.com/"><img src="<?= BASE_URL; ?>/public/img/social/github.svg"
+                                                               alt="github" class="d-inline"></a>
+                            <!-- /.d-inline -->
+                            <a href="https://twitter.com/?lang=fr"><img
+                                        src="<?= BASE_URL; ?>/public/img/social/twitter.svg" alt="twitter"
+                                        class="d-inline"></a>
+                            <!-- /.d-inline -->
+                            <a href="https://www.facebook.com/"><img
+                                        src="<?= BASE_URL; ?>/public/img/social/facebook.svg" alt="facebook"
+                                        class="d-inline"></a>
+                            <!-- /.d-inline -->
+                            <a href="https://www.linkedin.com/"><img
+                                        src="<?= BASE_URL; ?>/public/img/social/linkedin.svg" alt="linkedin"
+                                        class="d-inline"></a>
+                            <!-- /.d-inline -->
+                        </div>
+                        <!-- /.col-xl-4 -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container -->
+            </footer>
         </div>
-    <?php endforeach; ?>
-    <?php unset($_SESSION['flash']); ?>
-<?php endif; ?>
-<div class="container">
-    <?php echo $content; ?>
-</div>
-
-<footer class="footer">
-    <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+        <!-- /.site-content -->
     </div>
-</footer>
+    <!-- /.site-pusher -->
+</div>
+<!-- /.site-container -->
+
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script>window.jQuery || document.write('<script src="<?php echo BASE_URL; ?>/public/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-<script src="<?php echo BASE_URL; ?>/public/js/plugins.js"></script>
-<script src="<?php echo BASE_URL; ?>/public/js/bootstrap.js"></script>
-<script src="<?php echo BASE_URL; ?>/public/js/main.js"></script>
-<script src="<?php echo BASE_URL; ?>/public/js/tinymce/tinymce.min.js"></script>
-<script src="<?php echo BASE_URL; ?>/public/js/tinymce.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<script src="js/hammer-time.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>

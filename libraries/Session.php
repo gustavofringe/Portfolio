@@ -26,7 +26,10 @@ class Session
      * @return bool
      */
     public static function isLogged($user){
-        return isset($_SESSION[$user]);
+        if (!isset($_SESSION[$user])){
+            Session::setFlash('Vous n\'avez pas accés a ce contenu');
+            View::redirect(BASE_URL);
+        }
     }
 
     /**

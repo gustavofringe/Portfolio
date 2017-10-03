@@ -102,8 +102,9 @@ class Model
      */
     public function delete($table, $id)
     {
-        $sql = "DELETE FROM {$table} WHERE {$this->id} = $id";
-        Model::$db->query($sql);
+        $sql = "DELETE FROM ".$table." WHERE id=". $id;
+        //Model::$db->query($sql);
+        return $sql;
     }
 
     /**
@@ -112,7 +113,7 @@ class Model
     public function update($table, $data, $id)
     {
         $sql = 'UPDATE ' . $table . ' SET ' . $data . '=0' .' WHERE '. $id . '=' . $id;
-        $pre = Model::$db->query($sql);
+        Model::$db->query($sql);
     }
 
     /**
