@@ -21,11 +21,19 @@
         <input type="text" class="form-control" id="url" placeholder="Url" name="url">
     </div>
     <div class="form-group">
-        <label for="url">Folder</label>
-        <input type="text" class="form-control" id="link" placeholder="Folder" name="folder">
+        <label for="folder">Folder</label>
+        <input type="text" class="form-control" id="folder" placeholder="Folder" name="folder">
     </div>
     <div class="form-group">
-        <label for="url">Link</label>
+        <label for="subtitle">Sous-titre</label>
+        <input type="text" class="form-control" id="subtitle" placeholder="Sous-titre" name="subtitle">
+    </div>
+    <div class="form-group">
+        <label for="techno">Techno</label>
+        <input type="text" class="form-control" id="techno" placeholder="Techno" name="techno">
+    </div>
+    <div class="form-group">
+        <label for="link">Link</label>
         <input type="text" class="form-control" id="link" placeholder="Link" name="link">
     </div>
     <div class="form-group">

@@ -11,10 +11,12 @@
     <tbody>
     <?php foreach ($works as $work): ?>
             <tr>
-                <th scope="row"><?= $images[$work->image_id]->name; ?></th>
+                    <?php foreach($images as $image):?>
+                <th scope="row"><img src="<?= BASE_URL.'/public/img/'.$image->folder.DS.$image->name;?>" alt=""><?= $image->name;?><br></th>
+            <?php endforeach;?>
                 <td><?= $work->title; ?></td>
                 <td><?= $work->content; ?></td>
-                <td><?= $work->date; ?></td>
+                <td><?= date('d/m/Y', strtotime($work->date)); ?></td>
                 <td>
                     <a href="" class="btn btn-primary">edit</a>
                     <a href="" class="btn btn-danger">delete</a>

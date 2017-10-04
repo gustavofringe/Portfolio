@@ -44,7 +44,10 @@
 
                         <a href="<?= BASE_URL; ?>/admin/create">Créer</a>
                         <a href="<?= BASE_URL; ?>/admin/competence">Competences</a>
+                        <a href="<?= BASE_URL; ?>/admin/views">Vues</a>
+                        <?php if(isset($_SESSION['admin'])):?>
                         <a href="<?= BASE_URL; ?>/admin/views/logout">Se deconnecter</a>
+                        <?php endif;?>
                     </nav>
                 <!-- /.menu-desktop -->
             </div>

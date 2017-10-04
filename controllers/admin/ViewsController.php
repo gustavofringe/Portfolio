@@ -7,8 +7,14 @@ class Views extends Controller{
     public function views(){
         $var['title'] = "Portfolio || views";
         $this->session->isLogged('admin');
-        $var['works'] = $this->model->findAll('works',[]);
-        $var['images'] = $this->model->findAll('images',[]);
+        $works = $var['works'] = $this->model->findAll('works',[]);
+        foreach($works as $work) {
+            print_r($work->id);
+            $cond = ['work_id'=>$work->id];
+            $var['images'] = $this->model->findAll('images', [
+                'conditions'=>$cond
+            ]);
+        }
         $this->views->set($var);
     }
     public function logout(){

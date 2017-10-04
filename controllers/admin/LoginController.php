@@ -9,6 +9,7 @@ class Login extends Controller
 
     public function login()
     {
+        print_r($_SESSION);
         $var['title'] = "Portfolio || Admin";
         if (isset($_POST['password'])) {
             $password = $this->service->hashPass($_POST['password']);
@@ -17,7 +18,6 @@ class Login extends Controller
                 'password' => $password
             ]);
             foreach ($admins as $admin) {
-
                 if ($password == $admin->password) {
                     Session::write('admin', $admin);
                     Session::setFlash("Vous êtes maintenant connecté");
