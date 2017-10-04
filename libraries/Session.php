@@ -28,7 +28,7 @@ class Session
     public static function isLogged($user){
         if (!isset($_SESSION[$user])){
             Session::setFlash('Vous n\'avez pas accés a ce contenu');
-            View::redirect(BASE_URL);
+            View::redirect(BASE_URL.'/admin/login');
         }
     }
 

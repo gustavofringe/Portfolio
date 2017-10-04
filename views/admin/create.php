@@ -21,13 +21,18 @@
         <input type="text" class="form-control" id="url" placeholder="Url" name="url">
     </div>
     <div class="form-group">
+        <label for="url">Folder</label>
+        <input type="text" class="form-control" id="link" placeholder="Folder" name="folder">
+    </div>
+    <div class="form-group">
         <label for="url">Link</label>
         <input type="text" class="form-control" id="link" placeholder="Link" name="link">
     </div>
     <div class="form-group">
         <label for="image">Upload image</label>
-        <input type="file" class="form-control-file" id="image" name="image">
+        <input type="file" class="form-control-file" id="image" name="image[]" multiple>
     </div>
+    <!-- /.form-group -->
     <div class="input-group date form-group" id="datepicker" data-provide="datepicker" data-date-format="yyyy-mm-dd">
         <label for="date">Date de creation</label>
         <input type="text" class="form-control" id="date" name="date" readonly>

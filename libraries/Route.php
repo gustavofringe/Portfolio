@@ -18,6 +18,9 @@ class Route
         } elseif(!empty($this->url[0])&& !empty($this->url[1])) {
             $this->loadController();
             $this->methodExist();
+            if($this->url[0]== 'admin'){
+                $this->views->layout = 'admin';
+            }
             $this->views->render($this->url[0], $this->url[1]);
         }else{
             $this->errors();
@@ -61,7 +64,6 @@ class Route
             //$this->controller = new $this->url[1];
             //$this->controller->{$this->url[1]}();
         } else {
-            echo 111;
             $this->errors();
             die();
         }
@@ -77,24 +79,27 @@ class Route
         $this->controller = new $this->url[1];
         if ($length > 1) {
             if (!method_exists($this->controller, $this->url[1])) {
-                echo 1111;
                 $this->errors();
                 die();
             }
         }
 
         switch ($length) {
-            case 5:
+            case 6:
                 //$controller->method(param1, param2,param3)
                 $this->controller->{$this->url[1]}($this->url[2], $this->url[3], $this->url[4]);
                 break;
-            case 4:
+            case 5:
                 //$controller->method(param1, param2)
                 $this->controller->{$this->url[1]}($this->url[2], $this->url[3]);
                 break;
-            case 3:
+            case 4:
                 //$controller->method(param1)
                 $this->controller->{$this->url[1]}($this->url[2]);
+                break;
+            case 3:
+                //$controller->method()
+                $this->controller->{$this->url[2]}();
                 break;
             case 2:
                 //$controller->method()
@@ -104,7 +109,6 @@ class Route
                 $this->controller->index();
                 break;
             default:
-                echo 111;
                 $this->errors();
                 break;
         }

@@ -5,6 +5,7 @@ class Controller
     public $form;
     public $service;
     public $views;
+    public $model;
 
     /**
      * Controller constructor.

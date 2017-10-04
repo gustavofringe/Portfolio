@@ -12,6 +12,7 @@
     <link rel="icon" href="<?= BASE_URL; ?>/public/img/favicon.ico"/>
     <link rel="stylesheet" href="<?= BASE_URL; ?>/public/css/bootstrap.css">
     <link rel="stylesheet" href="<?= BASE_URL; ?>/public/css/screen.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
@@ -32,8 +33,8 @@
                 </a>
                     <nav class="menu">
 
-                        <a href="pages/competence.html">mes compétences</a>
-                        <a href="pages/portfolio.html">mon portfolio</a>
+                        <a href="<?= BASE_URL; ?>/admin/create">Créer</a>
+                        <a href="<?= BASE_URL; ?>/admin/competence">Competences</a>
                         <a href="pages/contact.html">me contacter</a>
                         <a href="https://gustavofringe.github.io/Cv_guillaume/">cv</a>
                         <a href=""></a>
@@ -41,11 +42,9 @@
                     <!-- /.menu -->
                     <nav class="menu-desktop">
 
-                        <a href="pages/competence.html">mes compétences</a>
-                        <a href="pages/portfolio.html">mon portfolio</a>
-                        <a href="pages/contact.html">me contacter</a>
-                        <a href="https://gustavofringe.github.io/Cv_guillaume/">cv</a>
-                        <a href=""></a>
+                        <a href="<?= BASE_URL; ?>/admin/create">Créer</a>
+                        <a href="<?= BASE_URL; ?>/admin/competence">Competences</a>
+                        <a href="<?= BASE_URL; ?>/admin/views/logout">Se deconnecter</a>
                     </nav>
                 <!-- /.menu-desktop -->
             </div>
@@ -88,16 +87,16 @@
                                                                alt="github" class="d-inline"></a>
                             <!-- /.d-inline -->
                             <a href="https://twitter.com/?lang=fr"><img
-                                        src="<?= BASE_URL; ?>/public/img/social/twitter.svg" alt="twitter"
-                                        class="d-inline"></a>
+                                    src="<?= BASE_URL; ?>/public/img/social/twitter.svg" alt="twitter"
+                                    class="d-inline"></a>
                             <!-- /.d-inline -->
                             <a href="https://www.facebook.com/"><img
-                                        src="<?= BASE_URL; ?>/public/img/social/facebook.svg" alt="facebook"
-                                        class="d-inline"></a>
+                                    src="<?= BASE_URL; ?>/public/img/social/facebook.svg" alt="facebook"
+                                    class="d-inline"></a>
                             <!-- /.d-inline -->
                             <a href="https://www.linkedin.com/"><img
-                                        src="<?= BASE_URL; ?>/public/img/social/linkedin.svg" alt="linkedin"
-                                        class="d-inline"></a>
+                                    src="<?= BASE_URL; ?>/public/img/social/linkedin.svg" alt="linkedin"
+                                    class="d-inline"></a>
                             <!-- /.d-inline -->
                         </div>
                         <!-- /.col-xl-4 -->
@@ -114,10 +113,10 @@
 <!-- /.site-container -->
 
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="js/hammer-time.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
+<script src="<?= BASE_URL; ?>/public/js/plugins.js"></script>
+<script src="<?= BASE_URL; ?>/public/js/main.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>

@@ -1,6 +1,6 @@
 <?php
 class Conf{
-    static $database = [
+    static $databases = [
         'default' =>[
             'host'      =>'',
             'database'  =>'',

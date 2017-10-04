@@ -2,7 +2,7 @@
 
 class View
 {
-    private $layout = 'default';
+    public $layout = 'default';
     public $vars = array();
     static $var = [];
     /**
