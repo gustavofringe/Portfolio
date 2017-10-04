@@ -35,7 +35,6 @@
 
                         <a href="<?= BASE_URL; ?>/admin/create">Créer</a>
                         <a href="<?= BASE_URL; ?>/admin/competence">Competences</a>
-                        <a href="pages/contact.html">me contacter</a>
                         <a href="https://gustavofringe.github.io/Cv_guillaume/">cv</a>
                         <a href=""></a>
                     </nav>

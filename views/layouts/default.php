@@ -34,7 +34,7 @@
 
                         <a href="pages/competence.html">mes compétences</a>
                         <a href="pages/portfolio.html">mon portfolio</a>
-                        <a href="pages/contact.html">me contacter</a>
+                        <a href="<?= BASE_URL; ?>/admin/contact">me contacter</a>
                         <a href="https://gustavofringe.github.io/Cv_guillaume/">cv</a>
                         <a href=""></a>
                     </nav>

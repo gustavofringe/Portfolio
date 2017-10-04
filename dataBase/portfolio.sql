@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  mar. 03 oct. 2017 à 19:59
+-- Généré le :  mer. 04 oct. 2017 à 20:00
 -- Version du serveur :  10.1.28-MariaDB
 -- Version de PHP :  7.1.10
 
@@ -44,18 +44,6 @@ INSERT INTO `admin` (`id`, `name`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `competences`
---
-
-CREATE TABLE `competences` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `images`
 --
 
@@ -65,8 +53,18 @@ CREATE TABLE `images` (
   `type` varchar(255) NOT NULL,
   `size` varchar(255) NOT NULL,
   `work_id` int(11) NOT NULL,
-  `competence_id` int(11) NOT NULL
+  `folder` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `images`
+--
+
+INSERT INTO `images` (`id`, `name`, `type`, `size`, `work_id`, `folder`) VALUES
+(1, 'arch1.png', 'image/png', '1137947', 1, 'archiduchesse'),
+(2, 'arch2.png', 'image/png', '539120', 1, 'archiduchesse'),
+(3, 'arch3.png', 'image/png', '112442', 1, 'archiduchesse'),
+(4, 'archiduchesse.png', 'image/png', '2117296', 1, 'archiduchesse');
 
 -- --------------------------------------------------------
 
@@ -77,12 +75,21 @@ CREATE TABLE `images` (
 CREATE TABLE `works` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
+  `subtitle` varchar(255) NOT NULL,
+  `techno` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `url` varchar(255) NOT NULL,
   `link` varchar(255) NOT NULL,
   `date` date NOT NULL,
-  `online` tinyint(1) DEFAULT NULL
+  `online` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `works`
+--
+
+INSERT INTO `works` (`id`, `title`, `subtitle`, `techno`, `content`, `url`, `link`, `date`, `online`) VALUES
+(1, 'Archiduchesse', 'Reproduction du site archiduchesse', 'Projet réaliser avec Bootstrap', '', 'archiduchesse', 'https://gustavofringe.github.io/projectArchiduchesse/', '2017-04-12', 0);
 
 --
 -- Index pour les tables déchargées
@@ -95,18 +102,11 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `competences`
---
-ALTER TABLE `competences`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Index pour la table `images`
 --
 ALTER TABLE `images`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `work_id` (`work_id`),
-  ADD KEY `competence_id` (`competence_id`);
+  ADD KEY `work_id` (`work_id`);
 
 --
 -- Index pour la table `works`
@@ -125,38 +125,16 @@ ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `competences`
---
-ALTER TABLE `competences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT pour la table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `works`
 --
 ALTER TABLE `works`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `images`
---
-ALTER TABLE `images`
-  ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`competence_id`) REFERENCES `competences` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Contraintes pour la table `works`
---
-ALTER TABLE `works`
-  ADD CONSTRAINT `works_ibfk_1` FOREIGN KEY (`id`) REFERENCES `images` (`work_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
