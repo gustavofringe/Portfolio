@@ -57,7 +57,6 @@ class Route
     private function loadController()
     {
         $page = ROOT . '/controllers/' . $this->url[0] . '/' . ucfirst($this->url[1]) . 'Controller.php';
-
         if (file_exists($page)) {
             require $page;
             //$this->loadModel($this->url[1]);
@@ -67,7 +66,6 @@ class Route
             $this->errors();
             die();
         }
-
     }
 
     /**
@@ -77,13 +75,15 @@ class Route
     {
         $length = count($this->url);
         $this->controller = new $this->url[1];
-        if ($length > 1) {
+        if ($length > 2) {
             if (!method_exists($this->controller, $this->url[1])) {
+                $this->errors();
+                die();
+            }else if (!method_exists($this->controller, $this->url[2])) {
                 $this->errors();
                 die();
             }
         }
-
         switch ($length) {
             case 6:
                 //$controller->method(param1, param2,param3)

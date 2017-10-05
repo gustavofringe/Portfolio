@@ -32,19 +32,19 @@
                 </a>
                     <nav class="menu">
 
-                        <a href="pages/competence.html">mes compétences</a>
-                        <a href="pages/portfolio.html">mon portfolio</a>
-                        <a href="<?= BASE_URL; ?>/admin/contact">me contacter</a>
-                        <a href="https://gustavofringe.github.io/Cv_guillaume/">cv</a>
+                        <a href="<?= BASE_URL; ?>/pages/competences">mes compétences</a>
+                        <a href="<?= BASE_URL; ?>/pages/portfolio">mon portfolio</a>
+                        <a href="<?= BASE_URL; ?>/posts/contact">me contacter</a>
+                        <a href="<?= BASE_URL; ?>/pages/cv">cv</a>
                         <a href=""></a>
                     </nav>
                     <!-- /.menu -->
                     <nav class="menu-desktop">
 
-                        <a href="pages/competence.html">mes compétences</a>
-                        <a href="pages/portfolio.html">mon portfolio</a>
-                        <a href="pages/contact.html">me contacter</a>
-                        <a href="https://gustavofringe.github.io/Cv_guillaume/">cv</a>
+                        <a href="<?= BASE_URL; ?>/pages/competences">mes compétences</a>
+                        <a href="<?= BASE_URL; ?>/pages/portfolio">mon portfolio</a>
+                        <a href="<?= BASE_URL; ?>/posts/contact">me contacter</a>
+                        <a href="<?= BASE_URL; ?>/pages/cv">cv</a>
                         <a href=""></a>
                     </nav>
                 <!-- /.menu-desktop -->

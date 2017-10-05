@@ -54,7 +54,7 @@ class Model
         $sql .= ' FROM ' . $table;
         if (isset($req['join'])) {
             foreach ($req['join'] as $k => $v) {
-                $sql .= 'LEFT JOIN ' . $k . ' ON ' . $v . ' ';
+                $sql .= ' LEFT JOIN ' . $k . ' ON ' . $v . ' ';
             }
         }
         if (isset($req['conditions'])) {
