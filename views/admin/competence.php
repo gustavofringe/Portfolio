@@ -27,7 +27,7 @@
         <select class="form-control" id="category" value="" name="competence_id">
             <option value="">Title</option>
             <?php foreach ($title_competence as $category): ?>
-                <option class="nav-link" value="<?= $category->id?>"><?= $category->name; ?></option>
+                <option class="nav-link" value="<?= $category->id?>"><?= $category->techno; ?></option>
             <?php endforeach; ?>
         </select>
     </div>

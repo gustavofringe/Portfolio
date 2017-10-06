@@ -21,7 +21,11 @@ class Route
             if($this->url[0]== 'admin'){
                 $this->views->layout = 'admin';
             }
-            $this->views->render($this->url[0], $this->url[1]);
+            if ($this->url[0]== 'view'){
+                $this->views->layout = 'cv';
+            }
+                $this->views->render($this->url[0], $this->url[1]);
+
         }else{
             $this->errors();
             die();

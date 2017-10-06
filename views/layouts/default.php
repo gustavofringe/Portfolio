@@ -12,7 +12,6 @@
     <link rel="icon" href="<?= BASE_URL; ?>/public/img/favicon.ico"/>
     <link rel="stylesheet" href="<?= BASE_URL; ?>/public/css/bootstrap.css">
     <link rel="stylesheet" href="<?= BASE_URL; ?>/public/css/screen.css">
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
 <div class="site-container">
@@ -20,7 +19,7 @@
         <header class="header">
             <div class="container-top">
                 <a href="#" class="header_icon" id="header_icon"></a>
-                <a href="index.html" class="header_logo">
+                <a href="<?= BASE_URL; ?>" class="header_logo">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 943.9 1000" version="1.1" id="svg1499">
                         <g>
                             <path class="inside"
@@ -113,11 +112,8 @@
 </div>
 <!-- /.site-container -->
 
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="js/hammer-time.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
+<script src="<?= BASE_URL; ?>/public/js/jquery-3.2.1.min.js"></script>
+<script src="<?= BASE_URL; ?>/public/js/main.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
