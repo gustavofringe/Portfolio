@@ -12,6 +12,7 @@ class Controller
      */
     public function __construct()
     {
+        $this->email = new Email();
         $this->model = new Model();
         $this->views = new View();
         $this->session = new Session();

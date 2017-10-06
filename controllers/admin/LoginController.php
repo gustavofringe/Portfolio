@@ -19,11 +19,11 @@ class Login extends Controller
             ]);
             foreach ($admins as $admin) {
                 if ($password == $admin->password) {
-                    Session::write('admin', $admin);
-                    Session::setFlash("Vous êtes maintenant connecté");
+                    $this->session->write('admin', $admin);
+                    $this->session->setFlash("Vous êtes maintenant connecté");
                     $this->views->redirect(BASE_URL . '/admin/views');
                 } else {
-                    Session::setFlash("Identifiant ou mot de passe incorrect", 'danger');
+                    $this->session->setFlash("Identifiant ou mot de passe incorrect", 'danger');
                 }
             }
         }

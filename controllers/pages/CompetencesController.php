@@ -7,7 +7,7 @@ class Competences extends Controller{
     public function competences(){
         $var['title'] = "Portfolio || competences";
         $var['competences'] = $this->model->findAll('competences c',[
-            'join'=>['titleCompetence t'=>'c.titleCompetenceID=t.id']
+            'join'=>['titleCompetence t'=>'c.titleCompetenceID=t.titleCompetenceID']
         ]);
         /*foreach ($var['competences'] as $compet){
             $datenow = new DateTime('now');

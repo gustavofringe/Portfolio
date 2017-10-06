@@ -16,7 +16,7 @@ class Session
      * @param string $type
      * return flash message at view
      */
-    public static function setFlash($message, $type = 'success')
+    public function setFlash($message, $type = 'success')
     {
         $_SESSION['flash'][$type] = $message;
     }
@@ -25,7 +25,7 @@ class Session
      * @param $user
      * @return bool
      */
-    public static function isLogged($user){
+    public function isLogged($user){
         if (!isset($_SESSION[$user])){
             Session::setFlash('Vous n\'avez pas accés a ce contenu');
             View::redirect(BASE_URL.'/admin/login');
@@ -36,14 +36,14 @@ class Session
      * @param $key
      * @param $value
      */
-    public static function write($key, $value){
+    public function write($key, $value){
         $_SESSION[$key] = $value;
     }
 
     /**
      * @return string
      */
-    public static function flash(){
+    public function flash(){
         if(isset($_SESSION['flash']['message'])){
             $html = '<div class="alert alert- '.$_SESSION['flash']['type'].'"><p>'.$_SESSION['flash']['message'].'</p></div>';
             $_SESSION['flash'] = array();
@@ -54,7 +54,7 @@ class Session
     /**
      * deconnect user
      */
-    public static function logout(){
+    public function logout(){
         session_start();
         session_destroy();
         View::redirect(BASE_URL);

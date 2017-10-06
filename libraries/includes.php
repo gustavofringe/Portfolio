@@ -10,4 +10,5 @@ include 'Controller.php';
 include 'Model.php';
 include 'Route.php';
 include 'Resize.php';
+include 'Email.php';
 //include 'Autoloader.php';

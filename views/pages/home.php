@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-xl-6 col-lg-6">
             <figure class="figure">
-                <img src="" alt="ma photo" class="rounded-circle photo" style="background-color: grey;">
+                <img src="<?= BASE_URL; ?>/public/img/logo.svg" alt="ma photo" class="rounded-circle photo" style="background-color: grey;">
                 <!-- /.rounded-circle -->
             </figure>
             <!-- /.figure -->

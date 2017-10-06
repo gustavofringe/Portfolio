@@ -1,6 +1,6 @@
 
 <h1 class="stripe">Mes compétences</h1>
-<h2 class="mt-3"><?= $competences[1]->techno; ?></h2>
+<h2 class="mt-3"><?= $competences[0]->techno; ?></h2>
 <div class="border">
     <div class="row mt-4">
         <?php foreach ($competences as $competence): ?>
