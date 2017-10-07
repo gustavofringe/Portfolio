@@ -83,27 +83,20 @@ class Route
             if (!method_exists($this->controller, $this->url[1])) {
                 $this->errors();
                 die();
-            }else if (!method_exists($this->controller, $this->url[2])) {
-                $this->errors();
-                die();
             }
         }
         switch ($length) {
-            case 6:
-                //$controller->method(param1, param2,param3)
-                $this->controller->{$this->url[1]}($this->url[2], $this->url[3], $this->url[4]);
-                break;
             case 5:
-                //$controller->method(param1, param2)
-                $this->controller->{$this->url[1]}($this->url[2], $this->url[3]);
+                //$controller->method(param1, param2,param3)
+                $this->controller->{$this->url[2]}($this->url[3], $this->url[4], $this->url[5]);
                 break;
             case 4:
-                //$controller->method(param1)
-                $this->controller->{$this->url[1]}($this->url[2]);
+                //$controller->method(param1, param2)
+                $this->controller->{$this->url[2]}($this->url[3], $this->url[4]);
                 break;
             case 3:
-                //$controller->method()
-                $this->controller->{$this->url[2]}();
+                //$controller->method(param1)
+                $this->controller->{$this->url[2]}($this->url[3]);
                 break;
             case 2:
                 //$controller->method()

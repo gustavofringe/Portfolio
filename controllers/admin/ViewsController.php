@@ -9,7 +9,7 @@ class Views extends Controller{
         $this->session->isLogged('admin');
         $works = $var['works'] = $this->model->findAll('works',[]);
         foreach($works as $work) {
-            $cond = ['work_id'=>$work->id];
+            $cond = ['workID'=>$work->workID];
             $var['images'] = $this->model->findAll('images', [
                 'conditions'=>$cond
             ]);

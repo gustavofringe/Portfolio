@@ -72,11 +72,11 @@ class Model
                 $sql .= implode(' AND ', $cond);
             }
         }
-        if (isset($req['limit'])) {
-            $sql .= 'LIMIT ' . $req['limit'];
-        }
         if (isset($req['order'])) {
             $sql .= ' ORDER BY ' . $req['order'];
+        }
+        if (isset($req['limit'])) {
+            $sql .= ' LIMIT ' . $req['limit'];
         }
 
         //return $sql;
@@ -100,11 +100,26 @@ class Model
      * delete by id
      * @param $id
      */
-    public function delete($table, $id)
+    public function delete($table, array $req)
     {
-        $sql = "DELETE FROM ".$table." WHERE id=". $id;
-        //Model::$db->query($sql);
-        return $sql;
+        $sql = "DELETE FROM ".$table;
+        if (isset($req['conditions'])) {
+            $sql .= ' WHERE ';
+            if (!is_array($req['conditions'])) {
+                $sql .= $req['conditions'];
+            } else {
+                $cond = [];
+                foreach ($req['conditions'] as $k => $v) {
+                    if (!is_numeric($v)) {
+                        $v = "'" . $v . "'";
+                    }
+                    $cond[] = $k . "=" . $v;
+                }
+                $sql .= implode(' AND ', $cond);
+            }
+        }
+        Model::$db->query($sql);
+        //return $sql;
     }
 
     /**

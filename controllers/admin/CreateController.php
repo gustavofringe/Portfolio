@@ -66,14 +66,14 @@ class Create extends Controller
                             'name' => $img['name'][$i],
                             'size' => $size[$i],
                             'type' => $type[$i],
-                            'work_id' => $id_image,
+                            'workID' => $id_image,
                             'folder' => $folder,
                         ];
                         $this->model->save('images', [
                             'conditions' => $condition
                         ]);
                         $this->session->setFlash('Travail sauvegarder!');
-                        $this->views->redirect(BASE_URL . '/admin/views');
+                        //$this->views->redirect(BASE_URL . '/admin/views');
                     } else {
                         $var['errors']['image'] = "le fichier n'est pas au bon format";
                     }

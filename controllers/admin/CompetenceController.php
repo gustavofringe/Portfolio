@@ -30,7 +30,7 @@ class Competence extends Controller
                 $file = ROOT . '/public/img/' . $folder . '/' . $img['name'];
                 $resizedFile = ROOT . '/public/img/' . $folder . '/' . $filename;
                 Img::resize($file, null, 150, 200, false, $resizedFile, false, false, 100);
-                $cond = ['name' => $title, 'images' => $img['name'], 'titleCompetenceID' => $competence_id, 'date' => $date];
+                $cond = ['name' => $title, 'images' => $img['name'], 'titleCompetenceID' => $competence_id,'sentence'=>$_POST['sentence'], 'date' => $date];
                 $this->model->save('competences', [
                     'conditions' => $cond
                 ]);

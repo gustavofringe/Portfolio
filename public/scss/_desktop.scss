@@ -1,0 +1,101 @@
+/*==============================================================
+desktop format
+================================================================*/
+@media only screen and (min-width: 1200px) {
+
+  .header {
+    position: static;
+    top: 80px;
+    left: 0;
+    right: 0;
+    height: $height-header;
+    line-height: 66px;
+    border-bottom: 1px dashed black;
+  }
+  .container-top {
+    width: 80%;
+    margin: 0 auto;
+    .header_logo {
+      padding: 0 25px;
+      float: left;
+    }
+    .header_icon {
+      display: none;
+    }
+    .menu {
+      float: right;
+      a {
+        padding: 0 10px;
+        text-transform: uppercase;
+        &:hover {
+          color: grey;
+        }
+      }
+    }
+  }
+  .media-back {
+    background-image: url("../img/mac.png-vsnd");
+    background-size: cover;
+    @include border-radius(3px);
+    width: 400px;
+    height: 280px;
+    .carousel-item {
+      margin-top: 45px;
+      margin-left: 15px;
+      padding-bottom:10px;
+      width: 370px;
+      height: 230px;
+    }
+  }
+  .link{
+    width: 25px;
+  }
+  .photo{
+    width: 300px;
+    height: 300px;
+  }
+  .card{
+    /*================================================================================
+image portfolio
+================================================================================*/
+    .first{
+      background: url("../img/archiduchesse/archiduchesse_s.png");
+    }
+    .second{
+      background: url("../img/leboncoin/leboncoin_s.png");
+    }
+    .third{
+      background: url("../img/sportcoach/coachSporstif_s.png");
+    }
+    .fourth{
+      background: url("../img/airbnb/airbnb_s.png");
+    }
+    .five{
+      &:after{
+        content: 'Image à venir';
+      }
+    }
+    .six{
+      &:after{
+        content: 'Image à venir';
+      }
+    }
+    .seven{
+      &:after{
+        content: 'Image à venir';
+      }
+    }
+    .eight{
+      &:after{
+        content: 'Image à venir';
+      }
+    }
+    .card-title{
+      font-size: 15px;
+    }
+    .card-text{
+      font-size: 10px;
+      color: grey;
+    }
+  }
+}

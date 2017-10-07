@@ -45,7 +45,7 @@ class Contact extends Controller
                     'phone'         =>$_POST['phone'],
                     'society'       =>$_POST['society'],
                     'message'       =>$message,
-                    'date'          =>$dat
+                    'date'          =>$dat,
                 ];
                 $this->model->save('contacts',[
                     'conditions'=>$cond

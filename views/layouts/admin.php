@@ -35,6 +35,8 @@
 
                         <a href="<?= BASE_URL; ?>/admin/create">Créer</a>
                         <a href="<?= BASE_URL; ?>/admin/competence">Competences</a>
+                        <a href="<?= BASE_URL; ?>/admin/views">Vues</a>
+                        <a href="<?= BASE_URL; ?>/admin/contacts">Contacts</a>
                         <a href="https://gustavofringe.github.io/Cv_guillaume/">cv</a>
                         <a href=""></a>
                     </nav>
@@ -44,6 +46,7 @@
                         <a href="<?= BASE_URL; ?>/admin/create">Créer</a>
                         <a href="<?= BASE_URL; ?>/admin/competence">Competences</a>
                         <a href="<?= BASE_URL; ?>/admin/views">Vues</a>
+                        <a href="<?= BASE_URL; ?>/admin/contacts">Contacts</a>
                         <?php if(isset($_SESSION['admin'])):?>
                         <a href="<?= BASE_URL; ?>/admin/views/logout">Se deconnecter</a>
                         <?php endif;?>

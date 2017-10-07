@@ -113,6 +113,7 @@
 <!-- /.site-container -->
 
 <script src="<?= BASE_URL; ?>/public/js/jquery-3.2.1.min.js"></script>
+<script src="<?= BASE_URL; ?>/public/js/bootstrap.js"></script>
 <script src="<?= BASE_URL; ?>/public/js/main.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

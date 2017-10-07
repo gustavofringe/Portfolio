@@ -1,0 +1,352 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@import "compass";
+@import "compass/css3/filter";
+
+$height-header: 80px;
+$menu-width: 250px !default;
+$p-index: #C4B2FF;
+$color-form: #ff85a4;
+/*==============================================================================================================
+html, body
+=================================================================================================================*/
+html, body {
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 16px;
+  line-height: 1.4;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  text-transform: uppercase;
+}
+
+/*===========================================================================================================
+header
+============================================================================================================*/
+
+.header {
+  height: $height-header;
+  position: static;
+  border-bottom: 1px dashed grey;
+  .header_logo {
+    svg {
+      width: 100px;
+      margin-top: 10px;
+      padding: 0 25px;
+      height: 50px;
+      .inside {
+        fill: #bcbcad;
+        fill-opacity: 1;
+      }
+      .init {
+        fill: #595963;
+        fill-opacity: 1;
+      }
+      .init, .inside {
+        &:hover {
+          fill: #1f55ff;
+          fill-opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+/*============================================================================================================
+hamburger icon
+=============================================================================================================*/
+.header_icon {
+  position: relative;
+  display: block;
+  float: right;
+  height: $height-header;
+  width: 50px;
+  height: $height-header;
+  cursor: pointer;
+  &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 22px;
+    height: 0;
+    top: 14px;
+    left: 16px;
+    @include box-shadow(0 10px 0 2px black, 0 20px 0 2px black, 0 30px 0 2px black);
+  }
+}
+
+/*=========================================================================================================
+hidden menu
+===========================================================================================================*/
+.container-top {
+
+  .menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #34667e;
+    width: $menu-width;
+    @include transform (translateX($menu-width));
+    @include transition-duration(0.4s);
+    a {
+      display: block;
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      border-bottom: 1px solid grey;
+    }
+  }
+}
+
+/*============================================================================================================
+menu desktop
+==============================================================================================================*/
+.menu-desktop {
+  display: none;
+}
+
+/*=================================================================================================================
+visible menu
+when the body have a with side bar class
+==================================================================================================================*/
+.with--sidebar {
+  .site-pusher {
+    @include transform(translateX($menu-width *-1));
+  }
+  .site-cache {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+/*============================================================================================================
+container
+===============================================================================================================*/
+.stripe {
+  position: relative;
+  &:after {
+    position: absolute;
+    content: '';
+    background: url('../img/stripes.png-vsnd') repeat-x center center;
+    top: 10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.site-pusher, .site-container {
+  height: 100%;
+}
+
+.site-pusher {
+  @include transition-duration(0.4s);
+  @include transform(translateX(0px));
+}
+
+.site-container {
+  overflow: hidden;
+}
+
+.site-content {
+  position: absolute;
+  top: $height-header;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 0;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.container {
+  @include clearfix;
+}
+
+.site-content {
+  padding-top: 30px;
+}
+
+.border {
+  border-bottom: 1px dashed grey;
+}
+
+/*===========================================================================================================
+my picture
+==============================================================================================================*/
+.figure {
+  display: none;
+}
+
+/*===========================================================================================================
+article
+=======================================================================================================*/
+.description {
+  padding: 0;
+  margin: 0;
+  @include border-radius(5px);
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 24px;
+    em {
+      font-size: 16px;
+      color: $p-index;
+    }
+  }
+  img {
+    width: 50px;
+    margin: 30px;
+  }
+  p {
+    color: $p-index;
+  }
+  span {
+    text-transform: uppercase;
+  }
+  .simplon {
+    overflow: auto;
+    img {
+      height: 50px;
+      width: 50px;
+      float: left;
+    }
+  }
+}
+
+/*=============================================================================
+card
+==============================================================================*/
+.card {
+  .content-image {
+    cursor: pointer;
+    height: 150px;
+    width: 240px;
+    @include transition(all 0.3s ease-in-out);
+    &:hover {
+      @include transform(scale(1.2));
+      opacity: 0.5;
+      .image {
+        margin: auto auto;
+        height: 30px;
+        width: 30px;
+        opacity: 1;
+        content: url("../img/link-3.svg");
+      }
+    }
+  }
+}
+
+/*=======================================================================
+form
+===========================================================================*/
+.field {
+  position: relative;
+  height: 72px;
+  padding: 16px 0 8px 0;
+}
+
+.field-label {
+  position: relative;
+  margin: 0;
+  color: lighten(#000, 75);
+  line-height: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  display: block;
+  @include transform(translateY(24px));
+  @include transition-duration(0.3s);
+}
+
+.field-input {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 32px;
+  padding: 8px 0;
+  line-height: 16px;
+  border: none;
+  background: transparent;
+  -webkit-appearance: none;
+  font-size: 16px;
+  outline: none;
+}
+
+.field::after, .field::before {
+  content: '';
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  background-color: #e7e7e7;
+}
+
+.field::after {
+  background-color: $color-form;
+  @include transform(scaleX(0));
+  @include transition-duration(0.3s);
+}
+
+.has-label .field-label {
+  @include transform(translateY(0));
+}
+
+.is-focused .field-label {
+
+  font-size: 12px;
+  color: $color-form;
+}
+
+.field.is-focused::after {
+  @include transform(scaleX(1));
+}
+
+.message {
+  color: lighten(#000, 75);
+}
+
+/*=============================================================================
+competence
+==============================================================================*/
+.language {
+  height: 200px;
+}
+
+/*==============================================================================
+footer
+================================================================================*/
+footer {
+  border-top: 1px dashed grey;
+  h4 {
+    font-size: 20px;
+  }
+  background-color: #CCCCCC;
+  .dashed {
+    border-left: 1px dashed grey;
+  }
+  img {
+    height: 30px;
+  }
+  .article-footer {
+    p {
+      font-size: 10px;
+    }
+  }
+}
+
+@import "tablet";
+@import "desktop";

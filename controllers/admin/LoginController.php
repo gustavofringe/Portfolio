@@ -9,7 +9,6 @@ class Login extends Controller
 
     public function login()
     {
-        print_r($_SESSION);
         $var['title'] = "Portfolio || Admin";
         if (isset($_POST['password'])) {
             $password = $this->service->hashPass($_POST['password']);

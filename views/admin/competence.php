@@ -14,7 +14,11 @@
 <form action="" method="post"  enctype="multipart/form-data">
     <div class="form-group">
         <label for="name">Nom</label>
-        <input type="text" class="form-control" id="link" placeholder="Nom" name="name">
+        <input type="text" class="form-control" id="name" placeholder="Nom" name="name">
+    </div>
+    <div class="form-group">
+        <label for="sentence">Sentence</label>
+        <input type="text" class="form-control" id="sentence" placeholder="Sentence" name="sentence">
     </div>
     <div class="form-group">
         <label for="image">Upload image</label>
@@ -27,7 +31,7 @@
         <select class="form-control" id="category" value="" name="competence_id">
             <option value="">Title</option>
             <?php foreach ($title_competence as $category): ?>
-                <option class="nav-link" value="<?= $category->id?>"><?= $category->techno; ?></option>
+                <option class="nav-link" value="<?= $category->titleCompetenceID;?>"><?= $category->techno; ?></option>
             <?php endforeach; ?>
         </select>
     </div>
