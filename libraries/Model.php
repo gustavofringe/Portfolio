@@ -42,7 +42,15 @@ class Model
     public static function findAll($table, array $req)
     {
         $sql = 'SELECT ';
-        if (isset($req['fields'])) {
+        if(isset($req['distinct'])){
+            if (is_array($req['distinct'])) {
+                $sql .= 'DISTINCT '.implode(', ', $req['distinct']);
+            } else {
+                $sql .= 'DISTINCT '.$req['distinct'];
+            }
+        }else if (isset($req['count'])) {
+            $sql .= 'COUNT(' . $req['count'] . ')';
+        } else if (isset($req['fields'])) {
             if (is_array($req['fields'])) {
                 $sql .= implode(', ', $req['fields']);
             } else {
@@ -52,6 +60,9 @@ class Model
             $sql .= '*';
         }
         $sql .= ' FROM ' . $table;
+        if (isset($req['group'])) {
+            $sql .= ' GROUP BY ' . $req['group'];
+        }
         if (isset($req['join'])) {
             foreach ($req['join'] as $k => $v) {
                 $sql .= ' LEFT JOIN ' . $k . ' ON ' . $v . ' ';
@@ -102,7 +113,7 @@ class Model
      */
     public function delete($table, array $req)
     {
-        $sql = "DELETE FROM ".$table;
+        $sql = "DELETE FROM " . $table;
         if (isset($req['conditions'])) {
             $sql .= ' WHERE ';
             if (!is_array($req['conditions'])) {
@@ -127,7 +138,7 @@ class Model
      */
     public function update($table, $data, $id)
     {
-        $sql = 'UPDATE ' . $table . ' SET ' . $data . '=0' .' WHERE '. $id . '=' . $id;
+        $sql = 'UPDATE ' . $table . ' SET ' . $data . '=0' . ' WHERE ' . $id . '=' . $id;
         Model::$db->query($sql);
     }
 
@@ -135,8 +146,9 @@ class Model
      * @param $table
      * @param array $insert
      */
-    public function save($table, array $insert){
-        $sql = 'INSERT INTO '.$table;
+    public function save($table, array $insert)
+    {
+        $sql = 'INSERT INTO ' . $table;
         if (isset($insert['conditions'])) {
             $sql .= ' SET ';
             if (!is_array($insert['conditions'])) {

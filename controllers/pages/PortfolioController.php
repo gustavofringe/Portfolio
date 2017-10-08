@@ -9,10 +9,10 @@ class Portfolio extends Controller{
         $var['realisations'] = $this->model->findAll('works',[
         ]);
         $var['images'] = $this->model->findAll('images',[]);
-        $var['image'] = $this->model->findAll('images i',[
-            'join'=>['works w'=>'i.workID=w.workID']
+        $var['image'] = $this->model->findAll('images',[
+            'distinct'=>['workID','folder']
         ]);
-        print_r($var['image']->name);
+        print_r($var['image']);
         $var['count'] = count($var['images']);
         $this->views->set($var);
     }

@@ -8,6 +8,7 @@
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $realisation->workID;?>"
                        aria-expanded="true" aria-controls="collapse<?= $realisation->workID;?>">
                         <div class="content-image d-flex" role="img" aria-label="archiduchesse">
+                            <?php print_r($image[$realisation->workID]->folder); ?>
 
                                 <img class="card-img-top" style="width: 225px" src="<?= BASE_URL; ?>/public/img/<?= $image[$realisation->workID]->folder; ?>/<?= $image[$realisation->workID]->name; ?>" alt="">
 
