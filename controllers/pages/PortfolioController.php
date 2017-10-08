@@ -12,6 +12,7 @@ class Portfolio extends Controller{
         $var['image'] = $this->model->findAll('images i',[
             'join'=>['works w'=>'i.workID=w.workID']
         ]);
+        print_r($var['image']->name);
         $var['count'] = count($var['images']);
         $this->views->set($var);
     }

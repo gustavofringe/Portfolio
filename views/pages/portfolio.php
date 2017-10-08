@@ -1,3 +1,4 @@
+<h1 class="mt-3 stripe">Mon portfolio</h1>
 <div id="accordion" role="tablist" aria-multiselectable="true">
     <div class="row mt-5 mb-3 justify-content-sm-center">
         <?php foreach ($realisations as $realisation): ?>
@@ -8,26 +9,26 @@
                        aria-expanded="true" aria-controls="collapse<?= $realisation->workID;?>">
                         <div class="content-image d-flex" role="img" aria-label="archiduchesse">
 
-                            <div class="image">
-                                <img src="<?= BASE_URL; ?>/public/img/<?= $image[$realisation->workID]->folder; ?>/<?= $image[$realisation->workID]->name; ?>" alt="">
-                            </div>
+                                <img class="card-img-top" style="width: 225px" src="<?= BASE_URL; ?>/public/img/<?= $image[$realisation->workID]->folder; ?>/<?= $image[$realisation->workID]->name; ?>" alt="">
+
 
                         </div>
                     </a>
                     <div class="card-block">
-                        <h4 class="card-title"><?= $realisation->title; ?></h4>
+                        <h2 class="card-title"><?= $realisation->title; ?></h2>
                         <p class="card-text"><?= $realisation->subtitle; ?></p>
                     </div>
 
                 </div>
             </div>
         </div>
-
         <?php endforeach; ?>
-
     </div>
+
+
     <?php foreach ($realisations as $realisation): ?>
     <!--/.col-xl-3-->
+    <div class="card hidden-lg-down">
     <div id="collapse<?= $realisation->workID;?>" class="collapse" role="tabpanel" aria-labelledby="heading<?= $realisation->workID;?>">
         <div class="card card-block">
             <div class="image-card">
@@ -64,6 +65,7 @@
         </div>
     </div>
     <?php endforeach;?>
+</div>
 </div>
 <!-- /.card -->
 

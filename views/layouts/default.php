@@ -43,7 +43,6 @@
                         <a href="<?= BASE_URL; ?>/pages/competences">mes compétences</a>
                         <a href="<?= BASE_URL; ?>/pages/portfolio">mon portfolio</a>
                         <a href="<?= BASE_URL; ?>/posts/contact">me contacter</a>
-                        <a href="<?= BASE_URL; ?>/view/cv">cv</a>
                         <a href=""></a>
                     </nav>
                 <!-- /.menu-desktop -->

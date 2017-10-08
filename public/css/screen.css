@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
@@ -270,28 +269,27 @@ card
 /* line 234, ../scss/screen.scss */
 .card .content-image {
   cursor: pointer;
-  height: 150px;
-  width: 240px;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  height: 200px;
+  width: 210px;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 /* line 239, ../scss/screen.scss */
 .card .content-image:hover {
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
+  -moz-transform: scale(0.2);
+  -ms-transform: scale(0.2);
+  -webkit-transform: scale(0.2);
+  transform: scale(0.2);
   opacity: 0.5;
 }
 /* line 242, ../scss/screen.scss */
 .card .content-image:hover .image {
-  margin: auto auto;
+  margin: 0 auto;
   height: 30px;
   width: 30px;
-  opacity: 1;
-  content: url("../img/link-3.svg");
+  background: url("../img/link-3.svg");
 }
 
 /*=======================================================================
@@ -528,12 +526,12 @@ desktop format
 
   /* line 36, ../scss/_desktop.scss */
   .media-back {
-    background-image: url("../img/mac.png-vsnd");
+    -moz-background-image: url("../img/mac.png-vsnd");
     background-size: cover;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
-    width: 400px;
+    width: 500px;
     height: 280px;
   }
   /* line 42, ../scss/_desktop.scss */
@@ -557,50 +555,7 @@ desktop format
   }
 
   /* line 57, ../scss/_desktop.scss */
-  .card {
-    /*================================================================================
-image portfolio
-================================================================================*/
-  }
-  /* line 61, ../scss/_desktop.scss */
-  .card .first {
-    background: url("../img/archiduchesse/archiduchesse_s.png");
-  }
-  /* line 64, ../scss/_desktop.scss */
-  .card .second {
-    background: url("../img/leboncoin/leboncoin_s.png");
-  }
-  /* line 67, ../scss/_desktop.scss */
-  .card .third {
-    background: url("../img/sportcoach/coachSporstif_s.png");
-  }
-  /* line 70, ../scss/_desktop.scss */
-  .card .fourth {
-    background: url("../img/airbnb/airbnb_s.png");
-  }
-  /* line 74, ../scss/_desktop.scss */
-  .card .five:after {
-    content: 'Image à venir';
-  }
-  /* line 79, ../scss/_desktop.scss */
-  .card .six:after {
-    content: 'Image à venir';
-  }
-  /* line 84, ../scss/_desktop.scss */
-  .card .seven:after {
-    content: 'Image à venir';
-  }
-  /* line 89, ../scss/_desktop.scss */
-  .card .eight:after {
-    content: 'Image à venir';
-  }
-  /* line 93, ../scss/_desktop.scss */
-  .card .card-title {
-    font-size: 15px;
-  }
-  /* line 96, ../scss/_desktop.scss */
-  .card .card-text {
-    font-size: 10px;
-    color: grey;
+  .image {
+    width: 25px;
   }
 }
