@@ -12,7 +12,7 @@ class Competences extends Controller{
         $var['system'] = $this->model->findAll('competences',[
             'conditions'=>['titleCompetenceID'=>1]
         ]);
-        debug($var['competences']);
+        //debug($var['competences']);
         /*foreach ($var['competences'] as $compet){
             $datenow = new DateTime('now');
             $datetime2 = new DateTime($compet->date);

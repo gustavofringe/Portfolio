@@ -269,26 +269,15 @@ card
 /* line 234, ../scss/screen.scss */
 .card .content-image {
   cursor: pointer;
-  height: 200px;
+  height: 230px;
   width: 210px;
-  -moz-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
-  -webkit-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
-}
-/* line 239, ../scss/screen.scss */
-.card .content-image:hover {
-  -moz-transform: scale(0.2);
-  -ms-transform: scale(0.2);
-  -webkit-transform: scale(0.2);
-  transform: scale(0.2);
-  opacity: 0.5;
 }
 /* line 242, ../scss/screen.scss */
-.card .content-image:hover .image {
-  margin: 0 auto;
+.card .content-image .image {
+  margin: auto auto;
   height: 30px;
   width: 30px;
+  opacity: 1;
   background: url("../img/link-3.svg");
 }
 
@@ -526,12 +515,12 @@ desktop format
 
   /* line 36, ../scss/_desktop.scss */
   .media-back {
-    -moz-background-image: url("../img/mac.png-vsnd");
+    background-image: url("../img/mac.png-vsnd");
     background-size: cover;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
-    width: 500px;
+    width: 400px;
     height: 280px;
   }
   /* line 42, ../scss/_desktop.scss */

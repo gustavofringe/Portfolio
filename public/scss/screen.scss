@@ -233,20 +233,20 @@ card
 .card {
   .content-image {
     cursor: pointer;
-    height: 200px;
+    height: 230px;
     width: 210px;
-    @include transition(all 0.1s ease-in-out);
-    &:hover {
-      @include transform(scale(0.2));
-      opacity: 0.5;
+    //@include transition(all 0.5s ease-in-out);
+    //&:hover {
+      //@include transform(scale(-0.5));
+      //opacity: 0.5;
       .image {
-        margin: 0 auto;
+        margin: auto auto;
         height: 30px;
         width: 30px;
-        //opacity: 1;
+        opacity: 1;
           background: url("../img/link-3.svg");
       }
-    }
+    //}
   }
 }
 

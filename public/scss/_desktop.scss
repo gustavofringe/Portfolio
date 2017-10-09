@@ -34,10 +34,10 @@ desktop format
     }
   }
   .media-back {
-    -moz-background-image: url("../img/mac.png-vsnd");
+    background-image: url("../img/mac.png-vsnd");
     background-size: cover;
     @include border-radius(3px);
-    width: 500px;
+    width: 400px;
     height: 280px;
     .carousel-item {
       margin-top: 45px;

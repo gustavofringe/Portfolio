@@ -56,6 +56,8 @@ class Model
             } else {
                 $sql .= $req['fields'];
             }
+        }else if(isset($req['concat'])){
+            $sql .= $req['field'].', GROUP_CONCAT('.$req['concat'].')';
         } else {
             $sql .= '*';
         }

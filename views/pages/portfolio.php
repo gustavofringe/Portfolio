@@ -8,10 +8,9 @@
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $realisation->workID;?>"
                        aria-expanded="true" aria-controls="collapse<?= $realisation->workID;?>">
                         <div class="content-image d-flex" role="img" aria-label="archiduchesse">
-                            <?php print_r($image[$realisation->workID]->folder); ?>
-
-                                <img class="card-img-top" style="width: 225px" src="<?= BASE_URL; ?>/public/img/<?= $image[$realisation->workID]->folder; ?>/<?= $image[$realisation->workID]->name; ?>" alt="">
-
+<?php foreach ($image as $img):?>
+                                <img class="card-img-top" style="width: 225px" src="<?= BASE_URL; ?>/public/img/<?= $img->folder; ?>/<?= $img->name; ?>" alt="">
+<?php endforeach;?>
 
                         </div>
                     </a>
@@ -50,7 +49,7 @@
                             <?php endfor; ?>
                         </div>
                     </div>
-                    <div class="media-body ml-5">
+                    <div class="media-body ml-3">
                         <h4 class="mt-1"><?= $realisation->title; ?></h4>
                         <p class="mt-3"><?= $realisation->techno; ?></p>
                         <a href="<?= $realisation->link; ?>"><img class="link"
