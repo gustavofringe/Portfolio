@@ -8,6 +8,7 @@ class Controller
     public $model;
 
     /**
+     * load instance
      * Controller constructor.
      */
     public function __construct()

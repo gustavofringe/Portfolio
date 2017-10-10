@@ -58,6 +58,8 @@ class Model
             }
         }else if(isset($req['concat'])){
             $sql .= $req['field'].', GROUP_CONCAT('.$req['concat'].')';
+        }else if(isset($req['max'])){
+            $sql .= $req['field'].', MAX('.$req['max'].')';
         } else {
             $sql .= '*';
         }

@@ -49,7 +49,7 @@ class Route
      */
     private function loadControllerDefault()
     {
-        require_once ROOT . '/controllers/HomeController.php';
+        require_once ROOT .DS. 'controllers'.DS.'HomeController.php';
         $this->controller = new Home();
         $this->controller->home();
         $this->views->render('pages', 'home');

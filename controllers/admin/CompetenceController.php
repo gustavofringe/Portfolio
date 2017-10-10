@@ -1,6 +1,6 @@
 <?php
-
-class Competence extends Controller
+namespace App\Controller;
+class CompetenceController
 {
     public function __construct()
     {

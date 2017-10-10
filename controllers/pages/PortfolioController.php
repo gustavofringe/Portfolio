@@ -11,7 +11,14 @@ class Portfolio extends Controller
     {
         $var['title'] = "Portfolio || Réalisations";
         $var['realisations'] = $this->model->findAll('works', []);
-        $var['images'] = $this->model->findAll('images', []);
+        $var['images'] = $this->model->findAll('images', [
+            'field'=>'name,folder',
+            'concat'=>'workID',
+            'group'=>'workID'
+        ]);
+        echo '<pre>';
+        print_r($var['images']);
+        echo '</pre>';
         $var['count'] = count($var['images']);
         $this->views->set($var);
     }
