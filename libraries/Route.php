@@ -39,7 +39,7 @@ class Route
     private function getUrl()
     {
         $url = isset($_GET['url']) ? $_GET['url'] : null;
-        $url = rtrim($url, "'");
+        $url = rtrim($url, "/");
         $url = filter_var($url, FILTER_SANITIZE_URL);
         $this->url = explode("/", $url);
     }
@@ -49,7 +49,7 @@ class Route
      */
     private function loadControllerDefault()
     {
-        require_once ROOT . '/controllers/homeController.php';
+        require_once ROOT . '/controllers/HomeController.php';
         $this->controller = new Home();
         $this->controller->home();
         $this->views->render('pages', 'home');
@@ -129,7 +129,7 @@ class Route
      */
     private function errors()
     {
-        require ROOT . '/controllers/errorsController.php';
+        require ROOT . '/controllers/ErrorsController.php';
         $this->controller = new Errors();
         $this->controller->index();
         die();

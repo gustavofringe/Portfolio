@@ -2,7 +2,7 @@
 
 class Img
 {
-    function resize($file,
+    public function resize($file,
                                 $string = null,
                                 $width = 0,
                                 $height = 0,

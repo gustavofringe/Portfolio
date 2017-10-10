@@ -3,3 +3,5 @@
 /.idea
 libraries/Conf.php
 Supprimerait public/img/test/
+/phinx.yml
+Supprimerait db/seeds/
