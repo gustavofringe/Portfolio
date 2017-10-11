@@ -1,6 +1,5 @@
 <?php
-namespace App\Controller;
-class CompetenceController
+class CompetenceController extends Controller
 {
     public function __construct()
     {
