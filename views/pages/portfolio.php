@@ -8,7 +8,7 @@
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $realisation->workID; ?>"
                            aria-expanded="true" aria-controls="collapse<?= $realisation->workID; ?>">
                             <div class="content-image d-flex" role="img" aria-label="archiduchesse">
-                                    <img class="card-img-top" style="width: 225px"
+                                    <img class="card-img-top image" style="width: 225px"
                                          src="<?= BASE_URL; ?>/public/img/<?= $realisation->folder; ?>/<?= $realisation->name; ?>"
                                          alt="">
                             </div>
@@ -40,14 +40,14 @@
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active">
                                         <img class="d-block img-fluid d-flex"
-                                             src="<?= BASE_URL; ?>/public/img/<?= $images->folder; ?>/<?= $images->name; ?>"
+                                             src="<?= BASE_URL; ?>/public/img/<?= $realisation->folder; ?>/<?= $realisation->name; ?>"
                                              alt="<?= $images[$realisation->workID]->name; ?>">
                                 </div>
                                 <?php for ($i = 0; $i < $count; $i++): ?>
                                     <div class="carousel-item">
                                         <img class="d-block img-fluid d-flex"
                                              src="<?= BASE_URL; ?>/public/img/<?= $images[$i]->folder; ?>/<?= $images[$i]->name; ?>"
-                                             alt="<?= $images[$i]->name; ?>">
+                                             alt="<?= $realisation->name; ?>">
                                     </div>
                                 <?php endfor; ?>
                             </div>

@@ -16,10 +16,10 @@ class Portfolio extends Controller
         ]);
         $var['images'] = $this->model->findAll('images', [
             'field'=>'name,folder',
+            'group'=>'workID',
             'concat'=>'workID',
-            'conditions'=>'workID=workID'
         ]);
-        debug($var['images']);
+        $var['count'] = count($var['images']);
         $this->views->set($var);
     }
 }

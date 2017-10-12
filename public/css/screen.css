@@ -269,16 +269,29 @@ card
 /* line 234, ../scss/screen.scss */
 .card .content-image {
   cursor: pointer;
-  height: 230px;
+  height: 200px;
   width: 210px;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+/* line 239, ../scss/screen.scss */
+.card .content-image:hover {
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  opacity: 0.5;
 }
 /* line 242, ../scss/screen.scss */
-.card .content-image .image {
-  margin: auto auto;
-  height: 30px;
-  width: 30px;
+.card .content-image:hover .image {
+  margin: 0 auto;
   opacity: 1;
-  background: url("../img/link-3.svg");
+}
+/* line 245, ../scss/screen.scss */
+.card .content-image:hover .image:after {
+  content: url("../img/link-3.svg");
 }
 
 /*=======================================================================
