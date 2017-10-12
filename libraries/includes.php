@@ -2,7 +2,6 @@
 //include 'Autoloader.php';
 include 'Session.php';
 include 'Form.php';
-include 'Service.php';
 include 'Debug.php';
 include 'Conf.php';
 include 'View.php';
@@ -12,3 +11,4 @@ include 'Model.php';
 include 'Route.php';
 include 'Resize.php';
 include 'Email.php';
+include 'Service.php';

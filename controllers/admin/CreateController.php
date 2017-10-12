@@ -73,7 +73,7 @@ class Create extends Controller
                             'conditions' => $condition
                         ]);
                         $this->session->setFlash('Travail sauvegarder!');
-                        //$this->views->redirect(BASE_URL . '/admin/views');
+                        $this->views->redirect(BASE_URL . '/admin/views');
                     } else {
                         $var['errors']['image'] = "le fichier n'est pas au bon format";
                     }

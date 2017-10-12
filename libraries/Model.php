@@ -4,15 +4,14 @@ class Model
 {
     static $connections = [];
     public $conf = 'default';
-    static $db;
+    public $db;
     static $id;
-    public $pdo;
 
     /**
      * database connection
      * Model constructor.
      */
-    public function __construct($db = null)
+    public function __construct()
     {
         $conf = Conf::$databases[$this->conf];
         try {
@@ -25,7 +24,7 @@ class Model
             $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
             Model::$connections[$this->conf] = $pdo;
-            Model::$db = $pdo;
+            $this->db = $pdo;
             //return Model::$db;
         } catch (PDOException $e) {
             echo 'Impossible de se connecter à la base de donnée';
@@ -39,7 +38,7 @@ class Model
      * @param array $req
      * @return array
      */
-    public static function findAll($table, array $req)
+    public function findAll($table, array $req)
     {
         $sql = 'SELECT ';
         if(isset($req['distinct'])){
@@ -96,7 +95,7 @@ class Model
 
         //return $sql;
         //print_r(Model::$db);
-        $pre = Model::$db->prepare($sql);
+        $pre = $this->db->prepare($sql);
         $pre->execute();
         return $pre->fetchAll();
     }
@@ -108,7 +107,7 @@ class Model
      */
     public function findFirst($table, $req)
     {
-        return current(Model::findAll($table, $req));
+        return current($this->findAll($table, $req));
     }
 
     /**
@@ -133,7 +132,7 @@ class Model
                 $sql .= implode(' AND ', $cond);
             }
         }
-        Model::$db->query($sql);
+        $this->db->query($sql);
         //return $sql;
     }
 
@@ -143,7 +142,7 @@ class Model
     public function update($table, $data, $id)
     {
         $sql = 'UPDATE ' . $table . ' SET ' . $data . '=0' . ' WHERE ' . $id . '=' . $id;
-        Model::$db->query($sql);
+        $this->db->query($sql);
     }
 
     /**
@@ -169,8 +168,8 @@ class Model
             }
         }
         //return $sql;
-        $pre = Model::$db->prepare($sql);
+        $pre = $this->db->prepare($sql);
         $pre->execute();
-        Model::$id = Model::$db->lastInsertId();
+        Model::$id = $this->db->lastInsertId();
     }
 }

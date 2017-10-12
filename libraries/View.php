@@ -3,7 +3,7 @@
 class View
 {
     public $layout = 'default';
-    public $vars = array();
+    public $vars = [];
     static $var = [];
     /**
      * send variable at view
