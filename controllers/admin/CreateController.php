@@ -61,7 +61,7 @@ class Create extends Controller
                         move_uploaded_file($tmp_name[$i], ROOT . '/public/img/' . $folder . '/' . $img['name'][$i]);
                         $file = ROOT . '/public/img/' . $folder . '/' . $img['name'][$i];
                         $resizedFile = ROOT . '/public/img/' . $folder . '/' . $filename;
-                        Img::resize($file, null, 318, 180, false, $resizedFile, false, false, 100);
+                        Img::resize($file, null, 240, 230, false, $resizedFile, false, false, 100);
                         $condition = [
                             'name' => $img['name'][$i],
                             'size' => $size[$i],

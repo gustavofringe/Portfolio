@@ -63,13 +63,13 @@ class Model
             $sql .= '*';
         }
         $sql .= ' FROM ' . $table;
-        if (isset($req['group'])) {
-            $sql .= ' GROUP BY ' . $req['group'];
-        }
         if (isset($req['join'])) {
             foreach ($req['join'] as $k => $v) {
                 $sql .= ' LEFT JOIN ' . $k . ' ON ' . $v . ' ';
             }
+        }
+        if (isset($req['group'])) {
+            $sql .= ' GROUP BY ' . $req['group'];
         }
         if (isset($req['conditions'])) {
             $sql .= ' WHERE ';
