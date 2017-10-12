@@ -16,7 +16,8 @@ class Portfolio extends Controller
         ]);
         $var['images'] = $this->model->findAll('images', [
             'field'=>'name,folder',
-            'concat'=>'workID'
+            'concat'=>'workID',
+            'conditions'=>'workID=workID'
         ]);
         debug($var['images']);
         $this->views->set($var);
