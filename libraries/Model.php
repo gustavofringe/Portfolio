@@ -48,7 +48,7 @@ class Model
                 $sql .= 'DISTINCT '.$req['distinct'];
             }
         }else if (isset($req['count'])) {
-            $sql .= 'COUNT(' . $req['count'] . ')';
+            $sql .= $req['field'].', COUNT(' . $req['count'] . ') as '.$req['as'];
         } else if (isset($req['fields'])) {
             if (is_array($req['fields'])) {
                 $sql .= implode(', ', $req['fields']);

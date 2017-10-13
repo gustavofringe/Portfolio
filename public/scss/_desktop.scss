@@ -3,58 +3,58 @@ desktop format
 ================================================================*/
 @media only screen and (min-width: 1200px) {
 
-  .header {
-    position: static;
-    top: 80px;
-    left: 0;
-    right: 0;
-    height: $height-header;
-    line-height: 66px;
-    border-bottom: 1px dashed black;
-  }
-  .container-top {
-    width: 80%;
-    margin: 0 auto;
-    .header_logo {
-      padding: 0 25px;
-      float: left;
+    .header {
+        position: static;
+        top: 80px;
+        left: 0;
+        right: 0;
+        height: $height-header;
+        line-height: 66px;
+        border-bottom: 1px dashed black;
     }
-    .header_icon {
-      display: none;
-    }
-    .menu {
-      float: right;
-      a {
-        padding: 0 10px;
-        text-transform: uppercase;
-        &:hover {
-          color: grey;
+    .container-top {
+        width: 80%;
+        margin: 0 auto;
+        .header_logo {
+            padding: 0 25px;
+            float: left;
         }
-      }
+        .header_icon {
+            display: none;
+        }
+        .menu {
+            float: right;
+            a {
+                padding: 0 10px;
+                text-transform: uppercase;
+                &:hover {
+                    color: grey;
+                }
+            }
+        }
     }
-  }
-  .media-back {
-    background-image: url("../img/mac.png-vsnd");
-    background-size: cover;
-    @include border-radius(3px);
-    width: 400px;
-    height: 280px;
-    .carousel-item {
-      margin-top: 45px;
-      margin-left: 15px;
-      padding-bottom:10px;
-      width: 370px;
-      height: 230px;
+    .media-back {
+        background-image: url("../img/mac.png-vsnd");
+        background-size: cover;
+        @include border-radius(3px);
+        width: 400px;
+        height: 280px;
+        .carousel-item {
+            margin-top: 45px;
+            margin-left: 15px;
+            padding-bottom: 10px;
+            width: 370px;
+            height: 230px;
+        }
     }
-  }
-  .link{
-    width: 25px;
-  }
-  .photo{
-    width: 300px;
-    height: 300px;
-  }
-  .image {
-    width: 25px;
-  }
+    .link {
+        width: 25px;
+    }
+    .photo {
+        width: 300px;
+        height: 300px;
+    }
+    .image {
+        width: 100%;
+    }
 }

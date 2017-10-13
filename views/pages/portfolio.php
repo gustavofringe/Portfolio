@@ -4,13 +4,13 @@
         <?php foreach ($realisations as $realisation): ?>
             <div class="col-lg-3 col-sm-auto mb-3">
                 <div class="d-flex justify-content-center">
-                    <div class="card" style="width: 242px;" role="tab" id="heading<?= $realisation->workID; ?>">
+                    <div class="card" role="tab" id="heading<?= $realisation->workID; ?>">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $realisation->workID; ?>"
                            aria-expanded="true" aria-controls="collapse<?= $realisation->workID; ?>">
                             <div class="content-image d-flex" role="img" aria-label="archiduchesse">
-                                    <img class="card-img-top image" style="width: 225px"
-                                         src="<?= BASE_URL; ?>/public/img/<?= $realisation->folder; ?>/<?= $realisation->name; ?>"
-                                         alt="">
+                                <img class="card-img-top image"
+                                     src="<?= BASE_URL; ?>/public/img/<?= $realisation->folder; ?>/<?= $realisation->name; ?>"
+                                     alt="">
                             </div>
                         </a>
                         <div class="card-block">
@@ -25,48 +25,46 @@
     </div>
 
 
-    <?php foreach ($realisations
-
-    as $realisation): ?>
     <!--/.col-xl-3-->
     <div class="card hidden-lg-down">
-        <div id="collapse<?= $realisation->workID; ?>" class="collapse" role="tabpanel"
-             aria-labelledby="heading<?= $realisation->workID; ?>">
-            <div class="card card-block">
-                <div class="image-card">
-                    <div class="media media-back">
-                        <div id="carouselExampleSlidesOnly<?= $realisation->workID; ?>" class="carousel slide"
-                             data-ride="carousel">
-                            <div class="carousel-inner" role="listbox">
-                                <div class="carousel-item active">
+        <?php foreach ($realisations as $k=>$v): ?>
+            <div id="collapse<?= $v->workID; ?>" class="collapse" role="tabpanel"
+                 aria-labelledby="heading<?= $v->workID; ?>">
+                <div class="card card-block">
+                    <div class="image-card">
+                        <div class="media media-back">
+                            <div id="carouselExampleSlidesOnly<?= $v->workID; ?>" class="carousel slide"
+                                 data-ride="carousel">
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="carousel-item active">
                                         <img class="d-block img-fluid d-flex"
-                                             src="<?= BASE_URL; ?>/public/img/<?= $realisation->folder; ?>/<?= $realisation->name; ?>"
-                                             alt="<?= $images[$realisation->workID]->name; ?>">
-                                </div>
-                                <?php for ($i = 0; $i < $count; $i++): ?>
-                                    <div class="carousel-item">
-                                        <img class="d-block img-fluid d-flex"
-                                             src="<?= BASE_URL; ?>/public/img/<?= $images[$i]->folder; ?>/<?= $images[$i]->name; ?>"
-                                             alt="<?= $realisation->name; ?>">
+                                             src="<?= BASE_URL; ?>/public/img/<?= $v->folder; ?>/<?= $v->name; ?>"
+                                             alt="<?= $v->name; ?>">
                                     </div>
-                                <?php endfor; ?>
+                                    <?php for ($i = 0; $i < count($tab[$v->workID]->name); $i++): ?>
+                                        <div class="carousel-item">
+                                            <img class="d-block img-fluid d-flex"
+                                                 src="<?= BASE_URL; ?>/public/img/<?= $v->folder; ?>/<?= $realisations[$i]->name; ?>"
+                                                 alt="<?= $realisations[$i]->name; ?>">
+                                        </div>
+                                    <?php endfor; ?>
+                                </div>
                             </div>
+                            <div class="media-body ml-3">
+                                <h4 class="mt-1"><?= $v->title; ?></h4>
+                                <p class="mt-3"><?= $v->techno; ?></p>
+                                <a href="<?= $v->link; ?>"><img class="link"
+                                                                          src="<?= BASE_URL; ?>/public/img/link-3.svg"
+                                                                          alt="lien"> -><em>Lien projet</em></a>
+                            </div>
+                            <!-- /.media-body -->
                         </div>
-                        <div class="media-body ml-3">
-                            <h4 class="mt-1"><?= $realisation->title; ?></h4>
-                            <p class="mt-3"><?= $realisation->techno; ?></p>
-                            <a href="<?= $realisation->link; ?>"><img class="link"
-                                                                      src="<?= BASE_URL; ?>/public/img/link-3.svg"
-                                                                      alt="lien"> -><em>Lien projet</em></a>
-                        </div>
-                        <!-- /.media-body -->
+                        <!-- /.media -->
                     </div>
-                    <!-- /.media -->
-                </div>
-                <!-- /.image-card -->
+                    <!-- /.image-card -->
 
+                </div>
             </div>
-        </div>
         <?php endforeach; ?>
     </div>
 </div>

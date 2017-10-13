@@ -269,8 +269,8 @@ card
 /* line 234, ../scss/screen.scss */
 .card .content-image {
   cursor: pointer;
+  width: 220px !important;
   height: 200px;
-  width: 210px;
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   -webkit-transition: all 0.5s ease-in-out;
@@ -287,9 +287,10 @@ card
 /* line 242, ../scss/screen.scss */
 .card .content-image:hover .image {
   margin: 0 auto;
+  width: 200px;
   opacity: 1;
 }
-/* line 245, ../scss/screen.scss */
+/* line 246, ../scss/screen.scss */
 .card .content-image:hover .image:after {
   content: url("../img/link-3.svg");
 }
@@ -297,14 +298,14 @@ card
 /*=======================================================================
 form
 ===========================================================================*/
-/* line 256, ../scss/screen.scss */
+/* line 257, ../scss/screen.scss */
 .field {
   position: relative;
   height: 72px;
   padding: 16px 0 8px 0;
 }
 
-/* line 262, ../scss/screen.scss */
+/* line 263, ../scss/screen.scss */
 .field-label {
   position: relative;
   margin: 0;
@@ -323,7 +324,7 @@ form
   transition-duration: 0.3s;
 }
 
-/* line 274, ../scss/screen.scss */
+/* line 275, ../scss/screen.scss */
 .field-input {
   position: relative;
   display: block;
@@ -338,7 +339,7 @@ form
   outline: none;
 }
 
-/* line 288, ../scss/screen.scss */
+/* line 289, ../scss/screen.scss */
 .field::after, .field::before {
   content: '';
   height: 2px;
@@ -349,7 +350,7 @@ form
   background-color: #e7e7e7;
 }
 
-/* line 298, ../scss/screen.scss */
+/* line 299, ../scss/screen.scss */
 .field::after {
   background-color: #ff85a4;
   -moz-transform: scaleX(0);
@@ -362,7 +363,7 @@ form
   transition-duration: 0.3s;
 }
 
-/* line 304, ../scss/screen.scss */
+/* line 305, ../scss/screen.scss */
 .has-label .field-label {
   -moz-transform: translateY(0);
   -ms-transform: translateY(0);
@@ -370,13 +371,13 @@ form
   transform: translateY(0);
 }
 
-/* line 308, ../scss/screen.scss */
+/* line 309, ../scss/screen.scss */
 .is-focused .field-label {
   font-size: 12px;
   color: #ff85a4;
 }
 
-/* line 314, ../scss/screen.scss */
+/* line 315, ../scss/screen.scss */
 .field.is-focused::after {
   -moz-transform: scaleX(1);
   -ms-transform: scaleX(1);
@@ -384,7 +385,7 @@ form
   transform: scaleX(1);
 }
 
-/* line 318, ../scss/screen.scss */
+/* line 319, ../scss/screen.scss */
 .message {
   color: #bfbfbf;
 }
@@ -392,7 +393,7 @@ form
 /*=============================================================================
 competence
 ==============================================================================*/
-/* line 325, ../scss/screen.scss */
+/* line 326, ../scss/screen.scss */
 .language {
   height: 200px;
 }
@@ -400,24 +401,24 @@ competence
 /*==============================================================================
 footer
 ================================================================================*/
-/* line 332, ../scss/screen.scss */
+/* line 333, ../scss/screen.scss */
 footer {
   border-top: 1px dashed grey;
   background-color: #CCCCCC;
 }
-/* line 334, ../scss/screen.scss */
+/* line 335, ../scss/screen.scss */
 footer h4 {
   font-size: 20px;
 }
-/* line 338, ../scss/screen.scss */
+/* line 339, ../scss/screen.scss */
 footer .dashed {
   border-left: 1px dashed grey;
 }
-/* line 341, ../scss/screen.scss */
+/* line 342, ../scss/screen.scss */
 footer img {
   height: 30px;
 }
-/* line 345, ../scss/screen.scss */
+/* line 346, ../scss/screen.scss */
 footer .article-footer p {
   font-size: 10px;
 }
@@ -558,6 +559,6 @@ desktop format
 
   /* line 57, ../scss/_desktop.scss */
   .image {
-    width: 25px;
+    width: 100%;
   }
 }

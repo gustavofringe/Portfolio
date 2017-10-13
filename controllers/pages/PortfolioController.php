@@ -15,11 +15,13 @@ class Portfolio extends Controller
             'group'=>'i.workID'
         ]);
         $var['images'] = $this->model->findAll('images', [
-            'field'=>'name,folder',
-            'group'=>'workID',
-            'concat'=>'workID',
+            'distinct'=>'workID,name,folder'
+
         ]);
-        $var['count'] = count($var['images']);
+        foreach ($var['images'] as $img) {
+            $var['tab'][$img->workID]['name'][] = $img->name;
+        }
+        debug($var['tab']);
         $this->views->set($var);
     }
 }
