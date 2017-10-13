@@ -232,16 +232,19 @@ card
 ==============================================================================*/
 .card {
     .content-image {
+        .image{
+            width: 250px;
+        }
         cursor: pointer;
-        width: 220px !important;
-        height: 200px;
+        width: 250px;
+        height: 250px;
         @include transition(all 0.5s ease-in-out);
         &:hover {
             opacity: 0.5;
             @include transform(scale(0.5));
             .image {
+                content: url("../img/link-3.svg");
                 margin: 0 auto;
-                width: 100%;
                 opacity: 1;
             }
         }

@@ -1,5 +1,5 @@
 <?php
-class CompetenceController extends Controller
+class Competence extends Controller
 {
     public function __construct()
     {
