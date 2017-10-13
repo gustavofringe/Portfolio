@@ -8,7 +8,7 @@
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $realisation->workID; ?>"
                            aria-expanded="true" aria-controls="collapse<?= $realisation->workID; ?>">
                             <div class="content-image d-flex" role="img" aria-label="archiduchesse">
-                                <img class="card-img-top image"
+                                <img class="card-img-top image" id="image"
                                      src="<?= BASE_URL; ?>/public/img/<?= $realisation->folder; ?>/<?= $realisation->name; ?>"
                                      alt="">
                             </div>
@@ -27,7 +27,7 @@
 
     <!--/.col-xl-3-->
     <div class="card hidden-lg-down">
-        <?php foreach ($realisations as $k=>$v): ?>
+        <?php foreach ($realisations as $k => $v): ?>
             <div id="collapse<?= $v->workID; ?>" class="collapse" role="tabpanel"
                  aria-labelledby="heading<?= $v->workID; ?>">
                 <div class="card card-block">
@@ -41,11 +41,11 @@
                                              src="<?= BASE_URL; ?>/public/img/<?= $v->folder; ?>/<?= $v->name; ?>"
                                              alt="<?= $v->name; ?>">
                                     </div>
-                                    <?php for ($i = 0; $i < count($tab[$v->workID]->name); $i++): ?>
+                                    <?php for ($i = 0; $i < count($tab[$v->workID]['name']); ++$i): ?>
                                         <div class="carousel-item">
                                             <img class="d-block img-fluid d-flex"
-                                                 src="<?= BASE_URL; ?>/public/img/<?= $v->folder; ?>/<?= $realisations[$i]->name; ?>"
-                                                 alt="<?= $realisations[$i]->name; ?>">
+                                                 src="<?= BASE_URL; ?>/public/img/<?= $v->folder; ?>/<?= $tab[$v->workID]['name'][$i]; ?>"
+                                                 alt="<?= $tab[$v->workID]['name'][$i]; ?>">
                                         </div>
                                     <?php endfor; ?>
                                 </div>
@@ -54,8 +54,8 @@
                                 <h4 class="mt-1"><?= $v->title; ?></h4>
                                 <p class="mt-3"><?= $v->techno; ?></p>
                                 <a href="<?= $v->link; ?>"><img class="link"
-                                                                          src="<?= BASE_URL; ?>/public/img/link-3.svg"
-                                                                          alt="lien"> -><em>Lien projet</em></a>
+                                                                src="<?= BASE_URL; ?>/public/img/link-3.svg"
+                                                                alt="lien"> -><em>Lien projet</em></a>
                             </div>
                             <!-- /.media-body -->
                         </div>

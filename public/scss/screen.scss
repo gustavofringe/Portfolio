@@ -237,15 +237,12 @@ card
         height: 200px;
         @include transition(all 0.5s ease-in-out);
         &:hover {
-            @include transform(scale(0.5));
             opacity: 0.5;
+            @include transform(scale(0.5));
             .image {
                 margin: 0 auto;
-                width: 200px;
+                width: 100%;
                 opacity: 1;
-                &:after {
-                    content: url("../img/link-3.svg");
-                }
             }
         }
     }

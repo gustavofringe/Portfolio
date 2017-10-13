@@ -21,7 +21,6 @@ class Portfolio extends Controller
         foreach ($var['images'] as $img) {
             $var['tab'][$img->workID]['name'][] = $img->name;
         }
-        debug($var['tab']);
         $this->views->set($var);
     }
 }
