@@ -1,12 +1,27 @@
 <?php
+namespace Controllers\admin;
+
+use App\Controller;
+use function print_r;
+
 class Views extends Controller{
-    public function __construct()
+
+    /**
+     * Views constructor.
+     */
+    /*public function __construct()
     {
-        parent::__construct();
-    }
-    public function views(){
-        $var['title'] = "Portfolio || views";
+        print_r($this);
+        //parent::__construct();
         $this->session->isLogged('admin');
+    }*/
+
+    /**
+     *
+     */
+    public function views(){
+        $this->session->isLogged('admin');
+        $var['title'] = "Portfolio || views";
         $works = $var['works'] = $this->model->findAll('works',[]);
         foreach($works as $work) {
             $cond = ['workID'=>$work->workID];
@@ -16,6 +31,10 @@ class Views extends Controller{
         }
         $this->views->set($var);
     }
+
+    /**
+     *
+     */
     public function logout(){
         $this->session->logout();
         die();

@@ -1,5 +1,5 @@
 <?php
-
+namespace App;
 class View
 {
     public $layout = 'default';
@@ -10,6 +10,7 @@ class View
      * @param $key
      * @param null $value
      */
+
     public function set($key, $value=null)
     {
         $vars = $this->vars;
@@ -47,7 +48,7 @@ class View
      * @param $url
      * @param null $code
      */
-    public function redirect($url, $code = null)
+    public static function redirect($url, $code = null)
     {
         if ($code == 301) {
             header("HTTP/1.1 301 Moved Permanently");

@@ -1,4 +1,10 @@
 {
     "name": "gustavo/portfolio",
-    "require": {}
+    "require": {},
+    "autoload":{
+        "psr-4":{
+            "App\\":"libraries",
+            "Controllers\\":"controllers"
+        }
+    }
 }

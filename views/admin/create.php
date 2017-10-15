@@ -1,4 +1,5 @@
 <h1>Create project</h1>
+<?php App\Form::input();?>
 <?php if (!empty($errors)): ?>
     <div class="alert alert-danger">
         <p>Vous n'avez pas rempli le formulaire correctement</p>

@@ -1,12 +1,14 @@
 <?php
+namespace Controllers\posts;
+
+use App\Controller;
 
 class Contact extends Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
 
+    /**
+     *
+     */
     public function contact()
     {
         $var['title'] = "Portfolio || Contact";

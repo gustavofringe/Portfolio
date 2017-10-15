@@ -1,5 +1,6 @@
 <?php
-
+namespace App;
+use Controllers;
 class Route
 {
     private $url = false;
@@ -50,17 +51,17 @@ class Route
     private function loadControllerDefault()
     {
         require_once ROOT .DS. 'controllers'.DS.'HomeController.php';
-        $this->controller = new Home();
+        $this->controller = new Controllers\Home();
         $this->controller->home();
         $this->views->render('pages', 'home');
     }
 
     /**
-     *
+     *load controller with url
      */
     private function loadController()
     {
-        $page = ROOT . '/controllers/' . $this->url[0] . '/' . ucfirst($this->url[1]) . 'Controller.php';
+        $page = ROOT .DS. 'controllers'.DS . $this->url[0] . DS . ucfirst($this->url[1]) . 'Controller.php';
         if (file_exists($page)) {
             require $page;
             //$this->loadModel($this->url[1]);
@@ -77,8 +78,9 @@ class Route
      */
     private function methodExist()
     {
+        $class = "Controllers\\".$this->url[0]."\\".$this->url[1];
+        $this->controller = new $class;
         $length = count($this->url);
-        $this->controller = new $this->url[1];
         if ($length > 2) {
             if (!method_exists($this->controller, $this->url[1])) {
                 $this->errors();
@@ -130,7 +132,7 @@ class Route
     private function errors()
     {
         require ROOT . '/controllers/ErrorsController.php';
-        $this->controller = new Errors();
+        $this->controller = new Controller\Errors();
         $this->controller->index();
         die();
     }

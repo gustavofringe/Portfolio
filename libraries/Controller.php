@@ -1,11 +1,16 @@
 <?php
+namespace App;
+
 class Controller
+
 {
     public $session;
     public $form;
     public $service;
     public $views;
     public $model;
+    public $email;
+    public $img;
 
     /**
      * load instance
@@ -13,11 +18,12 @@ class Controller
      */
     public function __construct()
     {
-        $this->email = new Email();
+        $this->session = new Session();
         $this->model = new Model();
         $this->views = new View();
-        $this->session = new Session();
+        $this->email = new Email();
         $this->form = new Form();
         $this->service = new Service();
+        $this->img = new Img();
     }
 }

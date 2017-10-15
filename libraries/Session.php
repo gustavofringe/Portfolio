@@ -1,4 +1,5 @@
 <?php
+namespace App;
 class Session
 {
     /**
@@ -9,6 +10,9 @@ class Session
         if(!isset($_SESSION)){
             session_start();
         }
+        if(!isset($_SESSION['csrf'])){
+            $_SESSION['csrf'] = md5(time() + rand());
+        }
     }
 
     /**
@@ -16,7 +20,7 @@ class Session
      * @param string $type
      * return flash message at view
      */
-    public function setFlash($message, $type = 'success')
+    public static function setFlash($message, $type = 'success')
     {
         $_SESSION['flash'][$type] = $message;
     }
@@ -25,7 +29,7 @@ class Session
      * @param $user
      * @return bool
      */
-    public function isLogged($user){
+    public static function isLogged($user){
         if (!isset($_SESSION[$user])){
             Session::setFlash('Vous n\'avez pas accés a ce contenu');
             View::redirect(BASE_URL.'/admin/login');
@@ -58,6 +62,24 @@ class Session
         session_start();
         session_destroy();
         View::redirect(BASE_URL);
+        die();
+    }
+    function csrf(){
+        return 'csrf=' . $_SESSION['csrf'];
+    }
+
+    function csrfInput(){
+        return '<input type="hidden" value="' . $_SESSION['csrf']. '" name="csrf">';
+    }
+
+    function checkCsrf(){
+        if(
+            (isset($_POST['csrf']) && $_POST['csrf'] == $_SESSION['csrf']) ||
+            (isset($_GET['csrf']) && $_GET['csrf'] == $_SESSION['csrf'])
+        ){
+            return true;
+        }
+        header('Location:' . WEBROOT . 'csrf.php');
         die();
     }
 }

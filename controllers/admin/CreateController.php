@@ -1,16 +1,20 @@
 <?php
+namespace Controllers\admin;
+
+use App\Controller;
+
+use function print_r;
 
 class Create extends Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
 
+    /**
+     *
+     */
     public function create()
     {
-        $this->session->isLogged('admin');
         $var['title'] = "Portfolio || new";
+        $this->session->isLogged('admin');
         if (!empty($_POST)) {
             if (empty($_POST['title']) || !preg_match('/^[a-zA-Z0-9_\s]+$/', $_POST['title'])) {
                 $var['errors']['title'] = "Vous n'avez pas entrer un titre valide";
@@ -61,7 +65,7 @@ class Create extends Controller
                         move_uploaded_file($tmp_name[$i], ROOT . '/public/img/' . $folder . '/' . $img['name'][$i]);
                         $file = ROOT . '/public/img/' . $folder . '/' . $img['name'][$i];
                         $resizedFile = ROOT . '/public/img/' . $folder . '/' . $filename;
-                        Img::resize($file, null, 240, 230, false, $resizedFile, false, false, 100);
+                        $this->img->resize($file, null, 240, 230, false, $resizedFile, false, false, 100);
                         $condition = [
                             'name' => $img['name'][$i],
                             'size' => $size[$i],

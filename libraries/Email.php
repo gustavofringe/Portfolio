@@ -1,4 +1,5 @@
 <?php
+namespace App;
 class Email{
     public function send(array $content){
         $to = 'dussartguillaume.dev@gmail.com';

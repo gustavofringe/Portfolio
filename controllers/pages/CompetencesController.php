@@ -1,9 +1,13 @@
 <?php
-class Competences extends Controller{
-    public function __construct()
+namespace Controllers\pages;
+use App\Controller;
+class Competences extends Controller
+{
+   /* public function __construct()
     {
         parent::__construct();
-    }
+    }*/
+
     public function competences(){
         $var['title'] = "Portfolio || competences";
         $var['competences'] = $this->model->findAll('competences c',[
@@ -21,7 +25,6 @@ class Competences extends Controller{
             $var['tab'][$img->titleCompetenceID]['image'][] = $img->images;
             $var['tab'][$img->titleCompetenceID]['name'][] = $img->name;
         }
-        debug($var['tab']);
         //debug($var['competences']);
         /*foreach ($var['competences'] as $compet){
             $datenow = new DateTime('now');

@@ -1,11 +1,8 @@
 <?php
-
+namespace Controllers\pages;
+use App\Controller;
 class Portfolio extends Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
 
     public function portfolio()
     {

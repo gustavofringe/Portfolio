@@ -1,14 +1,18 @@
 <?php
+namespace Controllers\admin;
+use App\Controller;
+use function print_r;
+
 class Competence extends Controller
 {
     public function __construct()
     {
-        parent::__construct();
+        print_r($this);
+        $this->session->isLogged('admin');
     }
 
     public function competence()
     {
-        $this->session->isLogged('admin');
         $var['title'] = "Portfolio || Competences";
         $var['title_competence'] = $this->model->findAll('titleCompetence', []);
         if (!empty($_POST)) {
