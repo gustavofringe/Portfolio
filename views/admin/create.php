@@ -1,5 +1,4 @@
 <h1>Create project</h1>
-<?php App\Form::input();?>
 <?php if (!empty($errors)): ?>
     <div class="alert alert-danger">
         <p>Vous n'avez pas rempli le formulaire correctement</p>
@@ -12,7 +11,7 @@
         </ul>
     </div>
 <?php endif; ?>
-<form action="" method="post"  enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="title">Titre</label>
         <input type="text" class="form-control" id="title" placeholder="Title" name="title">

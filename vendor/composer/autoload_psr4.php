@@ -14,4 +14,6 @@ return array(
     'Symfony\\Component\\Config\\' => array($vendorDir . '/symfony/config'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Phinx\\' => array($vendorDir . '/robmorgan/phinx/src/Phinx'),
+    'Controllers\\' => array($baseDir . '/controllers'),
+    'App\\' => array($baseDir . '/storage'),
 );

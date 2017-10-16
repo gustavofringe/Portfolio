@@ -1,13 +1,18 @@
 <?php
-namespace Controllers\pages;
-use App\Controller;
-class Competences extends Controller
-{
-   /* public function __construct()
-    {
-        parent::__construct();
-    }*/
+/**
+ * Created by IntelliJ IDEA.
+ * User: gustavo
+ * Date: 16/10/17
+ * Time: 10:40
+ */
 
+namespace Http;
+
+
+use App\Controller;
+
+class PagesController extends Controller
+{
     public function competences(){
         $var['title'] = "Portfolio || competences";
         $var['competences'] = $this->model->findAll('competences c',[
@@ -33,5 +38,23 @@ class Competences extends Controller
             $var['date'] =  $interval->format("%m Mois d'experience");
         }*/
         $this->views->set($var);
+        $this->views->render('pages','competences');
+    }
+    public function portfolio()
+    {
+        $var['title'] = "Portfolio || Réalisations";
+        $var['realisations'] = $this->model->findAll('works w', [
+            'join'=>['images i'=>'w.workID=i.workID'],
+            'group'=>'i.workID'
+        ]);
+        $var['images'] = $this->model->findAll('images', [
+            'distinct'=>'workID,name,folder'
+
+        ]);
+        foreach ($var['images'] as $img) {
+            $var['tab'][$img->workID]['name'][] = $img->name;
+        }
+        $this->views->set($var);
+        $this->views->render('pages','portfolio');
     }
 }

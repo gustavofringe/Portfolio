@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?= $title; ?></title>
+    <title><?=$title; ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -21,7 +21,7 @@
         <header class="header">
             <div class="container-top">
                 <a href="#" class="header_icon" id="header_icon"></a>
-                <a href="index.html" class="header_logo">
+                <a href="<?=BASE_URL;?>/admin" class="header_logo">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 943.9 1000" version="1.1" id="svg1499">
                         <g>
                             <path class="inside"
@@ -32,23 +32,22 @@
                     </svg>
                 </a>
                     <nav class="menu">
-
+                        <a href="<?= BASE_URL; ?>/admin">Accueil</a>
                         <a href="<?= BASE_URL; ?>/admin/create">Créer</a>
                         <a href="<?= BASE_URL; ?>/admin/competence">Competences</a>
-                        <a href="<?= BASE_URL; ?>/admin/views">Vues</a>
                         <a href="<?= BASE_URL; ?>/admin/contacts">Contacts</a>
-                        <a href="https://gustavofringe.github.io/Cv_guillaume/">cv</a>
-                        <a href=""></a>
+                        <?php if(isset($_SESSION['admin'])):?>
+                        <a href="<?= BASE_URL; ?>/admin/logout">Se deconnecter</a>
+                        <?php endif; ?>
                     </nav>
                     <!-- /.menu -->
                     <nav class="menu-desktop">
-
+                        <a href="<?= BASE_URL; ?>/admin">Accueil</a>
                         <a href="<?= BASE_URL; ?>/admin/create">Créer</a>
                         <a href="<?= BASE_URL; ?>/admin/competence">Competences</a>
-                        <a href="<?= BASE_URL; ?>/admin/views">Vues</a>
                         <a href="<?= BASE_URL; ?>/admin/contacts">Contacts</a>
                         <?php if(isset($_SESSION['admin'])):?>
-                        <a href="<?= BASE_URL; ?>/admin/views/logout">Se deconnecter</a>
+                        <a href="<?= BASE_URL; ?>/admin/logout">Se deconnecter</a>
                         <?php endif;?>
                     </nav>
                 <!-- /.menu-desktop -->
@@ -56,14 +55,7 @@
             <!-- /.container -->
         </header>
         <!-- /.header -->
-        <?php if (isset($_SESSION['flash'])): ?>
-            <?php foreach ($_SESSION['flash'] as $type => $message): ?>
-                <div class="alert alert-<?= $type; ?>">
-                    <?= $message; ?>
-                </div>
-            <?php endforeach; ?>
-            <?php unset($_SESSION['flash']); ?>
-        <?php endif; ?>
+        <?php App\Session::flash();?>
         <div class="site-content">
             <main class="container">
                 <?= $content; ?>

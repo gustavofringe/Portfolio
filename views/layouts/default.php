@@ -34,8 +34,6 @@
                         <a href="<?= BASE_URL; ?>/pages/competences">mes compétences</a>
                         <a href="<?= BASE_URL; ?>/pages/portfolio">mon portfolio</a>
                         <a href="<?= BASE_URL; ?>/posts/contact">me contacter</a>
-                        <a href="<?= BASE_URL; ?>/view/cv">cv</a>
-                        <a href=""></a>
                     </nav>
                     <!-- /.menu -->
                     <nav class="menu-desktop">
@@ -43,21 +41,14 @@
                         <a href="<?= BASE_URL; ?>/pages/competences">mes compétences</a>
                         <a href="<?= BASE_URL; ?>/pages/portfolio">mon portfolio</a>
                         <a href="<?= BASE_URL; ?>/posts/contact">me contacter</a>
-                        <a href=""></a>
                     </nav>
                 <!-- /.menu-desktop -->
             </div>
             <!-- /.container -->
         </header>
         <!-- /.header -->
-        <?php if (isset($_SESSION['flash'])): ?>
-            <?php foreach ($_SESSION['flash'] as $type => $message): ?>
-                <div class="alert alert-<?= $type; ?>">
-                    <?= $message; ?>
-                </div>
-            <?php endforeach; ?>
-            <?php unset($_SESSION['flash']); ?>
-        <?php endif; ?>
+
+        <?php App\Session::flash();?>
         <div class="site-content">
             <main class="container">
                 <?= $content; ?>

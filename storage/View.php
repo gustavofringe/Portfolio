@@ -4,7 +4,6 @@ class View
 {
     public $layout = 'default';
     public $vars = [];
-    static $var = [];
     /**
      * send variable at view
      * @param $key
@@ -13,13 +12,10 @@ class View
 
     public function set($key, $value=null)
     {
-        $vars = $this->vars;
         if (is_array($key)) {
-            $vars += $key;
-            View::$var = $vars;
+            $this->vars += $key;
         } else {
-            $vars[$key] = $value;
-            View::$var = $vars;
+            $this->vars[$key] = $value;
         }
     }
     /**
@@ -27,10 +23,10 @@ class View
      * @param null $folder
      * @param null $view
      */
-    public function render($folder = null, $view = null)
+    public function render($folder, $view)
     {
         //extract variables for views
-        extract(View::$var);
+        extract($this->vars);
         //define views.php
         $view = ROOT . DS . 'views' . DS . $folder . DS . $view . '.php';
         //start require views.php

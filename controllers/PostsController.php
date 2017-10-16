@@ -1,14 +1,18 @@
 <?php
-namespace Controllers\posts;
+/**
+ * Created by IntelliJ IDEA.
+ * User: gustavo
+ * Date: 16/10/17
+ * Time: 10:39
+ */
+
+namespace Http;
+
 
 use App\Controller;
 
-class Contact extends Controller
+class PostsController extends Controller
 {
-
-    /**
-     *
-     */
     public function contact()
     {
         $var['title'] = "Portfolio || Contact";
@@ -56,5 +60,6 @@ class Contact extends Controller
             }
         }
         $this->views->set($var);
+        $this->views->render('posts','contact');
     }
 }

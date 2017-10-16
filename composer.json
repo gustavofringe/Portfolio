@@ -3,8 +3,8 @@
     "require": {},
     "autoload":{
         "psr-4":{
-            "App\\":"libraries",
-            "Controllers\\":"controllers"
+            "App\\":"storage",
+            "Http\\":"controllers"
         }
     }
 }
