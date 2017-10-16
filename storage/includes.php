@@ -8,6 +8,6 @@ include 'View.php';
 include 'Controller.php';
 include 'Model.php';
 include 'Route.php';
-include 'Resize.php';
+include 'Img.php';
 include 'Email.php';
 include 'Service.php';

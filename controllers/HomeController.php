@@ -1,7 +1,7 @@
 <?php
 namespace Http;
 use App\Controller;
-class Home extends Controller
+class HomeController extends Controller
 {
 
     public function index(){
@@ -11,5 +11,6 @@ class Home extends Controller
             'group'=>'i.workID'
         ]);
         $this->views->set($var);
+        $this->views->render('pages', 'index');
     }
 }

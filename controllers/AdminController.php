@@ -10,11 +10,15 @@ namespace Http;
 
 
 use App\Controller;
+use App;
 use function print_r;
 
 class AdminController extends Controller
 {
 
+    /**
+     *
+     */
     public function index()
     {
         $this->session->isLogged('admin');
@@ -53,7 +57,6 @@ class AdminController extends Controller
             }
         }
         $this->views->set($var);
-        $this->views->layout = 'admin';
         $this->views->render('admin','login');
     }
 
@@ -94,7 +97,7 @@ class AdminController extends Controller
             $this->model->save('works', [
                 'conditions' => $cond
             ]);
-            $id_image = Model::$id;
+            $id_image = App\Model::$id;
             $img = $_FILES['image'];
             $size = $img['size'];
             $type = $img['type'];
@@ -138,8 +141,8 @@ class AdminController extends Controller
 }
     public function competence()
     {
-        $var['title'] = "Portfolio || Competences";
         $this->session->isLogged('admin');
+        $var['title'] = "Portfolio || Competences";
         $var['title_competence'] = $this->model->findAll('titleCompetence', []);
         if (!empty($_POST)) {
             $competence_id = $_POST['competence_id'];
@@ -158,7 +161,7 @@ class AdminController extends Controller
                 move_uploaded_file($img['tmp_name'], ROOT . '/public/img/' . $folder . '/' . $img['name']);
                 $file = ROOT . '/public/img/' . $folder . '/' . $img['name'];
                 $resizedFile = ROOT . '/public/img/' . $folder . '/' . $filename;
-                Img::resize($file, null, 150, 200, false, $resizedFile, false, false, 100);
+                $this->img->resize($file, null, 150, 200, false, $resizedFile, false, false, 100);
                 $cond = ['name' => $title, 'images' => $img['name'], 'titleCompetenceID' => $competence_id,'sentence'=>$_POST['sentence'], 'date' => $date];
                 $this->model->save('competences', [
                     'conditions' => $cond
@@ -190,6 +193,10 @@ class AdminController extends Controller
         $this->views->layout = 'admin';
         $this->views->render('admin','views');
     }
+
+    /**
+     *
+     */
     public function contacts()
     {
         $var['title'] = "Portfolio || contacts";

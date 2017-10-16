@@ -46,9 +46,8 @@ class Route
     private function loadControllerDefault()
     {
         require_once ROOT .DS. 'controllers'.DS.'HomeController.php';
-        $this->controller = new Http\Home();
+        $this->controller = new Http\HomeController();
         $this->controller->index();
-        $this->views->render('pages', 'index');
     }
 
     /**
@@ -127,7 +126,7 @@ class Route
     private function errors()
     {
         require ROOT . '/controllers/ErrorsController.php';
-        $this->controller = new Http\Errors();
+        $this->controller = new Http\ErrorsController();
         $this->controller->index();
         die();
     }

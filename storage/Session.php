@@ -56,7 +56,7 @@ class Session
                 $html .= "</div>";
             }
             echo $html;
-            //unset($_SESSION['flash']);
+            //unset($_SESSION['temp']);
         }
     }
 
