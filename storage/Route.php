@@ -1,6 +1,10 @@
 <?php
+
 namespace App;
+
 use Http;
+use function ucfirst;
+
 class Route
 {
     private $url = false;
@@ -16,13 +20,10 @@ class Route
         $this->getUrl();
         if (empty($this->url[0])) {
             $this->loadControllerDefault();
-        } elseif(!empty($this->url[0])) {
+        } elseif (!empty($this->url[0]) && !empty($this->url[1])) {
             $this->loadController();
             $this->methodExist();
-            if($this->url[0] === 'admin'){
-                $this->views->layout = 'admin';
-            }
-        }else{
+        } else {
             $this->errors();
             die();
         }
@@ -45,7 +46,7 @@ class Route
      */
     private function loadControllerDefault()
     {
-        require_once ROOT .DS. 'controllers'.DS.'HomeController.php';
+        require_once ROOT . DS . 'controllers' . DS . 'HomeController.php';
         $this->controller = new Http\HomeController();
         $this->controller->index();
     }
@@ -55,13 +56,11 @@ class Route
      */
     private function loadController()
     {
-        $page = ROOT .DS. 'controllers'. DS . ucfirst($this->url[0]) . 'Controller.php';
+        $page = ROOT . DS . 'controllers' . DS . ucfirst($this->url[0]) . DS . ucfirst($this->url[1]) . 'Controller.php';
         if (file_exists($page)) {
             require $page;
-            //$this->loadModel($this->url[1]);
-            //$this->controller = new $this->url[1];
-            //$this->controller->{$this->url[1]}();
         } else {
+            echo '1111111';
             $this->errors();
             die();
         }
@@ -72,7 +71,7 @@ class Route
      */
     private function methodExist()
     {
-        $class = "Http\\".$this->url[0].'Controller';
+        $class = "Http\\" . $this->url[0] . "\\" . $this->url[1] . 'Controller';
         $this->controller = new $class;
         $length = count($this->url);
         if ($length > 1) {
@@ -107,27 +106,17 @@ class Route
         }
     }
 
-    /**
-     * @param $name
-     */
-    private function loadModel($name)
-    {
-        $path = ROOT . '/model/' . $this->url[0] . '/' . $name . 'Model.php';
-        if (file_exists($path)) {
-            require ROOT . '/model/' . $this->url[0] . '/' . $name . 'Model.php';
-            $modelName = $name . 'Model';
-            $this->model = new $modelName();
+
+
+        /**
+         *
+         */
+        private
+        function errors()
+        {
+            require ROOT . '/controllers/ErrorsController.php';
+            $this->controller = new Http\ErrorsController();
+            $this->controller->index();
+            die();
         }
     }
-
-    /**
-     *
-     */
-    private function errors()
-    {
-        require ROOT . '/controllers/ErrorsController.php';
-        $this->controller = new Http\ErrorsController();
-        $this->controller->index();
-        die();
-    }
-}

@@ -3,6 +3,7 @@
 include 'Session.php';
 include 'Form.php';
 include 'Debug.php';
+include 'Request.php';
 include 'Conf.php';
 include 'View.php';
 include 'Controller.php';

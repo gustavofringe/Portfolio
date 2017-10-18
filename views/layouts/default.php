@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="fr">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -29,6 +29,7 @@
                         </g>
                     </svg>
                 </a>
+
                     <nav class="menu">
 
                         <a href="<?= BASE_URL; ?>/pages/competences">mes compétences</a>
@@ -47,8 +48,9 @@
             <!-- /.container -->
         </header>
         <!-- /.header -->
+<?php echo App\Session::flash();?>
 
-        <?php App\Session::flash();?>
+
         <div class="site-content">
             <main class="container">
                 <?= $content; ?>

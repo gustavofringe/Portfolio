@@ -14,6 +14,7 @@ use App\Controller;
 class PagesController extends Controller
 {
     public function competences(){
+        $var['msg'] = '';
         $var['title'] = "Portfolio || competences";
         $var['competences'] = $this->model->findAll('competences c',[
             'join'=>['titleCompetence t'=>'c.titleCompetenceID=t.titleCompetenceID'],
@@ -42,6 +43,7 @@ class PagesController extends Controller
     }
     public function portfolio()
     {
+        $var['msg'] = '';
         $var['title'] = "Portfolio || Réalisations";
         $var['realisations'] = $this->model->findAll('works w', [
             'join'=>['images i'=>'w.workID=i.workID'],

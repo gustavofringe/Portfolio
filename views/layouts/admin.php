@@ -55,7 +55,8 @@
             <!-- /.container -->
         </header>
         <!-- /.header -->
-        <?php App\Session::flash();?>
+
+    <?php echo App\Session::flash();?>
         <div class="site-content">
             <main class="container">
                 <?= $content; ?>

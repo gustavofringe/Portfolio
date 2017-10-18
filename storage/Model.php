@@ -1,5 +1,6 @@
 <?php
 namespace App;
+use function debug;
 use \PDO;
 use \PDOException;
 class Model
@@ -7,7 +8,9 @@ class Model
     static $connections = [];
     public $conf = 'default';
     public $db;
-    static $id;
+    public $id;
+    public $errors;
+    public $fillable = [];
 
     /**
      * database connection
@@ -27,13 +30,62 @@ class Model
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
             Model::$connections[$this->conf] = $pdo;
             $this->db = $pdo;
-            //return Model::$db;
         } catch (PDOException $e) {
             echo 'Impossible de se connecter à la base de donnée';
             echo $e->getMessage();
             die();
         }
     }
+
+    /**
+     * load model for validate form
+     * @param $name
+     */
+    public function loadModel($name){
+        if(!isset($this->$name)){
+            $file = ROOT.DS.'model'.DS.$name.'.php';
+            require_once($file);
+            $this->$name = new $name();
+            if(isset($this->Form)){
+                $this->$name->Form = $this->Form;
+            }
+        }
+
+    }
+
+    /**
+     * validate fields
+     * @param $data
+     * @return bool
+     */
+    public function validates($data){
+        Form::$errors = array();
+        foreach($this->fillable as $k=>$v){
+            if(!isset($data->$k)){
+                Form::$errors[$k] = $v['message'];
+            }else{
+                if($v['rule'] == 'notEmpty'){
+                    if(empty($data->$k)){
+                        Form::$errors[$k] = $v['message'];
+                    }
+                }elseif(!preg_match('/^'.$v['rule'].'$/',$data->$k)){
+                    Form::$errors[$k] = $v['message'];
+                }
+            }
+        }
+        $this->errors = Form::$errors;
+        if(isset($this->Form)){
+            $this->Form->errors = Form::$errors;
+        }
+        if(empty(Form::$errors)){
+            return true;
+        }
+        return false;
+    }
+
+
+
+
 
     /**
      * find all in table
@@ -43,24 +95,24 @@ class Model
     public function findAll($table, array $req)
     {
         $sql = 'SELECT ';
-        if(isset($req['distinct'])){
+        if (isset($req['distinct'])) {
             if (is_array($req['distinct'])) {
-                $sql .= 'DISTINCT '.implode(', ', $req['distinct']);
+                $sql .= 'DISTINCT ' . implode(', ', $req['distinct']);
             } else {
-                $sql .= 'DISTINCT '.$req['distinct'];
+                $sql .= 'DISTINCT ' . $req['distinct'];
             }
-        }else if (isset($req['count'])) {
-            $sql .= $req['field'].', COUNT(' . $req['count'] . ') as '.$req['as'];
+        } else if (isset($req['count'])) {
+            $sql .= $req['field'] . ', COUNT(' . $req['count'] . ') as ' . $req['as'];
         } else if (isset($req['fields'])) {
             if (is_array($req['fields'])) {
                 $sql .= implode(', ', $req['fields']);
             } else {
                 $sql .= $req['fields'];
             }
-        }else if(isset($req['concat'])){
-            $sql .= $req['field'].', GROUP_CONCAT('.$req['concat'].')';
-        }else if(isset($req['max'])){
-            $sql .= $req['field'].', MAX('.$req['max'].')';
+        } else if (isset($req['concat'])) {
+            $sql .= $req['field'] . ', GROUP_CONCAT(' . $req['concat'] . ')';
+        } else if (isset($req['max'])) {
+            $sql .= $req['field'] . ', MAX(' . $req['max'] . ')';
         } else {
             $sql .= '*';
         }
@@ -172,6 +224,6 @@ class Model
         //return $sql;
         $pre = $this->db->prepare($sql);
         $pre->execute();
-        Model::$id = $this->db->lastInsertId();
+        $this->id = $this->db->lastInsertId();
     }
 }
