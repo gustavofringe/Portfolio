@@ -43,9 +43,9 @@
                     <!-- /.menu -->
                     <nav class="menu-desktop">
                         <a href="<?= BASE_URL; ?>/admin">Accueil</a>
-                        <a href="<?= BASE_URL; ?>/admin/create">Créer</a>
-                        <a href="<?= BASE_URL; ?>/admin/competence">Competences</a>
-                        <a href="<?= BASE_URL; ?>/admin/contacts">Contacts</a>
+                        <a href="<?= BASE_URL; ?>/posts/createproject">Créer</a>
+                        <a href="<?= BASE_URL; ?>/posts/createcompetence">Competences</a>
+                        <a href="<?= BASE_URL; ?>/contacts">Contacts</a>
                         <?php if(isset($_SESSION['admin'])):?>
                         <a href="<?= BASE_URL; ?>/admin/logout">Se deconnecter</a>
                         <?php endif;?>

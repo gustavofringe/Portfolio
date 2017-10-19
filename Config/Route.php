@@ -20,7 +20,7 @@ class Route
         $this->getUrl();
         if (empty($this->url[0])) {
             $this->loadControllerDefault();
-        } elseif (!empty($this->url[0]) && !empty($this->url[1])) {
+        } elseif (!empty($this->url[0])) {
             $this->loadController();
             $this->methodExist();
         } else {
@@ -46,7 +46,7 @@ class Route
      */
     private function loadControllerDefault()
     {
-        require_once ROOT . DS . 'controllers' . DS . 'HomeController.php';
+        require_once ROOT . DS . 'Controllers' . DS . 'HomeController.php';
         $this->controller = new Http\HomeController();
         $this->controller->index();
     }
@@ -56,11 +56,10 @@ class Route
      */
     private function loadController()
     {
-        $page = ROOT . DS . 'controllers' . DS . ucfirst($this->url[0]) . DS . ucfirst($this->url[1]) . 'Controller.php';
+        $page = ROOT . DS . 'Controllers'. DS . ucfirst($this->url[0]) . 'Controller.php';
         if (file_exists($page)) {
             require $page;
         } else {
-            echo '1111111';
             $this->errors();
             die();
         }
@@ -71,7 +70,7 @@ class Route
      */
     private function methodExist()
     {
-        $class = "Http\\" . $this->url[0] . "\\" . $this->url[1] . 'Controller';
+        $class = "Http\\". ucfirst($this->url[0]) . 'Controller';
         $this->controller = new $class;
         $length = count($this->url);
         if ($length > 1) {
@@ -114,7 +113,7 @@ class Route
         private
         function errors()
         {
-            require ROOT . '/controllers/ErrorsController.php';
+            require ROOT . '/Controllers/ErrorsController.php';
             $this->controller = new Http\ErrorsController();
             $this->controller->index();
             die();

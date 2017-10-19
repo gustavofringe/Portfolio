@@ -14,10 +14,12 @@
             <td><?= $work->content; ?></td>
             <td><?= date('d/m/Y', strtotime($work->date)); ?></td>
             <td>
-                <a href="" class="btn btn-primary">edit</a>
-                <a href="" class="btn btn-danger">delete</a>
+                <a href="<?= BASE_URL;?>/admin/edit/<?=$work->url;?>" class="btn btn-primary">edit</a>
+                <a href="<?= BASE_URL;?>/admin/delete/<?=$work->workID;?>" class="btn btn-danger">delete</a>
             </td>
         </tr>
     <?php endforeach; ?>
     </tbody>
 </table>
+
+<?php echo $_POST['test'];?>

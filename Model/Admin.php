@@ -2,6 +2,7 @@
 
 use App\Model;
 
+
 /**
  * Created by IntelliJ IDEA.
  * User: gustavo

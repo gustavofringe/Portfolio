@@ -14,16 +14,16 @@ class Form
         $form = "<form method='post'  enctype='multipart/form-data'>";
         echo $form;
     }
-    public static function input($name,$label,$options = array()){
+    public static function input($name,$label,$options = array(),$value=null){
         $error = false;
         if(isset(self::$errors[$name])){
             $error = self::$errors[$name];
         }
-        if(!isset(self::$controller->request->data->$name)){
+        /*if(!isset(self::$controller->request->data->$name)){
             $value = '';
         }else{
             $value = self::$controller->request->data->$name;
-        }
+        }*/
         $html = '<div class="'.$options['classDiv'].'"><label for="'.$name.'">'.$label.'</label>';
         if(!isset($options['type']) && !isset($options['options'])){
             $html .= '<input type="text" class='.$options['class'].' id="'.$name.'" name="'.$name.'" value="'.$value.'">';
