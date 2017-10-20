@@ -18,7 +18,6 @@ class Model
      */
     public function __construct()
     {
-        echo 'Model ';
         $conf = Conf::$databases[$this->conf];
         try {
             $pdo = new PDO(
@@ -37,7 +36,6 @@ class Model
             die();
         }
     }
-
     /**
      * load model for validate form
      * @param $name
@@ -53,6 +51,7 @@ class Model
         }
 
     }
+
 
     /**
      * validate fields

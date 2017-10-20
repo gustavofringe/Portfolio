@@ -14,7 +14,7 @@ class Form
         $form = "<form method='post'  enctype='multipart/form-data'>";
         echo $form;
     }
-    public static function input($name,$label,$options = array(),$value=null){
+    public static function input($name,$label,$options = array(),$value=null,$opt=null){
         $error = false;
         if(isset(self::$errors[$name])){
             $error = self::$errors[$name];
@@ -26,7 +26,7 @@ class Form
         }*/
         $html = '<div class="'.$options['classDiv'].'"><label for="'.$name.'">'.$label.'</label>';
         if(!isset($options['type']) && !isset($options['options'])){
-            $html .= '<input type="text" class='.$options['class'].' id="'.$name.'" name="'.$name.'" value="'.$value.'">';
+            $html .= '<input type="text" class='.$options['class'].' id="'.$name.'" name="'.$name.'" placeholder="'.$options['place'].'" value="'.$value.'"'.$opt.'>';
         }elseif(isset($options['options'])){
             $html .= '<select id="'.$name.'" name="'.$name.'">';
             foreach($options['options'] as $k=>$v){
@@ -38,11 +38,10 @@ class Form
         }elseif($options['type'] == 'checkbox'){
             $html .= '<input type="hidden" class='.$options['class'].' name="'.$name.'" value="0"><input type="checkbox" name="'.$name.'" value="1" '.(empty($value)?'':'checked').'>';
         }elseif($options['type'] == 'file'){
-            $html .= '<input type="file" class='.$options['class'].' class="input-file" id="'.$name.'" name="'.$name.'">';
+            $html .= '<input type="file" class="form-control-file" id="'.$name.'" name="'.$name.'" '.$opt.'>';
         }elseif($options['type'] == 'password'){
             $html .= '<input type="password" class='.$options['class'].' id="'.$name.'" name="'.$name.'" value="'.$value.'">';
         }
-
         if($error){
             $html .= '<div class="alert alert-danger">'.$error.'</div>';
         }

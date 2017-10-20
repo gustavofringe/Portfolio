@@ -69,6 +69,7 @@ class PostsController extends Controller
     {
         $var['title'] = "Portfolio || new";
         $this->Session->isLogged('admin');
+        $this->Model->loadModel('Post');
         if (!empty($_POST)) {
             if (empty($_POST['title']) || !preg_match('/^[a-zA-Z0-9_\s]+$/', $_POST['title'])) {
                 $var['errors']['title'] = "Vous n'avez pas entrer un titre valide";
@@ -100,7 +101,7 @@ class PostsController extends Controller
                 $this->model->save('works', [
                     'conditions' => $cond
                 ]);
-                $id_image = $this->model->id;
+                $id_image = $this->Model->id;
                 $img = $_FILES['image'];
                 $size = $img['size'];
                 $type = $img['type'];
@@ -131,7 +132,7 @@ class PostsController extends Controller
                             'conditions' => $condition
                         ]);
                         $this->Session->setFlash('Travail sauvegarder!');
-                        $this->Views->redirect(BASE_URL . '/admin/views');
+                        $this->Views->redirect(BASE_URL . '/admin/index');
                         die();
                     } else {
                         $var['errors']['image'] = "le fichier n'est pas au bon format";
@@ -139,9 +140,9 @@ class PostsController extends Controller
                 }
             }
         }
-        $this->Views->set($var);
+        //$this->Views->set($var);
         $this->Views->layout = 'admin';
-        $this->Views->render('admin', 'create');
+        $this->Views->render('admin', 'create',$var);
     }
     public function createcompetence()
     {
@@ -165,13 +166,13 @@ class PostsController extends Controller
                 move_uploaded_file($img['tmp_name'], ROOT . '/public/img/' . $folder . '/' . $img['name']);
                 $file = ROOT . '/public/img/' . $folder . '/' . $img['name'];
                 $resizedFile = ROOT . '/public/img/' . $folder . '/' . $filename;
-                $this->img->resize($file, null, 150, 200, false, $resizedFile, false, false, 100);
+                $this->Img->resize($file, null, 150, 200, false, $resizedFile, false, false, 100);
                 $cond = ['name' => $title, 'images' => $img['name'], 'titleCompetenceID' => $competence_id, 'sentence' => $_POST['sentence'], 'date' => $date];
-                $this->model->save('competences', [
+                $this->Model->save('competences', [
                     'conditions' => $cond
                 ]);
-                $this->views->redirect(BASE_URL . '/admin/views');
-                $this->session->setFlash('Votre competence est enregistrer');
+                $this->Views->redirect(BASE_URL . '/admin/views');
+                $this->Session->setFlash('Votre competence est enregistrer');
                 die();
             } else {
                 $var['errors']['extensions'] = "L'image n'est pas au bon format";
@@ -181,5 +182,9 @@ class PostsController extends Controller
         $this->Views->layout = 'admin';
         $this->Views->render('admin', 'competence');
     }
-
+public function contact(){
+    $var['title'] = "Portfolio || Contact";
+    //$this->Views->set($var);
+    $this->Views->render('posts', 'contact',$var);
+}
 }

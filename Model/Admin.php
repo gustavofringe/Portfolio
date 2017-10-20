@@ -9,10 +9,12 @@ use App\Model;
  * Date: 17/10/17
  * Time: 11:55
  */
-
-
 class Admin extends Model
 {
+    public function __construct()
+    {
+        echo 'Admin';
+    }
 
     public $fillable = [
         'username' => [

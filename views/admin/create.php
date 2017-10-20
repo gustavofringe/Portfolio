@@ -1,16 +1,11 @@
 <h1>Create project</h1>
-<?php if (!empty($errors)): ?>
-    <div class="alert alert-danger">
-        <p>Vous n'avez pas rempli le formulaire correctement</p>
-        <ul>
-            <?php foreach ($errors as $error): ?>
-                <li>
-                    <?= $error; ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-<?php endif; ?>
+<?php
+App\Form::open();
+App\Form::csrfInput();
+App\Form::input('title','Titre',['classDiv'=>'form-group','class'=>'form-control','place'=>'titre'],'','required');
+App\Form::input('image[]','Upload d\'image',['type'=>'file','classDiv'=>'form-group','class'=>'form-control','place'=>''],'','multiple');
+App\Form::close();
+?>
 <form action="" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="title">Titre</label>

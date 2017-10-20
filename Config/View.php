@@ -37,8 +37,13 @@ class View
      * @param null $folder
      * @param null $view
      */
-    public function render($folder, $view)
+    public function render($folder, $view,$key, $value=null)
     {
+        if (is_array($key)) {
+            $this->vars += $key;
+        } else {
+            $this->vars[$key] = $value;
+        }
         //extract variables for views
         extract($this->vars);
         //define views.php

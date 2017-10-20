@@ -14,17 +14,16 @@ use App\Controller;
 class PagesController extends Controller
 {
     public function competences(){
-        $var['msg'] = '';
-        $var['title'] = "Portfolio || competences";
-        $var['competences'] = $this->model->findAll('competences c',[
+        $var['title'] = "Portfolio || compétences";
+        $var['competences'] = $this->Model->findAll('competences c',[
             'join'=>['titleCompetence t'=>'c.titleCompetenceID=t.titleCompetenceID'],
             'group'=>'c.titleCompetenceID'
         ]);
-        $var['competence'] = $this->model->findAll('competences c',[
+        $var['competence'] = $this->Model->findAll('competences c',[
             'distinct'=>'titleCompetenceID,images,name',
             'conditions'=>'titleCompetenceID!=1'
         ]);
-        $var['system'] = $this->model->findAll('competences',[
+        $var['system'] = $this->Model->findAll('competences',[
             'conditions'=>['titleCompetenceID'=>1]
         ]);
         foreach ($var['competence'] as $img) {
@@ -38,25 +37,24 @@ class PagesController extends Controller
             $interval = $datetime2->diff($datenow);
             $var['date'] =  $interval->format("%m Mois d'experience");
         }*/
-        $this->views->set($var);
-        $this->views->render('pages','competences');
+        //$this->Views->set($var);
+        $this->Views->render('pages','competences', $var);
     }
     public function portfolio()
     {
-        $var['msg'] = '';
         $var['title'] = "Portfolio || Réalisations";
-        $var['realisations'] = $this->model->findAll('works w', [
+        $var['realisations'] = $this->Model->findAll('works w', [
             'join'=>['images i'=>'w.workID=i.workID'],
             'group'=>'i.workID'
         ]);
-        $var['images'] = $this->model->findAll('images', [
+        $var['images'] = $this->Model->findAll('images', [
             'distinct'=>'workID,name,folder'
 
         ]);
         foreach ($var['images'] as $img) {
             $var['tab'][$img->workID]['name'][] = $img->name;
         }
-        $this->views->set($var);
-        $this->views->render('pages','portfolio');
+        //$this->Views->set($var);
+        $this->Views->render('pages','portfolio',$var);
     }
 }

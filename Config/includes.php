@@ -3,9 +3,9 @@
 include 'Session.php';
 include 'Form.php';
 include 'Debug.php';
-include 'Request.php';
 include 'Conf.php';
 include 'View.php';
+include 'Request.php';
 include 'Controller.php';
 include 'Model.php';
 include 'Route.php';

@@ -7,3 +7,6 @@ Supprimerait public/img/test/
 Supprimerait db/seeds/
 
 /vendor/
+Supprimerait Controllers/Pages/
+Supprimerait Controllers/Posts/
+Supprimerait controllers/

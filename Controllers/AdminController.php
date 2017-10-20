@@ -36,9 +36,9 @@ class AdminController extends Controller
             $var['tab'][$img->workID]['name'][] = $img->name;
         }
 
-        $this->Views->set($var);
+        //$this->Views->set($var);
         $this->Views->layout = 'admin';
-        $this->Views->render('admin', 'index');
+        $this->Views->render('admin', 'index',$var);
     }
 
     /**
@@ -51,7 +51,7 @@ class AdminController extends Controller
         if($this->Request->data){
             $this->Model->Admin->validates($this->Request->data);
         }
-        /*if (isset($_POST['password'])) {
+        if (isset($this->Request->data->password)) {
             $password = $this->Service->hashPass($this->Request->data->password);
             $admin = $this->Model->findAll('admin', [
                 'name' => $this->Request->data->username,
@@ -65,47 +65,48 @@ class AdminController extends Controller
             } else {
                 $this->Session->setFlash("Identifiant ou mot de passe incorrect", 'danger');
             }
-        }*/
+        }
+        //$this->Views->set($var);
+        $this->Views->render('admin', 'login',$var);
+    }
+
+    public function edit($url)
+    {
+        $var['title'] = "Portfolio || Admin";
+        $this->Session->isLogged('admin');
+        $var['work'] = $this->Model->findFirst('works w', [
+            'fields' => 'w.workID,title,subTitle,techno,folder',
+            'join' => ['images i' => 'i.workID=w.workID'],
+            'conditions' => ['w.url' => $url]
+        ]);
+        $var['image'] = $this->Model->findAll('images', [
+            'fields' => 'name,folder,workID',
+            'conditions' => ['folder' => $url]
+        ]);
+        foreach ($var['image'] as $img) {
+            $var['tab'][$img->workID]['name'][] = $img->name;
+        }
+
         $this->Views->set($var);
-        $this->Views->render('admin', 'login');
+        $this->Views->layout = 'admin';
+        $this->Views->render('admin', 'edit');
     }
 
-public function edit($url){
-    $var['title'] = "Portfolio || Admin";
-    $this->Session->isLogged('admin');
-    $var['work'] = $this->Model->findFirst('works w', [
-        'fields'=>'w.workID,title,subTitle,techno,folder',
-        'join' => ['images i' => 'i.workID=w.workID'],
-        'conditions'=> ['w.url'=>$url]
-    ]);
-    $var['image'] = $this->Model->findAll('images', [
-        'fields'=>'name,folder,workID',
-        'conditions'=> ['folder'=>$url]
-    ]);
-    foreach ($var['image'] as $img) {
-        $var['tab'][$img->workID]['name'][] = $img->name;
+    public function delete($id)
+    {
+        $this->Session->isLogged('admin');
+        $this->Model->delete('works', [
+            'conditions' => ['workID' => $id]
+        ]);
+        $this->Session->setFlash('Travail supprimé', 'danger');
+        $this->Views->redirect(BASE_URL . '/admin');
+        die();
     }
 
-    $this->Views->set($var);
-    $this->Views->layout = 'admin';
-    $this->Views->render('admin', 'edit');
-}
 
-public function delete($id){
-    $this->Session->isLogged('admin');
-    $this->Model->delete('works',[
-        'conditions'=>['workID'=>$id]
-    ]);
-    $this->Session->setFlash('Travail supprimé','danger');
-    $this->Views->redirect(BASE_URL.'/admin');
-    die();
-}
-
-
-
-
-public function logout(){
+    public function logout()
+    {
         $this->Session->logout('admin');
-}
+    }
 
 }
