@@ -11,18 +11,25 @@ use App\Model;
 
 class Post extends Model
 {
-    public function __construct()
-    {
-    }
 
     public $fillable = [
-        'title'=>[
-            'rule'=>'([A-Za-z0-9\s])',
-            'message'=>'Votre titre ne doit contenir que des charactères alphanumérique'
+
+        'name'=>[
+            'rule'=>'preg',
+            'cond'=>'([a-zA-Z-]+)',
+            'message'=>'pasbon!'
         ],
-        'url'=>[
-            'rule'=>'([a-z0-9])',
-            'message'=>'url incorrect! ne doit pas contenir d\'espace ni majuscule'
+        'sentence'=>[
+            'rule'=>'preg',
+            'cond'=>'([a-zA-Z-]+)',
+            'message'=>'pasbon!!!'
+        ],
+        'image'=>[
+            'rule'=>'img',
+            'cond'=>['jpg','png','svg'],
+            'message'=>'Uniquement des fichiers avec les extensions: jpg,png,svg'
         ]
+
+
     ];
 }

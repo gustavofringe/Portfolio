@@ -15,15 +15,16 @@ class PagesController extends Controller
 {
     public function competences(){
         $var['title'] = "Portfolio || compétences";
-        $var['competences'] = $this->Model->findAll('competences c',[
+        $this->loadModel('Post');
+        $var['competences'] = $this->Post->findAll('competences c',[
             'join'=>['titleCompetence t'=>'c.titleCompetenceID=t.titleCompetenceID'],
             'group'=>'c.titleCompetenceID'
         ]);
-        $var['competence'] = $this->Model->findAll('competences c',[
+        $var['competence'] = $this->Post->findAll('competences c',[
             'distinct'=>'titleCompetenceID,images,name',
             'conditions'=>'titleCompetenceID!=1'
         ]);
-        $var['system'] = $this->Model->findAll('competences',[
+        $var['system'] = $this->Post->findAll('competences',[
             'conditions'=>['titleCompetenceID'=>1]
         ]);
         foreach ($var['competence'] as $img) {
@@ -43,11 +44,12 @@ class PagesController extends Controller
     public function portfolio()
     {
         $var['title'] = "Portfolio || Réalisations";
-        $var['realisations'] = $this->Model->findAll('works w', [
+        $this->loadModel('Post');
+        $var['realisations'] = $this->Post->findAll('works w', [
             'join'=>['images i'=>'w.workID=i.workID'],
             'group'=>'i.workID'
         ]);
-        $var['images'] = $this->Model->findAll('images', [
+        $var['images'] = $this->Post->findAll('images', [
             'distinct'=>'workID,name,folder'
 
         ]);

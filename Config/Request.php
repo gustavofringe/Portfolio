@@ -5,7 +5,8 @@ use stdClass;
 
 class Request
 {
-    public $data = false;
+    public $post = false;
+    public $file = false;
 
     /**
      * Request constructor.
@@ -13,9 +14,15 @@ class Request
     public function __construct()
     {
         if (!empty($_POST)) {
-            $this->data = new stdClass();
+            $this->post = new stdClass();
             foreach ($_POST as $k => $v) {
-                $this->data->$k = $v;
+                $this->post->$k = $v;
+            }
+        }
+        if(!empty($_FILES)){
+            $this->file = new stdClass();
+            foreach($_FILES as $k=>$v){
+                $this->file->$k = $v;
             }
         }
     }

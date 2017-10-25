@@ -8,26 +8,19 @@ class ComposerStaticInitfbe824ef7709e4971bc22eea8cee6fa2
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
+        '0e423a14e27410a071e5d815d3ffc856' => __DIR__ . '/..' . '/larapack/dd/src/helper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
-            'Symfony\\Component\\Yaml\\' => 23,
-            'Symfony\\Component\\Filesystem\\' => 29,
-            'Symfony\\Component\\Debug\\' => 24,
-            'Symfony\\Component\\Console\\' => 26,
-            'Symfony\\Component\\Config\\' => 25,
+            'Symfony\\Component\\VarDumper\\' => 28,
         ),
-        'P' => 
+        'H' => 
         array (
-            'Psr\\Log\\' => 8,
-            'Phinx\\' => 6,
-        ),
-        'C' => 
-        array (
-            'Controllers\\' => 12,
+            'Http\\' => 5,
         ),
         'A' => 
         array (
@@ -40,41 +33,17 @@ class ComposerStaticInitfbe824ef7709e4971bc22eea8cee6fa2
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
-        'Symfony\\Component\\Yaml\\' => 
+        'Symfony\\Component\\VarDumper\\' => 
         array (
-            0 => __DIR__ . '/..' . '/symfony/yaml',
+            0 => __DIR__ . '/..' . '/symfony/var-dumper',
         ),
-        'Symfony\\Component\\Filesystem\\' => 
+        'Http\\' => 
         array (
-            0 => __DIR__ . '/..' . '/symfony/filesystem',
-        ),
-        'Symfony\\Component\\Debug\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/debug',
-        ),
-        'Symfony\\Component\\Console\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/console',
-        ),
-        'Symfony\\Component\\Config\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/config',
-        ),
-        'Psr\\Log\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
-        ),
-        'Phinx\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/robmorgan/phinx/src/Phinx',
-        ),
-        'Controllers\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/controllers',
+            0 => __DIR__ . '/../..' . '/Controllers',
         ),
         'App\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/storage',
+            0 => __DIR__ . '/../..' . '/Config',
         ),
     );
 

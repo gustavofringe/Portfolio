@@ -10,58 +10,44 @@ namespace Http;
 
 
 use App\Controller;
+use App\Model;
+use function array_push;
+use function array_values;
+use const BASE_URL;
+use function d;
+use function dd;
+use function print_r;
+use stdClass;
 
 class PostsController extends Controller
 {
     public function index()
     {
         $var['title'] = "Portfolio || Contact";
-        if (!empty($_POST)) {
-            if (empty($_POST['lastname']) || !preg_match('/^[a-zA-Z-]+$/', $_POST['lastname'])) {
-                $var['errors']['lastname'] = "Votre prénom est incorrect";
-            }
-            if (empty($_POST['firstname']) || !preg_match('/^[a-zA-Z-]+$/', $_POST['firstname'])) {
-                $var['errors']['firstname'] = "Votre nom est incorrect";
-            }
-            if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                $var['errors']['email'] = "Votre email est incorrect";
-            }
-            if (empty($_POST['phone']) || !preg_match('/^[0-9]+$/', $_POST['phone'])) {
-                $var['errors']['firstname'] = "Votre telephone est incorrect";
-            }
-            if (empty($_POST['society']) || !preg_match('/^[a-zA-Z-]+$/', $_POST['society'])) {
-                $var['errors']['firstname'] = "Votre nom est incorrect";
-            }
-            $message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
-            if (empty($var['errors'])) {
-                $this->Email->send([
+        $this->loadModel('Contact');
+        if ($this->Request->post) {
+            dd($this->Request->post);
+            if ($this->Contact->validates($this->Request->post)) {
+                dd($this->Request->post);
+                /*$this->Email->send([
                     'lastname'  => $_POST['lastname'],
                     'firstname' => $_POST['firstname'],
                     'email'     => $_POST['email'],
                     'phone'     => $_POST['phone'],
                     'society'   => $_POST['society'],
-                    'message'   => $message
-                ]);
-                $date = new DateTime();
-                $dat = $date->format('Y-m-d');
-                $cond = [
-                    'lastname'      =>$_POST['lastname'],
-                    'firstname'     =>$_POST['firstname'],
-                    'email'         =>$_POST['email'],
-                    'phone'         =>$_POST['phone'],
-                    'society'       =>$_POST['society'],
-                    'message'       =>$message,
-                    'date'          =>$dat,
-                ];
-                $this->Model->save('contacts',[
-                    'conditions'=>$cond
-                ]);
-                $this->Session->setFlash('Votre message a été envoyé');
+                    //'message'   => $message
+                ]);*/
+                //$this->Request->data->date = date('Y-m-d');
+                $this->Contact->save('contacts', $this->Request->post);
+                //$this->Session->setFlash('Votre message a été envoyé');
+                //$this->Views->redirect(BASE_URL.'/');
+                die();
             }
         }
-        $this->Views->set($var);
-        $this->Views->render('posts','contact');
+        //$this->Views->set($var);
+        $this->Views->render('posts', 'contact', $var);
     }
+
     /**
      *
      */
@@ -69,7 +55,7 @@ class PostsController extends Controller
     {
         $var['title'] = "Portfolio || new";
         $this->Session->isLogged('admin');
-        $this->Model->loadModel('Post');
+        $this->loadModel('Post');
         if (!empty($_POST)) {
             if (empty($_POST['title']) || !preg_match('/^[a-zA-Z0-9_\s]+$/', $_POST['title'])) {
                 $var['errors']['title'] = "Vous n'avez pas entrer un titre valide";
@@ -98,10 +84,10 @@ class PostsController extends Controller
                     'date' => $date,
                     'online' => 0
                 ];
-                $this->model->save('works', [
+                $this->Post->save('works', [
                     'conditions' => $cond
                 ]);
-                $id_image = $this->Model->id;
+                $id_image = $this->Post->id;
                 $img = $_FILES['image'];
                 $size = $img['size'];
                 $type = $img['type'];
@@ -128,7 +114,7 @@ class PostsController extends Controller
                             'workID' => $id_image,
                             'folder' => $folder,
                         ];
-                        $this->Model->save('images', [
+                        $this->Admin->save('images', [
                             'conditions' => $condition
                         ]);
                         $this->Session->setFlash('Travail sauvegarder!');
@@ -142,15 +128,33 @@ class PostsController extends Controller
         }
         //$this->Views->set($var);
         $this->Views->layout = 'admin';
-        $this->Views->render('admin', 'create',$var);
+        $this->Views->render('admin', 'create', $var);
     }
+
     public function createcompetence()
     {
         $this->Session->isLogged('admin');
+        $this->loadModel('Post');
         $var['title'] = "Portfolio || Competences";
-        $var['title_competence'] = $this->Model->findAll('titleCompetence', []);
-        if (!empty($_POST)) {
-            $competence_id = $_POST['competence_id'];
+        $var['title_competence'] = $this->Post->findAll('titleCompetences', []);
+        if ($this->Request->post) {
+            if ($this->Post->validates($this->Request->file) && $this->Post->validates($this->Request->post)) {
+                if (!is_dir(ROOT . "/public/img/competences/")) {
+                    mkdir(ROOT . "/public/img/competences/", 0777, true);
+                }
+                $name = $this->Request->file->image['name'];
+                $tmp = $this->Request->file->image['tmp_name'];
+                move_uploaded_file($tmp, ROOT . '/public/img/competences/' . $name);
+                $file = ROOT . '/public/img/competences/' . $name;
+                $this->Img->resize($file, null, 150, 200, false, $file, false, false, 100);
+                $this->Post->save('imageCompetences', $this->Request->file->image);
+                $this->Request->post->imageCompetenceID = $this->Post->id;
+                $this->Post->save('competences', $this->Request->post);
+                $this->Views->redirect(BASE_URL . '/admin');
+                $this->Session->setFlash('Votre competence est enregistrer');
+                die();
+            }
+            /*$competence_id = $_POST['competence_id'];
             $title = $_POST['name'];
             $date = $_POST['date'];
             $img = $_FILES['image'];
@@ -161,30 +165,23 @@ class PostsController extends Controller
                 if (!is_dir(ROOT . "/public/img/" . $folder . "/")) {
                     mkdir(ROOT . "/public/img/" . $folder . "/", 0777, true);
 
-                }
-                $filename = $img['name'];
-                move_uploaded_file($img['tmp_name'], ROOT . '/public/img/' . $folder . '/' . $img['name']);
-                $file = ROOT . '/public/img/' . $folder . '/' . $img['name'];
-                $resizedFile = ROOT . '/public/img/' . $folder . '/' . $filename;
-                $this->Img->resize($file, null, 150, 200, false, $resizedFile, false, false, 100);
-                $cond = ['name' => $title, 'images' => $img['name'], 'titleCompetenceID' => $competence_id, 'sentence' => $_POST['sentence'], 'date' => $date];
-                $this->Model->save('competences', [
-                    'conditions' => $cond
-                ]);
-                $this->Views->redirect(BASE_URL . '/admin/views');
-                $this->Session->setFlash('Votre competence est enregistrer');
-                die();
-            } else {
-                $var['errors']['extensions'] = "L'image n'est pas au bon format";
-            }
+                }*/
+            //$filename = $img['name'];
+            //move_uploaded_file($img['tmp_name'], ROOT . '/public/img/' . $folder . '/' . $img['name']);
+            //$file = ROOT . '/public/img/' . $folder . '/' . $img['name'];
+            //$resizedFile = ROOT . '/public/img/' . $folder . '/' . $filename;
+            //$this->Img->resize('', null, 150, 200, false, '', false, false, 100);
+            //$cond = ['name' => $title, 'images' => $img['name'], 'titleCompetenceID' => $competence_id, 'sentence' => $_POST['sentence'], 'date' => $date];
+            /*$this->Admin->save('competences', [
+                'conditions' => $cond
+            ]);*/
+            //$this->Views->redirect(BASE_URL . '/admin/views');
+            //$this->Session->setFlash('Votre competence est enregistrer');
+
+            //}
         }
-        $this->Views->set($var);
+        //$this->Views->set($var);
         $this->Views->layout = 'admin';
-        $this->Views->render('admin', 'competence');
+        $this->Views->render('admin', 'competence',$var);
     }
-public function contact(){
-    $var['title'] = "Portfolio || Contact";
-    //$this->Views->set($var);
-    $this->Views->render('posts', 'contact',$var);
-}
 }

@@ -6,7 +6,8 @@ class HomeController extends Controller
 
     public function index(){
         $var['title'] = "Accueil";
-        $var['realisations'] = $this->Model->findAll('works w', [
+        $this->loadModel('Post');
+        $var['realisations'] = $this->Post->findAll('works w', [
             'join'=>['images i'=>'w.workID=i.workID'],
             'group'=>'i.workID'
         ]);

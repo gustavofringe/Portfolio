@@ -1,34 +1,18 @@
 <h1>Create project</h1>
-<?php if (!empty($errors)): ?>
-    <div class="alert alert-danger">
-        <p>Vous n'avez pas rempli le formulaire correctement</p>
-        <ul>
-            <?php foreach ($errors as $error): ?>
-                <li>
-                    <?= $error; ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-<?php endif; ?>
-<form action="" method="post"  enctype="multipart/form-data">
-    <div class="form-group">
-        <label for="name">Nom</label>
-        <input type="text" class="form-control" id="name" placeholder="Nom" name="name">
-    </div>
-    <div class="form-group">
-        <label for="sentence">Sentence</label>
-        <input type="text" class="form-control" id="sentence" placeholder="Sentence" name="sentence">
-    </div>
-    <div class="form-group">
-        <label for="image">Upload image</label>
-        <input type="file" class="form-control-file" id="image" name="image">
-    </div>
-    <!-- /.form-group -->
+
+<?php
+App\Form::open();
+App\Form::input('name','Nom',['classDiv'=>'form-group','class'=>'form-control','place'=>'Nom']);
+App\Form::input('sentence','Sentence',['classDiv'=>'form-group','class'=>'form-control','place'=>'Sentence']);
+App\Form::input('image','Upload d\'image',['type'=>'file','classDiv'=>'form-group','class'=>'form-control','place'=>'']);
+
+?>
+
+
 
     <div class="form-group">
         <label for="category">Title competence</label>
-        <select class="form-control" id="category" value="" name="competence_id">
+        <select class="form-control" id="category" value="" name="titleCompetenceID">
             <option value="">Title</option>
             <?php foreach ($title_competence as $category): ?>
                 <option class="nav-link" value="<?= $category->titleCompetenceID;?>"><?= $category->techno; ?></option>
@@ -42,5 +26,6 @@
             <span class="glyphicon glyphicon-th"></span>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<?php
+App\Form::button(['type'=>'submit','class'=>'btn btn-primary','name'=>'Envoyer']);
+App\Form::close();

@@ -16,7 +16,7 @@ class Route
      */
     public function __construct()
     {
-        $this->views = new View();
+        //$this->views = new View();
         $this->getUrl();
         if (empty($this->url[0])) {
             $this->loadControllerDefault();

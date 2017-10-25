@@ -20,7 +20,7 @@
     <div class="site-pusher">
         <header class="header">
             <div class="container-top">
-                <a href="#" class="header_icon" id="header_icon"></a>
+                <a href="" class="header_icon" id="header_icon"></a>
                 <a href="<?=BASE_URL;?>/admin" class="header_logo">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 943.9 1000" version="1.1" id="svg1499">
                         <g>

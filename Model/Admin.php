@@ -11,10 +11,6 @@ use App\Model;
  */
 class Admin extends Model
 {
-    public function __construct()
-    {
-        echo 'Admin';
-    }
 
     public $fillable = [
         'username' => [

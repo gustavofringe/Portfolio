@@ -21,7 +21,7 @@
         <td><?= $contact->phone; ?></td>
         <td><?= $contact->message; ?></td>
         <td><?= date('d/m/Y',strtotime( $contact->date)); ?></td>
-        <td><a href="<?= BASE_URL;?>contacts/delete/<?= $contact->contactID; ?>" class="btn btn-danger">Delete</a></td>
+        <td><a href="<?= BASE_URL;?>/contacts/delete/<?= $contact->contactID; ?>" class="btn btn-danger">Delete</a></td>
     </tr>
     <?php endforeach;?>
     </tbody>

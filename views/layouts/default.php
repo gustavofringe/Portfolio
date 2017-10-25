@@ -18,7 +18,7 @@
     <div class="site-pusher">
         <header class="header">
             <div class="container-top">
-                <a href="#" class="header_icon" id="header_icon"></a>
+                <a href="" class="header_icon" id="header_icon"></a>
                 <a href="<?= BASE_URL; ?>" class="header_logo">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 943.9 1000" version="1.1" id="svg1499">
                         <g>
@@ -34,14 +34,14 @@
 
                         <a href="<?= BASE_URL; ?>/pages/competences">mes compétences</a>
                         <a href="<?= BASE_URL; ?>/pages/portfolio">mon portfolio</a>
-                        <a href="<?= BASE_URL; ?>/posts/contact">me contacter</a>
+                        <a href="<?= BASE_URL; ?>/posts">me contacter</a>
                     </nav>
                     <!-- /.menu -->
                     <nav class="menu-desktop">
 
                         <a href="<?= BASE_URL; ?>/pages/competences">mes compétences</a>
                         <a href="<?= BASE_URL; ?>/pages/portfolio">mon portfolio</a>
-                        <a href="<?= BASE_URL; ?>/posts/contact">me contacter</a>
+                        <a href="<?= BASE_URL; ?>/posts">me contacter</a>
                     </nav>
                 <!-- /.menu-desktop -->
             </div>
@@ -105,8 +105,8 @@
 <!-- /.site-container -->
 
 <script src="<?= BASE_URL; ?>/public/js/jquery-3.2.1.min.js"></script>
-<script src="<?= BASE_URL; ?>/public/js/bootstrap.js"></script>
 <script src="<?= BASE_URL; ?>/public/js/main.js"></script>
+<script src="<?= BASE_URL; ?>/public/js/bootstrap.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>

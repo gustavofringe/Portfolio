@@ -4,6 +4,11 @@
  *responsive menu
  *
  * */
+$(document).ready(function(){
+    setTimeout(function() {
+        $('#alert').fadeOut('fast');
+    }, 5000); // <-- time in milliseconds
+});
 $('#header_icon').click(function (e) {
     e.preventDefault();
     $('body').toggleClass('with--sidebar');

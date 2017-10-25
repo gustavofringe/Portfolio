@@ -23,12 +23,13 @@ class AdminController extends Controller
     public function index()
     {
         $this->Session->isLogged('admin');
+        $this->loadModel('Admin');
         $var['title'] = "Portfolio || views";
-        $var['works'] = $var['works'] = $this->Model->findAll('works w', [
+        $var['works'] = $var['works'] = $this->Admin->findAll('works w', [
             'join' => ['images i' => 'i.workID=w.workID'],
             'group' => 'i.workID'
         ]);
-        $var['images'] = $this->Model->findAll('images', [
+        $var['images'] = $this->Admin->findAll('images', [
             'distinct' => 'workID,name,folder'
 
         ]);
@@ -47,14 +48,14 @@ class AdminController extends Controller
     public function login()
     {
         $var['title'] = "Portfolio || Admin";
-        $this->Model->loadModel('Admin');
-        if($this->Request->data){
-            $this->Model->Admin->validates($this->Request->data);
+        $this->loadModel('Admin');
+        if($this->Request->post){
+            $this->Admin->validates($this->Request->post);
         }
-        if (isset($this->Request->data->password)) {
-            $password = $this->Service->hashPass($this->Request->data->password);
-            $admin = $this->Model->findAll('admin', [
-                'name' => $this->Request->data->username,
+        if (isset($this->Request->post->password)) {
+            $password = $this->Service->hashPass($this->Request->post->password);
+            $admin = $this->Admin->findAll('admin', [
+                'name' => $this->Request->post->username,
                 'password' => $password
             ]);
             if ($password == $admin[0]->password) {

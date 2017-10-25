@@ -1,8 +1,17 @@
 <?php
+
 namespace App;
-use function debug;
+
+use App\Form;
+use function dd;
+use function in_array;
 use \PDO;
 use \PDOException;
+use function print_r;
+
+/**
+ * @property  Request
+ */
 class Model
 {
     static $connections = [];
@@ -36,21 +45,6 @@ class Model
             die();
         }
     }
-    /**
-     * load model for validate form
-     * @param $name
-     */
-    public function loadModel($name){
-        if(!isset($this->$name)){
-            $file = ROOT.DS.'Model'.DS.$name.'.php';
-            require_once($file);
-            $this->$name = new $name();
-            if(isset($this->Form)){
-                $this->$name->Form = $this->Form;
-            }
-        }
-
-    }
 
 
     /**
@@ -58,33 +52,42 @@ class Model
      * @param $data
      * @return bool
      */
-    public function validates($data){
-        Form::$errors = array();
-        foreach($this->fillable as $k=>$v){
-            if(!isset($data->$k)){
-                Form::$errors[$k] = $v['message'];
-            }else{
-                if($v['rule'] == 'notEmpty'){
-                    if(empty($data->$k)){
+    public function validates($data)
+    {
+        Form::$errors = [];
+        foreach ($this->fillable as $k => $v) {
+            if (isset($data->$k)) {
+                if ($v['rule'] === 'notEmpty') {
+                    if (empty($data->$k)) {
                         Form::$errors[$k] = $v['message'];
                     }
-                }elseif(!preg_match('/^'.$v['rule'].'$/',$data->$k)){
-                    Form::$errors[$k] = $v['message'];
+                } elseif ($v['rule'] === 'sanitize') {
+                    filter_var($data->$v, FILTER_SANITIZE_STRING);
+                } elseif ($v['rule'] === 'email') {
+                    if (isset($data->$k) && !filter_var($data->$k, FILTER_VALIDATE_EMAIL)) {
+                        Form::$errors[$k] = $v['message'];
+                    }
+                } elseif ($v['rule'] === 'img') {
+                    $ext = strtolower(substr($data->$k['name'], -3));
+                    if (!in_array($ext, $v['cond'])) {
+                        Form::$errors[$k] = $v['message'];
+                    }
+                } elseif ($v['rule'] === 'preg') {
+                    if (!preg_match('/^' . $v['cond'] . '$/', $data->$k)) {
+                        Form::$errors[$k] = $v['message'];
+                    }
                 }
             }
         }
         $this->errors = Form::$errors;
-        if(isset($this->Form)){
+        if (isset($this->Form)) {
             $this->Form->errors = Form::$errors;
         }
-        if(empty(Form::$errors)){
+        if (empty(Form::$errors)) {
             return true;
         }
         return false;
     }
-
-
-
 
 
     /**
@@ -164,66 +167,47 @@ class Model
         return current($this->findAll($table, $req));
     }
 
-    /**
-     * delete by id
-     * @param $id
-     */
-    public function delete($table, array $req)
-    {
-        $sql = "DELETE FROM " . $table;
-        if (isset($req['conditions'])) {
-            $sql .= ' WHERE ';
-            if (!is_array($req['conditions'])) {
-                $sql .= $req['conditions'];
-            } else {
-                $cond = [];
-                foreach ($req['conditions'] as $k => $v) {
-                    if (!is_numeric($v)) {
-                        $v = "'" . $v . "'";
-                    }
-                    $cond[] = $k . "=" . $v;
-                }
-                $sql .= implode(' AND ', $cond);
-            }
-        }
-        $this->db->query($sql);
-        //return $sql;
-    }
 
     /**
-     * @param $data
+     * @param $table
+     * @param $id
      */
-    public function update($table, $data, $id)
+    public function delete($table, $id)
     {
-        $sql = 'UPDATE ' . $table . ' SET ' . $data . '=0' . ' WHERE ' . $id . '=' . $id;
+        $sql = "DELETE FROM {$table} WHERE ";
+        $sql .= substr($table, 0, -1) . 'ID =' . $id;
         $this->db->query($sql);
     }
 
     /**
      * @param $table
-     * @param array $insert
+     * @param $datas
      */
-    public function save($table, array $insert)
+    public function save($table, $datas)
     {
-        $sql = 'INSERT INTO ' . $table;
-        if (isset($insert['conditions'])) {
-            $sql .= ' SET ';
-            if (!is_array($insert['conditions'])) {
-                $sql .= $insert['conditions'];
-            } else {
-                $cond = [];
-                foreach ($insert['conditions'] as $k => $v) {
-                    if (!is_numeric($v)) {
-                        $v = "'" . $v . "'";
-                    }
-                    $cond[] = $k . "=" . $v;
-                }
-                $sql .= implode(' , ', $cond);
+        $key = substr($table, 0, -1) . 'ID';
+        $fields = [];
+        $data = [];
+        foreach ($datas as $k => $v) {
+            if ($k != $key) {
+                $fields[] = "$k=:$k";
+                $data[":$k"] = $v;
+            } elseif (!empty($v)) {
+                $data[":$k"] = $v;
             }
         }
-        //return $sql;
+        if (isset($datas->$key) && !empty($datas->$key)) {
+            $sql = 'UPDATE ' . $table . ' SET ' . implode(',', $fields) . ' WHERE ' . $key . '=:' . $key;
+            $this->id = $datas->$key;
+            $action = 'update';
+        } else {
+            $sql = 'INSERT INTO ' . $table . ' SET ' . implode(',', $fields);
+            $action = 'insert';
+        }
         $pre = $this->db->prepare($sql);
-        $pre->execute();
-        $this->id = $this->db->lastInsertId();
+        $pre->execute($data);
+        if ($action == 'insert') {
+            $this->id = $this->db->lastInsertId();
+        }
     }
 }

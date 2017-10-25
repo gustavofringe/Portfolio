@@ -3,8 +3,10 @@ define('WEBROOT',dirname(__FILE__));
 define('ROOT',dirname(WEBROOT));
 define('BASE_URL', dirname(dirname($_SERVER['SCRIPT_NAME'])));
 define('DS', DIRECTORY_SEPARATOR);
-include ROOT.DS.'Config'.DS.'includes.php';
 require ROOT.DS.'vendor'.DS.'autoload.php';
+require ROOT.DS.'Config'.DS.'Route.php';
+require ROOT."/vendor/larapack/dd/src/helper.php";
+//include ROOT.DS.'Config'.DS.'Debug.php';
 //Autoloader::register();
 new App\Route();
 
