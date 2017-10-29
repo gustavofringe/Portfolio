@@ -26,25 +26,23 @@ class PostsController extends Controller
         $var['title'] = "Portfolio || Contact";
         $this->loadModel('Contact');
         if ($this->Request->post) {
-            dd($this->Request->post);
             if ($this->Contact->validates($this->Request->post)) {
-                dd($this->Request->post);
-                /*$this->Email->send([
-                    'lastname'  => $_POST['lastname'],
-                    'firstname' => $_POST['firstname'],
-                    'email'     => $_POST['email'],
-                    'phone'     => $_POST['phone'],
-                    'society'   => $_POST['society'],
-                    //'message'   => $message
-                ]);*/
-                //$this->Request->data->date = date('Y-m-d');
+                //dd($this->Request->post);
+                $this->Email->send('contact', [
+                    'lastname' => $this->Request->post->lastname,
+                    'firstname' => $this->Request->post->firstname,
+                    'email' => $this->Request->post->email,
+                    'phone' => $this->Request->post->phone,
+                    'society' => $this->Request->post->society,
+                    'message' => $this->Request->post->msg
+                ]);
+                $this->Request->post->date = date('Y-m-d');
                 $this->Contact->save('contacts', $this->Request->post);
-                //$this->Session->setFlash('Votre message a été envoyé');
-                //$this->Views->redirect(BASE_URL.'/');
+                $this->Session->setFlash('Votre message a été envoyé');
+                $this->Views->redirect(BASE_URL.'/');
                 die();
             }
         }
-        //$this->Views->set($var);
         $this->Views->render('posts', 'contact', $var);
     }
 
@@ -133,11 +131,17 @@ class PostsController extends Controller
 
     public function createcompetence()
     {
+        //only logged
         $this->Session->isLogged('admin');
+        //load model for validate and use CRUD
         $this->loadModel('Post');
+        //define title page
         $var['title'] = "Portfolio || Competences";
+        //load all competences for option group
         $var['title_competence'] = $this->Post->findAll('titleCompetences', []);
+        // if !empty $_POST
         if ($this->Request->post) {
+            //if form is validate record fields
             if ($this->Post->validates($this->Request->file) && $this->Post->validates($this->Request->post)) {
                 if (!is_dir(ROOT . "/public/img/competences/")) {
                     mkdir(ROOT . "/public/img/competences/", 0777, true);
@@ -154,34 +158,9 @@ class PostsController extends Controller
                 $this->Session->setFlash('Votre competence est enregistrer');
                 die();
             }
-            /*$competence_id = $_POST['competence_id'];
-            $title = $_POST['name'];
-            $date = $_POST['date'];
-            $img = $_FILES['image'];
-            $ext = strtolower(substr($img['name'], -3));
-            $autor_ext = ['jpg', 'png', 'svg'];
-            if (in_array($ext, $autor_ext)) {
-                $folder = "competences";
-                if (!is_dir(ROOT . "/public/img/" . $folder . "/")) {
-                    mkdir(ROOT . "/public/img/" . $folder . "/", 0777, true);
-
-                }*/
-            //$filename = $img['name'];
-            //move_uploaded_file($img['tmp_name'], ROOT . '/public/img/' . $folder . '/' . $img['name']);
-            //$file = ROOT . '/public/img/' . $folder . '/' . $img['name'];
-            //$resizedFile = ROOT . '/public/img/' . $folder . '/' . $filename;
-            //$this->Img->resize('', null, 150, 200, false, '', false, false, 100);
-            //$cond = ['name' => $title, 'images' => $img['name'], 'titleCompetenceID' => $competence_id, 'sentence' => $_POST['sentence'], 'date' => $date];
-            /*$this->Admin->save('competences', [
-                'conditions' => $cond
-            ]);*/
-            //$this->Views->redirect(BASE_URL . '/admin/views');
-            //$this->Session->setFlash('Votre competence est enregistrer');
-
-            //}
         }
-        //$this->Views->set($var);
+        //define layout and send var at view
         $this->Views->layout = 'admin';
-        $this->Views->render('admin', 'competence',$var);
+        $this->Views->render('admin', 'competence', $var);
     }
 }

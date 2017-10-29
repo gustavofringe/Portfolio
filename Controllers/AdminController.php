@@ -49,9 +49,6 @@ class AdminController extends Controller
     {
         $var['title'] = "Portfolio || Admin";
         $this->loadModel('Admin');
-        if($this->Request->post){
-            $this->Admin->validates($this->Request->post);
-        }
         if (isset($this->Request->post->password)) {
             $password = $this->Service->hashPass($this->Request->post->password);
             $admin = $this->Admin->findAll('admin', [
@@ -67,7 +64,6 @@ class AdminController extends Controller
                 $this->Session->setFlash("Identifiant ou mot de passe incorrect", 'danger');
             }
         }
-        //$this->Views->set($var);
         $this->Views->render('admin', 'login',$var);
     }
 
@@ -75,12 +71,13 @@ class AdminController extends Controller
     {
         $var['title'] = "Portfolio || Admin";
         $this->Session->isLogged('admin');
-        $var['work'] = $this->Model->findFirst('works w', [
+        $this->loadModel('Admin');
+        $var['work'] = $this->Admin->findFirst('works w', [
             'fields' => 'w.workID,title,subTitle,techno,folder',
             'join' => ['images i' => 'i.workID=w.workID'],
             'conditions' => ['w.url' => $url]
         ]);
-        $var['image'] = $this->Model->findAll('images', [
+        $var['image'] = $this->Admin->findAll('images', [
             'fields' => 'name,folder,workID',
             'conditions' => ['folder' => $url]
         ]);
@@ -88,9 +85,8 @@ class AdminController extends Controller
             $var['tab'][$img->workID]['name'][] = $img->name;
         }
 
-        $this->Views->set($var);
         $this->Views->layout = 'admin';
-        $this->Views->render('admin', 'edit');
+        $this->Views->render('admin', 'edit',$var);
     }
 
     public function delete($id)

@@ -16,7 +16,6 @@ class Route
      */
     public function __construct()
     {
-        //$this->views = new View();
         $this->getUrl();
         if (empty($this->url[0])) {
             $this->loadControllerDefault();
@@ -56,7 +55,7 @@ class Route
      */
     private function loadController()
     {
-        $page = ROOT . DS . 'Controllers'. DS . ucfirst($this->url[0]) . 'Controller.php';
+        $page = ROOT . DS . 'Controllers' . DS . ucfirst($this->url[0]) . 'Controller.php';
         if (file_exists($page)) {
             require $page;
         } else {
@@ -70,7 +69,7 @@ class Route
      */
     private function methodExist()
     {
-        $class = "Http\\". ucfirst($this->url[0]) . 'Controller';
+        $class = "Http\\" . ucfirst($this->url[0]) . 'Controller';
         $this->controller = new $class;
         $length = count($this->url);
         if ($length > 1) {
@@ -106,16 +105,14 @@ class Route
     }
 
 
-
-        /**
-         *
-         */
-        private
-        function errors()
-        {
-            require ROOT . '/Controllers/ErrorsController.php';
-            $this->controller = new Http\ErrorsController();
-            $this->controller->index();
-            die();
-        }
+    /**
+     *load errors controller
+     */
+    private function errors()
+    {
+        require ROOT . '/Controllers/ErrorsController.php';
+        $this->controller = new Http\ErrorsController();
+        $this->controller->index();
+        die();
     }
+}

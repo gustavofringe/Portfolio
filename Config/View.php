@@ -5,11 +5,7 @@ class View
     public $layout = 'default';
     public $vars = [];
     /**
-     * send variable at view
-     * @param $key
-     * @param null $value
-     */
-    /**
+     * display errors in view
      * @return string
      */
     public function flash()
@@ -24,14 +20,7 @@ class View
         unset($_SESSION['flash']);
     }
 
-    public function set($key, $value=null)
-    {
-        if (is_array($key)) {
-            $this->vars += $key;
-        } else {
-            $this->vars[$key] = $value;
-        }
-    }
+
     /**
      * render view
      * @param null $folder

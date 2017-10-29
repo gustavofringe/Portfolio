@@ -4,7 +4,9 @@ namespace App;
 
 use App\Form;
 use function dd;
+use const FILTER_SANITIZE_STRING;
 use function in_array;
+use const INPUT_POST;
 use \PDO;
 use \PDOException;
 use function print_r;
@@ -19,7 +21,7 @@ class Model
     public $db;
     public $id;
     public $errors;
-    public $fillable = [];
+    protected $fillable = [];
 
     /**
      * database connection
@@ -40,8 +42,7 @@ class Model
             Model::$connections[$this->conf] = $pdo;
             $this->db = $pdo;
         } catch (PDOException $e) {
-            echo 'Impossible de se connecter à la base de donnée';
-            echo $e->getMessage();
+            echo 'Échec lors de la connexion avec le code : ' . $e->getCode();
             die();
         }
     }
@@ -62,7 +63,8 @@ class Model
                         Form::$errors[$k] = $v['message'];
                     }
                 } elseif ($v['rule'] === 'sanitize') {
-                    filter_var($data->$v, FILTER_SANITIZE_STRING);
+                    $data->$k = filter_var($data->$k,FILTER_SANITIZE_STRING,FILTER_FLAG_NO_ENCODE_QUOTES);
+                    return $data->$k;
                 } elseif ($v['rule'] === 'email') {
                     if (isset($data->$k) && !filter_var($data->$k, FILTER_VALIDATE_EMAIL)) {
                         Form::$errors[$k] = $v['message'];

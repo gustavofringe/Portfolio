@@ -1,6 +1,5 @@
 <?php
 namespace App;
-use function debug;
 
 class Form
 {

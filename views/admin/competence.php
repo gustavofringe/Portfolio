@@ -2,7 +2,7 @@
 
 <?php
 App\Form::open();
-App\Form::input('name','Nom',['classDiv'=>'form-group','class'=>'form-control','place'=>'Nom']);
+App\Form::input('nameCompetence','Nom',['classDiv'=>'form-group','class'=>'form-control','place'=>'Nom']);
 App\Form::input('sentence','Sentence',['classDiv'=>'form-group','class'=>'form-control','place'=>'Sentence']);
 App\Form::input('image','Upload d\'image',['type'=>'file','classDiv'=>'form-group','class'=>'form-control','place'=>'']);
 

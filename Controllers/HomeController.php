@@ -11,7 +11,6 @@ class HomeController extends Controller
             'join'=>['images i'=>'w.workID=i.workID'],
             'group'=>'i.workID'
         ]);
-        //$this->Views->set($var);
         $this->Views->render('pages', 'index',$var);
     }
 }

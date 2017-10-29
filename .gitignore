@@ -1,12 +1,16 @@
 # Include your project-specific ignores in this file
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 /.idea
-/Config/Conf.php
+Config/Conf.php
 Supprimerait public/img/test/
-/phinx.yml
+phinx.yml
 Supprimerait db/seeds/
 
 /vendor/
 Supprimerait Controllers/Pages/
 Supprimerait Controllers/Posts/
 Supprimerait controllers/
+Supprimerait public/img/competences/HTML5_Logo_512.png
+Supprimerait node_modules/
+Supprimerait package-lock.json
+Supprimerait package.json

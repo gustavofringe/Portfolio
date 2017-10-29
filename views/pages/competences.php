@@ -5,10 +5,10 @@
         <?php foreach ($system as $sys): ?>
             <div class="col-xl-3">
                 <div class="block text-center">
-                    <img src="<?= BASE_URL; ?>/public/img/competences/<?= $sys->images; ?>" alt="apple"
+                    <img src="<?= BASE_URL; ?>/public/img/competences/<?= $sys->name; ?>" alt="apple"
                          class="rounded-circle img-thumbnail w-75">
                     <!-- /.rounded-circle -->
-                    <p class="text-center"><?= $sys->name; ?></p>
+                    <p class="text-center"><?= $sys->nameCompetence; ?></p>
                     <p class="text-center font-italic text-muted"><?= $sys->sentence; ?></p>
                 </div>
                 <!-- /.block -->

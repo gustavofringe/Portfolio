@@ -59,6 +59,7 @@
 
 <h3 class="mt-3">Mes dernières réalisations</h3>
 <div class="row mt-5 mb-3 justify-content-sm-center">
+    <?php foreach ($realisations as $realisation): ?>
     <div class="col-lg-3 col-sm-auto mb-3">
         <div class="d-flex justify-content-center">
             <div class="card" style="width: 242px;">
@@ -66,17 +67,20 @@
                     <div class="first content-image d-flex" role="img" aria-label="archiduchesse">
                         <!--<img class="d-flex mr-3" src="img/archiduchesse_s.png" alt="archiduchesse">-->
 
-                        <div class="image"></div>
+                        <div class="image">
+                            <img src="<?php echo BASE_URL;?>/public/img/" alt="">
+                        </div>
 
                     </div>
                 </a>
                 <div class="card-block">
-                    <h4 class="card-title">projectArchiduchesse</h4>
-                    <p class="card-text">Reproduction du site l'Archiduchesse</p>
+                    <h4 class="card-title"><?= $realisation->title;?></h4>
+                    <p class="card-text"><?= $realisation->subtitle;?></p>
                 </div>
             </div>
         </div>
     </div>
+    <?php endforeach; ?>
     <!--/.col-xl-3-->
     <div class="col-lg-3 col-sm-auto mb-3">
         <div class="d-flex justify-content-center">

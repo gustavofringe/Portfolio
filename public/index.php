@@ -6,7 +6,6 @@ define('DS', DIRECTORY_SEPARATOR);
 require ROOT.DS.'vendor'.DS.'autoload.php';
 require ROOT.DS.'Config'.DS.'Route.php';
 require ROOT."/vendor/larapack/dd/src/helper.php";
-//include ROOT.DS.'Config'.DS.'Debug.php';
-//Autoloader::register();
+
 new App\Route();
 

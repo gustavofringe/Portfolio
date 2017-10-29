@@ -6,6 +6,7 @@ use const BASE_URL;
 class Session
 {
     /**
+     * initialize a session crsf code
      * Session constructor.
      */
     public function __construct()
@@ -19,6 +20,7 @@ class Session
     }
 
     /**
+     * protect view
      * @param $user
      * @return bool
      */
@@ -32,6 +34,7 @@ class Session
     }
 
     /**
+     * write session
      * @param $key
      * @param $value
      */
@@ -41,9 +44,9 @@ class Session
     }
 
     /**
+     * define message flash
      * @param $message
      * @param string $type
-     * return flash message at view
      */
     public function setFlash($message, $type = 'success')
     {
@@ -54,6 +57,7 @@ class Session
     }
 
     /**
+     * display message flash
      * @return string
      */
     static function flash()
@@ -81,6 +85,10 @@ class Session
         $this->setFlash('Vous êtes maintenant deconnecter');
     }
 
+    /**
+     * checf if correctly post
+     * @return bool
+     */
     public static function checkCsrf()
     {
         if (
@@ -89,7 +97,7 @@ class Session
         ) {
             return true;
         }
-        View::redirect(BASE_URL . '/admin/login');
+        View::redirect(BASE_URL . '/login');
         die();
     }
 }

@@ -20,8 +20,7 @@ class Post extends Model
             'message'=>'pasbon!'
         ],
         'sentence'=>[
-            'rule'=>'preg',
-            'cond'=>'([a-zA-Z-]+)',
+            'rule'=>'notEmpty',
             'message'=>'pasbon!!!'
         ],
         'image'=>[

@@ -11,7 +11,6 @@ class Controller
     public function __construct()
     {
         $this->Session = new Session();
-        //$this->Model = new Model();
         $this->Views = new View();
         $this->Email = new Email();
         $this->Form = new Form($this);
