@@ -65,6 +65,10 @@ class Model
                 } elseif ($v['rule'] === 'sanitize') {
                     $data->$k = filter_var($data->$k,FILTER_SANITIZE_STRING,FILTER_FLAG_NO_ENCODE_QUOTES);
                     return $data->$k;
+                }elseif($v['rule'] === 'url'){
+                    if(isset($data->$k) && !filter_var($data->$k, FILTER_VALIDATE_URL)){
+                        Form::$errors[$k] = $v['message'];
+                        }
                 } elseif ($v['rule'] === 'email') {
                     if (isset($data->$k) && !filter_var($data->$k, FILTER_VALIDATE_EMAIL)) {
                         Form::$errors[$k] = $v['message'];

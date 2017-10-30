@@ -53,39 +53,11 @@ class PostsController extends Controller
     {
         $var['title'] = "Portfolio || new";
         $this->Session->isLogged('admin');
-        $this->loadModel('Post');
-        if (!empty($_POST)) {
-            if (empty($_POST['title']) || !preg_match('/^[a-zA-Z0-9_\s]+$/', $_POST['title'])) {
-                $var['errors']['title'] = "Vous n'avez pas entrer un titre valide";
-            }
-            /*if (empty($_POST['url']) || !preg_match('/^[a-z\-0-9]+$/', $_POST['url'])) {
-                $var['errors']['url'] = "Vous n'avez pas entrer un url valide";
-            }*/
-            /*if (empty($_POST['content'])) {
-                $var['errors']['content'] = "Votre contenu est incorrect";
-            }*/
-            if (empty($var['errors'])) {
-                $title = $_POST['title'];
-                $subtitle = $_POST['subtitle'];
-                $techno = $_POST['techno'];
-                $url = $_POST['url'];
-                $link = $_POST['link'];
-                $date = $_POST['date'];
-                $content = $_POST['content'];
-                $cond = [
-                    'title' => $title,
-                    'content' => $content,
-                    'url' => $url,
-                    'subtitle' => $subtitle,
-                    'techno' => $techno,
-                    'link' => $link,
-                    'date' => $date,
-                    'online' => 0
-                ];
-                $this->Post->save('works', [
-                    'conditions' => $cond
-                ]);
-                $id_image = $this->Post->id;
+        $this->loadModel('Project');
+        if ($this->Request->post) {
+            if ($this->Project->validates($this->Request->post)) {
+                //dd($this->Request->post);
+                /*$id_image = $this->Post->id;
                 $img = $_FILES['image'];
                 $size = $img['size'];
                 $type = $img['type'];
@@ -105,26 +77,14 @@ class PostsController extends Controller
                         $file = ROOT . '/public/img/' . $folder . '/' . $img['name'][$i];
                         $resizedFile = ROOT . '/public/img/' . $folder . '/' . $filename;
                         $this->Img->resize($file, null, 240, 230, false, $resizedFile, false, false, 100);
-                        $condition = [
-                            'name' => $img['name'][$i],
-                            'size' => $size[$i],
-                            'type' => $type[$i],
-                            'workID' => $id_image,
-                            'folder' => $folder,
-                        ];
-                        $this->Admin->save('images', [
-                            'conditions' => $condition
-                        ]);
+
                         $this->Session->setFlash('Travail sauvegarder!');
-                        $this->Views->redirect(BASE_URL . '/admin/index');
+                        $this->Views->redirect(BASE_URL . '/admin/index');*/
                         die();
-                    } else {
-                        $var['errors']['image'] = "le fichier n'est pas au bon format";
-                    }
-                }
+
             }
         }
-        //$this->Views->set($var);
+
         $this->Views->layout = 'admin';
         $this->Views->render('admin', 'create', $var);
     }
@@ -141,6 +101,7 @@ class PostsController extends Controller
         $var['title_competence'] = $this->Post->findAll('titleCompetences', []);
         // if !empty $_POST
         if ($this->Request->post) {
+            dd($this->Request->post);
             //if form is validate record fields
             if ($this->Post->validates($this->Request->file) && $this->Post->validates($this->Request->post)) {
                 if (!is_dir(ROOT . "/public/img/competences/")) {

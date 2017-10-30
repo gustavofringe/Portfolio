@@ -12,23 +12,22 @@ use App\Model;
 class Post extends Model
 {
 
-    public $fillable = [
+    protected $fillable = [
 
-        'name'=>[
-            'rule'=>'preg',
-            'cond'=>'([a-zA-Z-]+)',
-            'message'=>'pasbon!'
+        'name' => [
+            'rule' => 'preg',
+            'cond' => '([a-zA-Z0-9-]+)',
+            'message' => 'Ne doit comporter que des caractères alphanumérique'
         ],
-        'sentence'=>[
-            'rule'=>'notEmpty',
-            'message'=>'pasbon!!!'
+        'sentence' => [
+            'rule' => 'notEmpty',
+            'message' => 'Ce champ doit être rempli'
         ],
-        'image'=>[
-            'rule'=>'img',
-            'cond'=>['jpg','png','svg'],
-            'message'=>'Uniquement des fichiers avec les extensions: jpg,png,svg'
+        'image' => [
+            'rule' => 'img',
+            'cond' => ['jpg', 'png', 'svg'],
+            'message' => 'Uniquement des fichiers avec les extensions: jpg,png,svg'
         ]
-
 
     ];
 }

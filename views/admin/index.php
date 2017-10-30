@@ -22,4 +22,3 @@
     </tbody>
 </table>
 
-<?php echo $_POST['test'];?>

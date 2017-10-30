@@ -36,8 +36,6 @@ class AdminController extends Controller
         foreach ($var['images'] as $img) {
             $var['tab'][$img->workID]['name'][] = $img->name;
         }
-
-        //$this->Views->set($var);
         $this->Views->layout = 'admin';
         $this->Views->render('admin', 'index',$var);
     }
@@ -92,7 +90,8 @@ class AdminController extends Controller
     public function delete($id)
     {
         $this->Session->isLogged('admin');
-        $this->Model->delete('works', [
+        $this->loadModel('Admin');
+        $this->Admin->delete('works', [
             'conditions' => ['workID' => $id]
         ]);
         $this->Session->setFlash('Travail supprimé', 'danger');

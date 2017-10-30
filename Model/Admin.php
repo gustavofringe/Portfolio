@@ -12,7 +12,7 @@ use App\Model;
 class Admin extends Model
 {
 
-    public $fillable = [
+    protected $fillable = [
         'username' => [
             'rule' => 'notEmpty',
             'message' => 'pasbon'
