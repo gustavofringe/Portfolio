@@ -9,6 +9,7 @@ $height-header: 80px;
 $menu-width: 250px !default;
 $p-index: #C4B2FF;
 $color-form: #ff85a4;
+$border: #34667e;
 /*==============================================================================================================
 html, body
 =================================================================================================================*/
@@ -32,9 +33,10 @@ header
 ============================================================================================================*/
 
 .header {
+    font-family: 'Maven Pro', sans-serif;
     height: $height-header;
     position: static;
-    border-bottom: 1px dashed grey;
+    border-bottom: 1px solid $border;
     .header_logo {
         svg {
             width: 100px;
@@ -68,7 +70,6 @@ hamburger icon
     float: right;
     height: $height-header;
     width: 50px;
-    height: $height-header;
     cursor: pointer;
     &:after {
         content: '';
@@ -148,6 +149,13 @@ container
 }
 
 .site-pusher, .site-container {
+
+
+    font-family: 'Maven Pro', sans-serif;
+
+    font-family: 'Didact Gothic', sans-serif;
+
+
     height: 100%;
 }
 
@@ -180,7 +188,7 @@ container
 }
 
 .border {
-    border-bottom: 1px dashed grey;
+    border-bottom: 1px solid $border;
 }
 
 /*===========================================================================================================
@@ -331,13 +339,13 @@ competence
 footer
 ================================================================================*/
 footer {
-    border-top: 1px dashed grey;
+    border-top: 1px solid $border;
     h4 {
         font-size: 20px;
     }
     background-color: #CCCCCC;
     .dashed {
-        border-left: 1px dashed grey;
+        border-left: 1px solid $border;
     }
     img {
         height: 30px;

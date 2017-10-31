@@ -7,6 +7,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Maven+Pro" rel="stylesheet">
 
     <!-- Place favicon.ico in the root directory -->
     <link rel="icon" href="<?= BASE_URL; ?>/public/img/favicon.ico"/>
@@ -29,6 +31,9 @@
                         </g>
                     </svg>
                 </a>
+                <?php if($_REQUEST['url']):?>
+                    <a href="<?php echo BASE_URL; ?>">Accueil</a>
+                <?php endif;?>
 
                     <nav class="menu">
 

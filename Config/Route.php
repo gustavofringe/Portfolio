@@ -41,7 +41,7 @@ class Route
     }
 
     /**
-     *
+     *load HomeController by default
      */
     private function loadControllerDefault()
     {
@@ -69,9 +69,12 @@ class Route
      */
     private function methodExist()
     {
+        //create controller object
         $class = "Http\\" . ucfirst($this->url[0]) . 'Controller';
         $this->controller = new $class;
+        //count elements of url separate by /
         $length = count($this->url);
+        //if no method exist for url 1 return error
         if ($length > 1) {
             if (!method_exists($this->controller, $this->url[1])) {
                 $this->errors();
@@ -96,6 +99,7 @@ class Route
                 $this->controller->{$this->url[1]}();
                 break;
             case 1:
+                //$controller default method index
                 $this->controller->index();
                 break;
             default:

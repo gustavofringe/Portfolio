@@ -20,7 +20,7 @@ class Session
     }
 
     /**
-     * protect view
+     * protect view with session
      * @param $user
      * @return bool
      */
@@ -48,7 +48,7 @@ class Session
      * @param $message
      * @param string $type
      */
-    public function setFlash($message, $type = 'success')
+    public static function setFlash($message, $type = 'success')
     {
         $_SESSION['flash'] = [
             'type' => $type,
@@ -97,6 +97,7 @@ class Session
         ) {
             return true;
         }
+        self::setFlash("Vous n'avez pas accès a ce contenu",'danger');
         View::redirect(BASE_URL . '/login');
         die();
     }

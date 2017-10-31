@@ -1,24 +1,24 @@
 <div class="border">
     <div class="row">
-        <div class="col-xl-6 col-lg-6">
-            <figure class="figure">
+        <!--<div class="col-xl-6 col-lg-6">
+            <!--<figure class="figure">
                 <img src="<?= BASE_URL; ?>/public/img/logo.svg" alt="ma photo" class="rounded-circle photo" style="background-color: grey;">
-                <!-- /.rounded-circle -->
-            </figure>
-            <!-- /.figure -->
-        </div>
+                <!-- /.rounded-circle
+            </figure>-->
+            <!-- /.figure
+        </div>-->
         <!-- /.col-xl-6 -->
-        <div class="col-xl-6 col-lg-6">
+        <div class="col-xl-12 col-lg-12 mb-3">
             <article class="description title">
-                <h1>Besoin de créer un site WEB ?</h1>
-                <p>N'attendez plus, je peux vous offrir mes services selon vos besoins</p>
+                <h1 class="text-center">Dussart Guillaume</h1>
+                <h2 class="text-center">Développeur Web</h2>
             </article>
         </div>
         <!-- /.col-xl-6 -->
     </div>
     <!-- /.row --></div>
 <!-- /.border -->
-<div class="border">
+<!--<div class="border">
     <div class="row mt-3">
         <div class="col-12 col-xl-6 col-lg-6">
             <article class="apropos description">
@@ -35,13 +35,13 @@
                             métier et de suivre une formation très enrichissante à Simplon !
                         </p>
                     </div>
-                    <!-- /.media-body -->
+                    <!-- /.media-body
 
                 </div>
             </article>
-            <!--/.apropos-->
+            <!--/.apropos
         </div>
-        <!--/.col-xl-6-->
+        <!--/.col-xl-6
         <div class="col-12 col-xl-6 col-lg-6 description">
             <h2>Mes passions en images</h2>
             <img src="<?= BASE_URL;?>/public/img/hobbies/black-basketball.svg" alt="ballon">
@@ -51,9 +51,9 @@
             <img src="<?= BASE_URL;?>/public/img/hobbies/tennis.svg" alt="tennis">
 
         </div>
-        <!-- /.col-xl-6 col-lg-6 -->
+        <!-- /.col-xl-6 col-lg-6
     </div>
-    <!--/.row--></div>
+    <!--/.row</div>
 <!-- /.border -->
 
 

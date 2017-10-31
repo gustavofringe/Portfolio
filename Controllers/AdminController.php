@@ -12,6 +12,7 @@ namespace Http;
 use App\Controller;
 use App;
 use const BASE_URL;
+use function compact;
 use function debug;
 
 class AdminController extends Controller
@@ -22,12 +23,13 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $var['title'] = "Portfolio || views";
         $this->Session->isLogged('admin');
         $this->loadModel('Admin');
-        $var['title'] = "Portfolio || views";
         $var['works'] = $var['works'] = $this->Admin->findAll('works w', [
             'join' => ['images i' => 'i.workID=w.workID'],
-            'group' => 'i.workID'
+            'group' => 'i.workID',
+            'limit'=>0,4
         ]);
         $var['images'] = $this->Admin->findAll('images', [
             'distinct' => 'workID,name,folder'
@@ -45,7 +47,7 @@ class AdminController extends Controller
      */
     public function login()
     {
-        $var['title'] = "Portfolio || Admin";
+        $title = "Portfolio || Admin";
         $this->loadModel('Admin');
         if (isset($this->Request->post->password)) {
             $password = $this->Service->hashPass($this->Request->post->password);
@@ -62,12 +64,12 @@ class AdminController extends Controller
                 $this->Session->setFlash("Identifiant ou mot de passe incorrect", 'danger');
             }
         }
-        $this->Views->render('admin', 'login',$var);
+        $this->Views->render('admin', 'login',compact('title'));
     }
 
     public function edit($url)
     {
-        $var['title'] = "Portfolio || Admin";
+        $var['title'] = "Portfolio || Edit";
         $this->Session->isLogged('admin');
         $this->loadModel('Admin');
         $var['work'] = $this->Admin->findFirst('works w', [
@@ -91,9 +93,7 @@ class AdminController extends Controller
     {
         $this->Session->isLogged('admin');
         $this->loadModel('Admin');
-        $this->Admin->delete('works', [
-            'conditions' => ['workID' => $id]
-        ]);
+        $this->Admin->delete('works',$id);
         $this->Session->setFlash('Travail supprimé', 'danger');
         $this->Views->redirect(BASE_URL . '/admin');
         die();

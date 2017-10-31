@@ -63,12 +63,12 @@ class Model
                         Form::$errors[$k] = $v['message'];
                     }
                 } elseif ($v['rule'] === 'sanitize') {
-                    $data->$k = filter_var($data->$k,FILTER_SANITIZE_STRING,FILTER_FLAG_NO_ENCODE_QUOTES);
+                    $data->$k = filter_var($data->$k, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
                     return $data->$k;
-                }elseif($v['rule'] === 'url'){
-                    if(isset($data->$k) && !filter_var($data->$k, FILTER_VALIDATE_URL)){
+                } elseif ($v['rule'] === 'url') {
+                    if (isset($data->$k) && !filter_var($data->$k, FILTER_VALIDATE_URL)) {
                         Form::$errors[$k] = $v['message'];
-                        }
+                    }
                 } elseif ($v['rule'] === 'email') {
                     if (isset($data->$k) && !filter_var($data->$k, FILTER_VALIDATE_EMAIL)) {
                         Form::$errors[$k] = $v['message'];
@@ -104,12 +104,14 @@ class Model
     public function findAll($table, array $req)
     {
         $sql = 'SELECT ';
+        //distinct fields
         if (isset($req['distinct'])) {
             if (is_array($req['distinct'])) {
                 $sql .= 'DISTINCT ' . implode(', ', $req['distinct']);
             } else {
                 $sql .= 'DISTINCT ' . $req['distinct'];
             }
+            //count field
         } else if (isset($req['count'])) {
             $sql .= $req['field'] . ', COUNT(' . $req['count'] . ') as ' . $req['as'];
         } else if (isset($req['fields'])) {
@@ -118,22 +120,39 @@ class Model
             } else {
                 $sql .= $req['fields'];
             }
+            //concat field
         } else if (isset($req['concat'])) {
             $sql .= $req['field'] . ', GROUP_CONCAT(' . $req['concat'] . ')';
+            //max value
         } else if (isset($req['max'])) {
             $sql .= $req['field'] . ', MAX(' . $req['max'] . ')';
         } else {
             $sql .= '*';
         }
         $sql .= ' FROM ' . $table;
-        if (isset($req['join'])) {
-            foreach ($req['join'] as $k => $v) {
+        //left join
+        if (isset($req['leftjoin'])) {
+            foreach ($req['leftjoin'] as $k => $v) {
                 $sql .= ' LEFT JOIN ' . $k . ' ON ' . $v . ' ';
             }
         }
+        //right join
+        if (isset($req['rightjoin'])) {
+            foreach ($req['rightjoin'] as $k => $v) {
+                $sql .= ' RIGHT JOIN ' . $k . ' ON ' . $v . ' ';
+            }
+        }
+        //left join
+        if (isset($req['innerjoin'])) {
+            foreach ($req['innerjoin'] as $k => $v) {
+                $sql .= ' INNER JOIN ' . $k . ' ON ' . $v . ' ';
+            }
+        }
+        //group by
         if (isset($req['group'])) {
             $sql .= ' GROUP BY ' . $req['group'];
         }
+        //array conditions
         if (isset($req['conditions'])) {
             $sql .= ' WHERE ';
             if (!is_array($req['conditions'])) {
@@ -149,17 +168,19 @@ class Model
                 $sql .= implode(' AND ', $cond);
             }
         }
+        //order by
         if (isset($req['order'])) {
             $sql .= ' ORDER BY ' . $req['order'];
         }
+        //limit
         if (isset($req['limit'])) {
             $sql .= ' LIMIT ' . $req['limit'];
         }
-
-        //return $sql;
-        //print_r(Model::$db);
+        //prepare request
         $pre = $this->db->prepare($sql);
+        //execute request
         $pre->execute();
+        // fetchall
         return $pre->fetchAll();
     }
 
@@ -175,6 +196,7 @@ class Model
 
 
     /**
+     * delete element from table
      * @param $table
      * @param $id
      */
@@ -210,8 +232,11 @@ class Model
             $sql = 'INSERT INTO ' . $table . ' SET ' . implode(',', $fields);
             $action = 'insert';
         }
+        //prepare request
         $pre = $this->db->prepare($sql);
+        //execute request
         $pre->execute($data);
+        //recover id if insert
         if ($action == 'insert') {
             $this->id = $this->db->lastInsertId();
         }

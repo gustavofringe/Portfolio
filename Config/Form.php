@@ -18,11 +18,6 @@ class Form
         if(isset(self::$errors[$name])){
             $error = self::$errors[$name];
         }
-        /*if(!isset(self::$controller->request->data->$name)){
-            $value = '';
-        }else{
-            $value = self::$controller->request->data->$name;
-        }*/
         if(isset($options['classDiv'])) {
             $html = '<div class="' . $options['classDiv'] . '"><label for="' . $name . '">' . $label . '</label>';
         }

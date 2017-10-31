@@ -3,7 +3,6 @@ namespace App;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use function str_replace;
-use function strip_tags;
 
 class Email{
 
