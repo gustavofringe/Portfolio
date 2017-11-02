@@ -22,7 +22,7 @@ class PagesController extends Controller
             'group'=>'c.titleCompetenceID'
         ]);
         $var['competence'] = $this->Post->findAll('competences c',[
-            'distinct'=>'titleCompetenceID,name,nameCompetence',
+            'distinct'=>'titleCompetenceID,nameCompetence',
             'join'=>['imageCompetences i'=>'c.imageCompetenceID=i.imageCompentenceID'],
             'conditions'=>'titleCompetenceID!=1'
         ]);

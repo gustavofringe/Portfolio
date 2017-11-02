@@ -3,7 +3,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class PostsMigration extends AbstractMigration
+class CreateAdminTable extends AbstractMigration
 {
     /**
      * Change Method.
@@ -28,6 +28,9 @@ class PostsMigration extends AbstractMigration
      */
     public function change()
     {
-
+        $this->table('admin',['id'=>'adminID'])
+            ->addColumn('name','string')
+            ->addColumn('password','string')
+            ->create();
     }
 }

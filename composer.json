@@ -7,7 +7,8 @@
         }
     ],
     "require": {
-        "larapack/dd": "^1.1"
+        "larapack/dd": "^1.1",
+        "robmorgan/phinx": "^0.9.1"
     },
     "autoload": {
         "psr-4": {
