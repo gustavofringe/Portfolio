@@ -16,6 +16,10 @@ use function array_values;
 use const BASE_URL;
 use function d;
 use function dd;
+use function fclose;
+use function fopen;
+use function fwrite;
+use function json_decode;
 use function print_r;
 use stdClass;
 
@@ -27,8 +31,7 @@ class PostsController extends Controller
         $this->loadModel('Contact');
         if ($this->Request->post) {
             if ($this->Contact->validates($this->Request->post)) {
-                //dd($this->Request->post);
-                $this->Email->send('contact', [
+                /*$this->Email->send('contact', [
                     'lastname' => $this->Request->post->lastname,
                     'firstname' => $this->Request->post->firstname,
                     'email' => $this->Request->post->email,
@@ -40,7 +43,47 @@ class PostsController extends Controller
                 $this->Contact->save('contacts', $this->Request->post);
                 $this->Session->setFlash('Votre message a été envoyé');
                 $this->Views->redirect(BASE_URL.'/');
-                die();
+                die();*/
+                $contact = [];
+                $contact[] = [
+                    'contactID'=>1,
+                    'lastname'=>$this->Request->post->lastname,
+                    'firstname'=>$this->Request->post->firstname,
+                    'email'=>$this->Request->post->email,
+                    'phone'=>$this->Request->post->phone,
+                    'society'=>$this->Request->post->society,
+                    'msg'=>$this->Request->post->msg,
+                    'date'=>date('Y-m-d')
+                ];
+                $json_content = json_encode($contact, JSON_PRETTY_PRINT);
+                $filename = ROOT.'/db/seeds/contact.json';
+                $file = fopen($filename,'a');
+                if($file == false){
+                    echo 'echec';
+                }else{
+                    fputs($file,$json_content.',');
+                    fclose($file);
+                }
+                /*$filename = ROOT.'/db/seeds/contact.json';
+                $file = fopen($filename,'a+');
+                $contents = fread($file, filesize($filename));
+                $cont = json_decode($contents,true);
+               //dd($cont);
+                //$contacts = [];
+                foreach($cont as $k=>$v){
+                    $contacts[] = [
+
+                        'contactID'=>$v['contactID'],
+                        'lastname'=>$v['lastname'],
+                        'firstname'=>$v['firstname'],
+                        'email'=>$v['email'],
+                        'phone'=>$v['phone'],
+                        'society'=>$v['society'],
+                        'msg'=>$v['msg'],
+                        'date'=>$v['date'],
+                    ];
+                }
+                dd($contacts);*/
             }
         }
         $this->Views->render('posts', 'contact', $var);

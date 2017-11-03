@@ -1,0 +1,22 @@
+[
+    {
+        "contactID": 1,
+        "lastname": "Dussart",
+        "firstname": "Guillaume",
+        "email": "gdussart1@gmail.com",
+        "phone": "669923390",
+        "society": "1982",
+        "msg": "hthrthu",
+        "date": "2017-11-03"
+    },
+    {
+        "contactID": 2,
+        "lastname": "Dussart",
+        "firstname": "Guillaume",
+        "email": "gdussart1@gmail.com",
+        "phone": "669923390",
+        "society": "1982",
+        "msg": "dfbhdf",
+        "date": "2017-11-03"
+    }
+]

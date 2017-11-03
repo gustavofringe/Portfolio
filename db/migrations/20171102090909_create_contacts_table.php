@@ -37,5 +37,6 @@ class CreateContactsTable extends AbstractMigration
             ->addColumn('msg','text',['limit'=>\Phinx\Db\Adapter\MysqlAdapter::TEXT_LONG])
             ->addColumn('date','date')
             ->create();
+
     }
 }

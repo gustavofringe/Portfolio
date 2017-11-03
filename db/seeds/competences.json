@@ -1,0 +1,34 @@
+[
+    {
+        "titleCompetenceID":"1",
+        "techno":"Système d'exploitation"
+    },
+    {
+        "titleCompetenceID":"2",
+        "techno":"Languages"
+    },
+    {
+        "titleCompetenceID":"3",
+        "techno":"Editeurs de texte"
+    },
+    {
+        "titleCompetenceID":"4",
+        "techno":"Technologies"
+    },
+    {
+        "titleCompetenceID":"5",
+        "techno":"Design"
+    },
+    {
+        "titleCompetenceID":"6",
+        "techno":"Framework php"
+    },
+    {
+        "titleCompetenceID":"7",
+        "techno":"Framework css"
+    },
+    {
+        "titleCompetenceID":"8",
+        "techno":"Framework js"
+    }
+]
