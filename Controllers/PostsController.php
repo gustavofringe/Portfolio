@@ -144,7 +144,6 @@ class PostsController extends Controller
         $var['title_competence'] = $this->Post->findAll('titleCompetences', []);
         // if !empty $_POST
         if ($this->Request->post) {
-            dd($this->Request->post);
             //if form is validate record fields
             if ($this->Post->validates($this->Request->file) && $this->Post->validates($this->Request->post)) {
                 if (!is_dir(ROOT . "/public/img/competences/")) {

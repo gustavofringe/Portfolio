@@ -20,7 +20,7 @@ class Model
     public $conf = 'default';
     public $db;
     public $id;
-    public $errors;
+    public $crash;
     protected $fillable = [];
 
     /**
@@ -85,9 +85,9 @@ class Model
                 }
             }
         }
-        $this->errors = Form::$errors;
+        $this->crash = Form::$errors;
         if (isset($this->Form)) {
-            $this->Form->errors = Form::$errors;
+            $this->Form->crash = Form::$errors;
         }
         if (empty(Form::$errors)) {
             return true;

@@ -17,18 +17,18 @@ class PagesController extends Controller
         $var['title'] = "Portfolio || compétences";
         $this->loadModel('Post');
         $var['competences'] = $this->Post->findAll('competences c',[
-            'join'=>['imageCompetences i'=>'c.imageCompetenceID=i.imageCompentenceID'],
-            'join'=>['titleCompetences t'=>'c.titleCompetenceID=t.titleCompetenceID'],
+            'leftjoin'=>['imageCompetences i'=>'c.imageCompetenceID=i.imageCompetenceID'],
+            'innerjoin'=>['titleCompetences t'=>'c.titleCompetenceID=t.titleCompetenceID'],
             'group'=>'c.titleCompetenceID'
         ]);
         $var['competence'] = $this->Post->findAll('competences c',[
-            'distinct'=>'titleCompetenceID,nameCompetence',
-            'join'=>['imageCompetences i'=>'c.imageCompetenceID=i.imageCompentenceID'],
+            'distinct'=>'titleCompetenceID,name,nameCompetence',
+            'leftjoin'=>['imageCompetences i'=>'c.imageCompetenceID=i.imageCompetenceID'],
             'conditions'=>'titleCompetenceID!=1'
         ]);
         $var['system'] = $this->Post->findAll('competences c',[
             'conditions'=>['titleCompetenceID'=>1],
-            'join'=>['imageCompetences i'=>'c.imageCompetenceID=i.imageCompentenceID'],
+            'leftjoin'=>['imageCompetences i'=>'c.imageCompetenceID=i.imageCompetenceID'],
         ]);
         foreach ($var['competence'] as $img) {
             $var['tab'][$img->titleCompetenceID]['image'][] = $img->name;

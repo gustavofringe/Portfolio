@@ -31,7 +31,6 @@
                                      class="img-thumbnail language">
                                 <!-- /.rounded-circle -->
                                 <p class="text-center"><?= $tab[$comp->titleCompetenceID]['name'][$i]; ?></p>
-                                <p class="text-center font-italic text-muted"><?= $comp->sentence; ?></p>
                             </div>
                             <!-- /.block -->
                         </div>
