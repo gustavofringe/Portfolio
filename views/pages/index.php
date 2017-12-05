@@ -10,8 +10,8 @@
         <!-- /.col-xl-6 -->
         <div class="col-xl-12 col-lg-12 mb-3">
             <article class="description title">
-                <h1 class="text-center">Dussart Guillaume</h1>
-                <h2 class="text-center">Développeur Web</h2>
+                <h1 class="text-center mb-2">Dussart Guillaume</h1>
+                <h2 class="text-center mt-3">Développeur Web</h2>
             </article>
         </div>
         <!-- /.col-xl-6 -->
@@ -62,7 +62,7 @@
     <?php foreach ($realisations as $realisation): ?>
     <div class="col-lg-3 col-sm-auto mb-3">
         <div class="d-flex justify-content-center">
-            <div class="card" style="width: 242px;">
+            <div class="card" style="width: 20rem;">
                 <a href="https://gustavofringe.github.io/projectArchiduchesse/">
                     <div class="first content-image d-flex" role="img" aria-label="archiduchesse">
                         <!--<img class="d-flex mr-3" src="img/archiduchesse_s.png" alt="archiduchesse">-->
@@ -74,8 +74,8 @@
                     </div>
                 </a>
                 <div class="card-block">
-                    <h4 class="card-title"><?= $realisation->title;?></h4>
-                    <p class="card-text"><?= $realisation->subtitle;?></p>
+                    <h4 class="card-title"><?= $realisation->getTitle();?></h4>
+                    <p class="card-text"><?= $realisation->getSubtitle();?></p>
                 </div>
             </div>
         </div>
@@ -101,7 +101,7 @@
     <!--/.col-xl-3-->
     <div class="col-lg-3 col-sm-auto mb-3">
         <div class="d-flex justify-content-center">
-            <div class="card" style="width: 242px;">
+            <div class="card" style="width: 20rem;">
                 <a href="https://gustavofringe.github.io/projectSportsCoach/">
                     <div class="third content-image d-flex" role="img" aria-label="coachsportif">
                         <!--<img class="d-flex mr-3" src="img/archiduchesse_s.png" alt="archiduchesse">-->

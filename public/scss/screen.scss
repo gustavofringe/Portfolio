@@ -20,6 +20,9 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    width: 100%;
+    background: url('../img/pc_portable1.jpg') !important;
+    background-size: cover;
 }
 
 a {
@@ -88,6 +91,7 @@ hidden menu
 ===========================================================================================================*/
 .container-top {
 
+    color: #F0F0EE;
     .menu {
         position: absolute;
         right: 0;
@@ -169,6 +173,10 @@ container
 }
 
 .site-content {
+    color: #F0F0EE;
+    .grey {
+        color: #595963;
+    }
     position: absolute;
     top: $height-header;
     left: 0;
@@ -239,6 +247,7 @@ article
 card
 ==============================================================================*/
 .card {
+    color: #000;
     .content-image {
         .image{
             width: 250px;
@@ -340,6 +349,7 @@ footer
 ================================================================================*/
 footer {
     border-top: 1px solid $border;
+    color: #000;
     h4 {
         font-size: 20px;
     }

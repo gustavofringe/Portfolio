@@ -9,10 +9,12 @@
     ],
     "require": {
         "larapack/dd": "^1.1",
-        "robmorgan/phinx": "^0.9.1"
+        "robmorgan/phinx": "^0.9.1",
+        "maximebf/debugbar": "1.*"
     },
     "autoload": {
         "psr-4": {
+            "Entity\\":"Entity",
             "App\\": "Config",
             "Http\\":"Controllers"
         }

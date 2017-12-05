@@ -100,7 +100,7 @@ class PostsController extends Controller
         if ($this->Request->post) {
             if ($this->Project->validates($this->Request->post)) {
                 //dd($this->Request->post);
-                /*$id_image = $this->Post->id;
+                $id_image = $this->Post->id;
                 $img = $_FILES['image'];
                 $size = $img['size'];
                 $type = $img['type'];
@@ -120,11 +120,12 @@ class PostsController extends Controller
                         $file = ROOT . '/public/img/' . $folder . '/' . $img['name'][$i];
                         $resizedFile = ROOT . '/public/img/' . $folder . '/' . $filename;
                         $this->Img->resize($file, null, 240, 230, false, $resizedFile, false, false, 100);
-
+dd($this->Request->post);
                         $this->Session->setFlash('Travail sauvegarder!');
-                        $this->Views->redirect(BASE_URL . '/admin/index');*/
+                        $this->Views->redirect(BASE_URL . '/admin/index');
                         die();
-
+                    }
+                }
             }
         }
 

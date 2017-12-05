@@ -13,9 +13,12 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  width: 100%;
+  background: url("../img/pc_portable1.jpg") !important;
+  background-size: cover;
 }
 
-/* line 25, ../scss/screen.scss */
+/* line 28, ../scss/screen.scss */
 a {
   text-decoration: none;
   color: inherit;
@@ -25,31 +28,31 @@ a {
 /*===========================================================================================================
 header
 ============================================================================================================*/
-/* line 35, ../scss/screen.scss */
+/* line 38, ../scss/screen.scss */
 .header {
   font-family: 'Maven Pro', sans-serif;
   height: 80px;
   position: static;
   border-bottom: 1px solid #34667e;
 }
-/* line 41, ../scss/screen.scss */
+/* line 44, ../scss/screen.scss */
 .header .header_logo svg {
   width: 100px;
   margin-top: 10px;
   padding: 0 25px;
   height: 50px;
 }
-/* line 46, ../scss/screen.scss */
+/* line 49, ../scss/screen.scss */
 .header .header_logo svg .inside {
   fill: #bcbcad;
   fill-opacity: 1;
 }
-/* line 50, ../scss/screen.scss */
+/* line 53, ../scss/screen.scss */
 .header .header_logo svg .init {
   fill: #595963;
   fill-opacity: 1;
 }
-/* line 55, ../scss/screen.scss */
+/* line 58, ../scss/screen.scss */
 .header .header_logo svg .init:hover, .header .header_logo svg .inside:hover {
   fill: #1f55ff;
   fill-opacity: 0.5;
@@ -58,7 +61,7 @@ header
 /*============================================================================================================
 hamburger icon
 =============================================================================================================*/
-/* line 67, ../scss/screen.scss */
+/* line 70, ../scss/screen.scss */
 .header_icon {
   position: relative;
   display: block;
@@ -67,7 +70,7 @@ hamburger icon
   width: 50px;
   cursor: pointer;
 }
-/* line 74, ../scss/screen.scss */
+/* line 77, ../scss/screen.scss */
 .header_icon:after {
   content: '';
   position: absolute;
@@ -84,7 +87,11 @@ hamburger icon
 /*=========================================================================================================
 hidden menu
 ===========================================================================================================*/
-/* line 91, ../scss/screen.scss */
+/* line 92, ../scss/screen.scss */
+.container-top {
+  color: #F0F0EE;
+}
+/* line 95, ../scss/screen.scss */
 .container-top .menu {
   position: absolute;
   right: 0;
@@ -101,7 +108,7 @@ hidden menu
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
 }
-/* line 100, ../scss/screen.scss */
+/* line 104, ../scss/screen.scss */
 .container-top .menu a {
   display: block;
   text-align: center;
@@ -113,7 +120,7 @@ hidden menu
 /*============================================================================================================
 menu desktop
 ==============================================================================================================*/
-/* line 113, ../scss/screen.scss */
+/* line 117, ../scss/screen.scss */
 .menu-desktop {
   display: none;
 }
@@ -122,14 +129,14 @@ menu desktop
 visible menu
 when the body have a with side bar class
 ==================================================================================================================*/
-/* line 122, ../scss/screen.scss */
+/* line 126, ../scss/screen.scss */
 .with--sidebar .site-pusher {
   -moz-transform: translateX(-250px);
   -ms-transform: translateX(-250px);
   -webkit-transform: translateX(-250px);
   transform: translateX(-250px);
 }
-/* line 125, ../scss/screen.scss */
+/* line 129, ../scss/screen.scss */
 .with--sidebar .site-cache {
   position: absolute;
   left: 0;
@@ -142,11 +149,11 @@ when the body have a with side bar class
 /*============================================================================================================
 container
 ===============================================================================================================*/
-/* line 138, ../scss/screen.scss */
+/* line 142, ../scss/screen.scss */
 .stripe {
   position: relative;
 }
-/* line 140, ../scss/screen.scss */
+/* line 144, ../scss/screen.scss */
 .stripe:after {
   position: absolute;
   content: '';
@@ -157,14 +164,14 @@ container
   bottom: 0;
 }
 
-/* line 151, ../scss/screen.scss */
+/* line 155, ../scss/screen.scss */
 .site-pusher, .site-container {
   font-family: 'Maven Pro', sans-serif;
   font-family: 'Didact Gothic', sans-serif;
   height: 100%;
 }
 
-/* line 162, ../scss/screen.scss */
+/* line 166, ../scss/screen.scss */
 .site-pusher {
   -moz-transition-duration: 0.4s;
   -o-transition-duration: 0.4s;
@@ -176,13 +183,14 @@ container
   transform: translateX(0px);
 }
 
-/* line 167, ../scss/screen.scss */
+/* line 171, ../scss/screen.scss */
 .site-container {
   overflow: hidden;
 }
 
-/* line 171, ../scss/screen.scss */
+/* line 175, ../scss/screen.scss */
 .site-content {
+  color: #F0F0EE;
   position: absolute;
   top: 80px;
   left: 0;
@@ -192,19 +200,23 @@ container
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
+/* line 177, ../scss/screen.scss */
+.site-content .grey {
+  color: #595963;
+}
 
-/* line 182, ../scss/screen.scss */
+/* line 190, ../scss/screen.scss */
 .container {
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 186, ../scss/screen.scss */
+/* line 194, ../scss/screen.scss */
 .site-content {
   padding-top: 30px;
 }
 
-/* line 190, ../scss/screen.scss */
+/* line 198, ../scss/screen.scss */
 .border {
   border-bottom: 1px solid #34667e;
 }
@@ -212,7 +224,7 @@ container
 /*===========================================================================================================
 my picture
 ==============================================================================================================*/
-/* line 197, ../scss/screen.scss */
+/* line 205, ../scss/screen.scss */
 .figure {
   display: none;
 }
@@ -220,7 +232,7 @@ my picture
 /*===========================================================================================================
 article
 =======================================================================================================*/
-/* line 204, ../scss/screen.scss */
+/* line 212, ../scss/screen.scss */
 .description {
   padding: 0;
   margin: 0;
@@ -228,37 +240,37 @@ article
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 208, ../scss/screen.scss */
+/* line 216, ../scss/screen.scss */
 .description h1 {
   font-size: 24px;
 }
-/* line 211, ../scss/screen.scss */
+/* line 219, ../scss/screen.scss */
 .description h2 {
   font-size: 24px;
 }
-/* line 213, ../scss/screen.scss */
+/* line 221, ../scss/screen.scss */
 .description h2 em {
   font-size: 16px;
   color: #C4B2FF;
 }
-/* line 218, ../scss/screen.scss */
+/* line 226, ../scss/screen.scss */
 .description img {
   width: 50px;
   margin: 30px;
 }
-/* line 222, ../scss/screen.scss */
+/* line 230, ../scss/screen.scss */
 .description p {
   color: #C4B2FF;
 }
-/* line 225, ../scss/screen.scss */
+/* line 233, ../scss/screen.scss */
 .description span {
   text-transform: uppercase;
 }
-/* line 228, ../scss/screen.scss */
+/* line 236, ../scss/screen.scss */
 .description .simplon {
   overflow: auto;
 }
-/* line 230, ../scss/screen.scss */
+/* line 238, ../scss/screen.scss */
 .description .simplon img {
   height: 50px;
   width: 50px;
@@ -268,7 +280,11 @@ article
 /*=============================================================================
 card
 ==============================================================================*/
-/* line 242, ../scss/screen.scss */
+/* line 249, ../scss/screen.scss */
+.card {
+  color: #000;
+}
+/* line 251, ../scss/screen.scss */
 .card .content-image {
   cursor: pointer;
   width: 250px;
@@ -278,11 +294,11 @@ card
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
-/* line 243, ../scss/screen.scss */
+/* line 252, ../scss/screen.scss */
 .card .content-image .image {
   width: 250px;
 }
-/* line 250, ../scss/screen.scss */
+/* line 259, ../scss/screen.scss */
 .card .content-image:hover {
   opacity: 0.5;
   -moz-transform: scale(0.5);
@@ -290,7 +306,7 @@ card
   -webkit-transform: scale(0.5);
   transform: scale(0.5);
 }
-/* line 253, ../scss/screen.scss */
+/* line 262, ../scss/screen.scss */
 .card .content-image:hover .image {
   content: url("../img/link-3.svg");
   margin: 0 auto;
@@ -300,14 +316,14 @@ card
 /*=======================================================================
 form
 ===========================================================================*/
-/* line 265, ../scss/screen.scss */
+/* line 274, ../scss/screen.scss */
 .field {
   position: relative;
   height: 72px;
   padding: 16px 0 8px 0;
 }
 
-/* line 271, ../scss/screen.scss */
+/* line 280, ../scss/screen.scss */
 .field-label {
   position: relative;
   margin: 0;
@@ -326,7 +342,7 @@ form
   transition-duration: 0.3s;
 }
 
-/* line 283, ../scss/screen.scss */
+/* line 292, ../scss/screen.scss */
 .field-input {
   position: relative;
   display: block;
@@ -341,7 +357,7 @@ form
   outline: none;
 }
 
-/* line 297, ../scss/screen.scss */
+/* line 306, ../scss/screen.scss */
 .field::after, .field::before {
   content: '';
   height: 2px;
@@ -352,7 +368,7 @@ form
   background-color: #e7e7e7;
 }
 
-/* line 307, ../scss/screen.scss */
+/* line 316, ../scss/screen.scss */
 .field::after {
   background-color: #ff85a4;
   -moz-transform: scaleX(0);
@@ -365,7 +381,7 @@ form
   transition-duration: 0.3s;
 }
 
-/* line 313, ../scss/screen.scss */
+/* line 322, ../scss/screen.scss */
 .has-label .field-label {
   -moz-transform: translateY(0);
   -ms-transform: translateY(0);
@@ -373,13 +389,13 @@ form
   transform: translateY(0);
 }
 
-/* line 317, ../scss/screen.scss */
+/* line 326, ../scss/screen.scss */
 .is-focused .field-label {
   font-size: 12px;
   color: #ff85a4;
 }
 
-/* line 323, ../scss/screen.scss */
+/* line 332, ../scss/screen.scss */
 .field.is-focused::after {
   -moz-transform: scaleX(1);
   -ms-transform: scaleX(1);
@@ -387,7 +403,7 @@ form
   transform: scaleX(1);
 }
 
-/* line 327, ../scss/screen.scss */
+/* line 336, ../scss/screen.scss */
 .message {
   color: #bfbfbf;
 }
@@ -395,7 +411,7 @@ form
 /*=============================================================================
 competence
 ==============================================================================*/
-/* line 334, ../scss/screen.scss */
+/* line 343, ../scss/screen.scss */
 .language {
   height: 200px;
 }
@@ -403,24 +419,25 @@ competence
 /*==============================================================================
 footer
 ================================================================================*/
-/* line 341, ../scss/screen.scss */
+/* line 350, ../scss/screen.scss */
 footer {
   border-top: 1px solid #34667e;
+  color: #000;
   background-color: #CCCCCC;
 }
-/* line 343, ../scss/screen.scss */
+/* line 353, ../scss/screen.scss */
 footer h4 {
   font-size: 20px;
 }
-/* line 347, ../scss/screen.scss */
+/* line 357, ../scss/screen.scss */
 footer .dashed {
   border-left: 1px solid #34667e;
 }
-/* line 350, ../scss/screen.scss */
+/* line 360, ../scss/screen.scss */
 footer img {
   height: 30px;
 }
-/* line 354, ../scss/screen.scss */
+/* line 364, ../scss/screen.scss */
 footer .article-footer p {
   font-size: 10px;
 }

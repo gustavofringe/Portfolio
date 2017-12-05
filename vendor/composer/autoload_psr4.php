@@ -16,5 +16,7 @@ return array(
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Phinx\\' => array($vendorDir . '/robmorgan/phinx/src/Phinx'),
     'Http\\' => array($baseDir . '/Controllers'),
+    'Entity\\' => array($baseDir . '/Entity'),
+    'DebugBar\\' => array($vendorDir . '/maximebf/debugbar/src/DebugBar'),
     'App\\' => array($baseDir . '/Config'),
 );

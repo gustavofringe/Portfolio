@@ -52,6 +52,7 @@
             </div>
             <!-- /.container -->
         </header>
+
         <!-- /.header -->
 <?php echo App\Session::flash();?>
 
@@ -130,5 +131,6 @@
     ga('create', 'UA-XXXXX-X', 'auto');
     ga('send', 'pageview');
 </script>
+
 </body>
 </html>

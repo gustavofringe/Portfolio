@@ -64,7 +64,6 @@ class Model
                     }
                 } elseif ($v['rule'] === 'sanitize') {
                     $data->$k = filter_var($data->$k, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
-                    return $data->$k;
                 } elseif ($v['rule'] === 'url') {
                     if (isset($data->$k) && !filter_var($data->$k, FILTER_VALIDATE_URL)) {
                         Form::$errors[$k] = $v['message'];
@@ -224,9 +223,9 @@ class Model
                 $data[":$k"] = $v;
             }
         }
-        if (isset($datas->$key) && !empty($datas->$key)) {
+        if (isset($datas[$key]) && !empty($datas[$key])) {
             $sql = 'UPDATE ' . $table . ' SET ' . implode(',', $fields) . ' WHERE ' . $key . '=:' . $key;
-            $this->id = $datas->$key;
+            $this->id = $datas[$key];
             $action = 'update';
         } else {
             $sql = 'INSERT INTO ' . $table . ' SET ' . implode(',', $fields);

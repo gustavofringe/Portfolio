@@ -1,5 +1,7 @@
 <?php
 namespace App;
+use DebugBar\StandardDebugBar;
+
 class Controller
 
 {
@@ -17,6 +19,7 @@ class Controller
         $this->Service = new Service();
         $this->Img = new Img();
         $this->Request = new Request();
+        $this->debugbar = new StandardDebugBar();
     }
     /**
      * load model for validate form

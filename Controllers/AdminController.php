@@ -13,6 +13,7 @@ use App\Controller;
 use App;
 use const BASE_URL;
 use function compact;
+use function dd;
 use function debug;
 
 class AdminController extends Controller
@@ -55,7 +56,7 @@ class AdminController extends Controller
                 'name' => $this->Request->post->username,
                 'password' => $password
             ]);
-            if ($password == $admin[0]->password) {
+            if ($password === $admin[0]->password) {
                 $this->Session->write('admin', $admin[0]);
                 $this->Session->setFlash("Vous êtes maintenant connecté");
                 $this->Views->redirect(BASE_URL . '/admin');

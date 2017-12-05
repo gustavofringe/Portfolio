@@ -32,6 +32,14 @@ class ComposerStaticInitfbe824ef7709e4971bc22eea8cee6fa2
         array (
             'Http\\' => 5,
         ),
+        'E' => 
+        array (
+            'Entity\\' => 7,
+        ),
+        'D' => 
+        array (
+            'DebugBar\\' => 9,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -78,6 +86,14 @@ class ComposerStaticInitfbe824ef7709e4971bc22eea8cee6fa2
         'Http\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Controllers',
+        ),
+        'Entity\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Entity',
+        ),
+        'DebugBar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar',
         ),
         'App\\' => 
         array (

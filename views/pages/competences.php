@@ -8,7 +8,7 @@
                     <img src="<?= BASE_URL; ?>/public/img/competences/<?= $sys->name; ?>" alt="apple"
                          class="rounded-circle img-thumbnail w-75">
                     <!-- /.rounded-circle -->
-                    <p class="text-center"><?= $sys->nameCompetence; ?></p>
+                    <p class="text-center grey"><?= $sys->nameCompetence; ?></p>
                     <p class="text-center font-italic text-muted"><?= $sys->sentence; ?></p>
                 </div>
                 <!-- /.block -->
@@ -30,7 +30,7 @@
                                      alt="<?= $tab[$comp->titleCompetenceID]['name'][$i]; ?>"
                                      class="img-thumbnail language">
                                 <!-- /.rounded-circle -->
-                                <p class="text-center"><?= $tab[$comp->titleCompetenceID]['name'][$i]; ?></p>
+                                <p class="text-center grey"><?= $tab[$comp->titleCompetenceID]['name'][$i]; ?></p>
                             </div>
                             <!-- /.block -->
                         </div>
