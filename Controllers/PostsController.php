@@ -131,7 +131,7 @@ class PostsController extends Controller
                         move_uploaded_file($tmp_name[$i], ROOT . '/public/img/' . $folder . '/' . $img['name'][$i]);
                         $file = ROOT . '/public/img/' . $folder . '/' . $img['name'][$i];
                         $resizedFile = ROOT . '/public/img/' . $folder . '/' . $filename;
-                        $this->Img->resize($file, null, 240, 230, false, $resizedFile, false, false, 100);
+                        $this->Img->resize($file, null, 240, 230, true, $resizedFile, false, false, 100);
                         $this->Project->save('images', [
                             'name' => $img['name'][0],
                             'type' => $img['type'][0],
