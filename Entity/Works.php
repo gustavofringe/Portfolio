@@ -16,6 +16,8 @@ class Works
     protected $url;
     protected $link;
     protected $online;
+    protected $name;
+    protected $folder;
 
     /**
      * __construct
@@ -26,6 +28,7 @@ class Works
     {
         $this->hydrate($data);
     }
+
     /**
      * hydrate
      * @param mixed $donnees
@@ -34,13 +37,14 @@ class Works
     public function hydrate(array $donnees)
     {
         foreach ($donnees as $key => $value) {
-            $method = 'set'.ucfirst($key);
+            $method = 'set' . ucfirst($key);
 
             if (method_exists($this, $method)) {
                 $this->$method($value);
             }
         }
     }
+
     /**
      * @return mixed
      */
@@ -151,5 +155,37 @@ class Works
     public function setOnline($online)
     {
         $this->online = $online;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFolder()
+    {
+        return $this->folder;
+    }
+
+    /**
+     * @param mixed $folder
+     */
+    public function setFolder($folder)
+    {
+        $this->folder = $folder;
     }
 }

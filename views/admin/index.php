@@ -1,7 +1,7 @@
 <table class="table table-inverse">
     <thead>
     <tr>
-        <th>title</th>
+        <th>Title</th>
         <th>Content</th>
         <th>Date</th>
         <th>Action</th>
@@ -14,7 +14,7 @@
             <td><?= $work->content; ?></td>
             <td><?= date('d/m/Y', strtotime($work->date)); ?></td>
             <td>
-                <a href="<?= BASE_URL;?>/admin/edit/<?=$work->url;?>" class="btn btn-primary">edit</a>
+                <a href="<?= BASE_URL;?>/admin/edit/<?=$work->workID;?>" class="btn btn-primary">edit</a>
                 <a href="<?= BASE_URL;?>/admin/delete/<?=$work->workID;?>" class="btn btn-danger">delete</a>
             </td>
         </tr>

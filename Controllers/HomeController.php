@@ -1,6 +1,7 @@
 <?php
 namespace Http;
 use App\Controller;
+use function dd;
 use Entity\Works;
 use function get_object_vars;
 
@@ -8,15 +9,17 @@ class HomeController extends Controller
 {
 
     public function index(){
-        $this->debugbar["messages"]->addMessage("hello world!");
         $var['title'] = "Accueil";
         $this->loadModel('Post');
-        $var['realisations'] = $this->Post->findAll('works w', [
-            'join'=>['images i'=>'w.workID=i.workID'],
+        $test = $var['realisations'] = $this->Post->findAll('works w', [
+            'leftjoin'=>['images i'=>'w.workID=i.workID'],
             'group'=>'w.workID',
-            'limit'=>0,5
+            'order'=>'date DESC',
+            'limit'=>6
         ]);
-        $var['realisations'] = new Works($var['realisations']);
+        foreach ($var['realisations'] as $k => $v) {
+            $var['realisations'][$k] = new Works(get_object_vars($v));
+        }
         $this->Views->render('pages', 'index',$var);
     }
 }

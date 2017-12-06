@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  mar. 05 déc. 2017 à 20:06
+-- Généré le :  mer. 06 déc. 2017 à 17:29
 -- Version du serveur :  10.1.29-MariaDB
 -- Version de PHP :  7.2.0
 
@@ -182,6 +182,17 @@ CREATE TABLE `images` (
   `workID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `images`
+--
+
+INSERT INTO `images` (`imageID`, `name`, `type`, `tmp_name`, `error`, `size`, `folder`, `workID`) VALUES
+(1, 'google.png', 'image/png', '/tmp/phpMtqLO4', 0, 56217, 'google', 1),
+(2, 'todoList.png', 'image/png', '/tmp/phpO3kWOA', 0, 44422, 'todolist', 2),
+(3, 'grosbill.png', 'image/png', '/tmp/phpm8QLTp', 0, 877123, 'grosbill', 3),
+(4, 'tatoo.png', 'image/png', '/tmp/phpsd0DhU', 0, 1811080, 'projectink', 4),
+(5, 'FireShot Capture 5 - Locations de vacances - https___gustavofringe.github.io_projectAirbnb_.png', 'image/png', '/tmp/phpEFYeZT', 0, 3113166, 'airbnb', 5);
+
 -- --------------------------------------------------------
 
 --
@@ -251,6 +262,18 @@ CREATE TABLE `works` (
   `date` date NOT NULL,
   `online` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `works`
+--
+
+INSERT INTO `works` (`workID`, `title`, `subtitle`, `techno`, `content`, `url`, `link`, `date`, `online`) VALUES
+(1, 'Google', 'Reproduction de la page d\'accueil Google', 'Projet réaliser en Html et Css', '', 'google', 'https://gustavofringe.github.io/projectGoogle/', '2017-03-07', 0),
+(2, 'todoList', 'Création d\'une todo list', 'Projet réaliser en Html et Css', '', 'todolist', 'https://gustavofringe.github.io/todo_list/', '2017-03-15', 0),
+(3, 'GrosBill', 'Création d\'un site de vente de matériel informatique', 'Projet réaliser en Html et Css', '', 'grosbill', 'https://gustavofringe.github.io/projectGrosbill/', '2017-04-04', 0),
+(4, 'ProjectInk', 'Création d\'un site de tatouage', 'Projet réaliser en Html et Css', '', 'projectink', 'https://gustavofringe.github.io/projectInk/', '2017-05-02', 0),
+(5, 'AirBnb', 'Reproduction du site AirBnb', 'Projet réaliser en Html et Css', '', 'airbnb', 'https://gustavofringe.github.io/projectAirbnb/', '2017-04-25', 0),
+(6, 'Googles', 'Reproduction de la page d\'accueil Google', 'Projet réaliser en Html et Css', '', 'google', '', '0000-00-00', 0);
 
 --
 -- Index pour les tables déchargées
@@ -339,7 +362,7 @@ ALTER TABLE `imageCompetences`
 -- AUTO_INCREMENT pour la table `images`
 --
 ALTER TABLE `images`
-  MODIFY `imageID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `imageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `titleCompetences`
@@ -351,7 +374,7 @@ ALTER TABLE `titleCompetences`
 -- AUTO_INCREMENT pour la table `works`
 --
 ALTER TABLE `works`
-  MODIFY `workID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `workID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Contraintes pour les tables déchargées

@@ -20,6 +20,11 @@ class Admin extends Model
         'password' => [
             'rule' => 'notEmpty',
             'message' => 'nonval'
+        ],
+        'image' => [
+            'rule' => 'img',
+            'cond' => ['jpg', 'png', 'svg'],
+            'message' => 'Uniquement des fichiers avec les extensions: jpg,png,svg'
         ]
     ];
 

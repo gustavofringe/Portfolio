@@ -49,8 +49,9 @@ class PagesController extends Controller
         $var['title'] = "Portfolio || Réalisations";
         $this->loadModel('Post');
         $var['realisations'] = $this->Post->findAll('works w', [
-            'join'=>['images i'=>'w.workID=i.workID'],
-            'group'=>'i.workID'
+            'leftjoin'=>['images i'=>'w.workID=i.workID'],
+            'group'=>'i.workID',
+            'order'=>'date DESC'
         ]);
         $var['images'] = $this->Post->findAll('images', [
             'distinct'=>'workID,name,folder'

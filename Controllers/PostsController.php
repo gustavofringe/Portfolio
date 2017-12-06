@@ -19,6 +19,7 @@ use function dd;
 use function fclose;
 use function fopen;
 use function fwrite;
+use function get_object_vars;
 use function json_decode;
 use function print_r;
 use stdClass;
@@ -46,22 +47,22 @@ class PostsController extends Controller
                 die();*/
                 $contact = [];
                 $contact[] = [
-                    'contactID'=>1,
-                    'lastname'=>$this->Request->post->lastname,
-                    'firstname'=>$this->Request->post->firstname,
-                    'email'=>$this->Request->post->email,
-                    'phone'=>$this->Request->post->phone,
-                    'society'=>$this->Request->post->society,
-                    'msg'=>$this->Request->post->msg,
-                    'date'=>date('Y-m-d')
+                    'contactID' => 1,
+                    'lastname' => $this->Request->post->lastname,
+                    'firstname' => $this->Request->post->firstname,
+                    'email' => $this->Request->post->email,
+                    'phone' => $this->Request->post->phone,
+                    'society' => $this->Request->post->society,
+                    'msg' => $this->Request->post->msg,
+                    'date' => date('Y-m-d')
                 ];
                 $json_content = json_encode($contact, JSON_PRETTY_PRINT);
-                $filename = ROOT.'/db/seeds/contact.json';
-                $file = fopen($filename,'a');
-                if($file == false){
+                $filename = ROOT . '/db/seeds/contact.json';
+                $file = fopen($filename, 'a');
+                if ($file == false) {
                     echo 'echec';
-                }else{
-                    fputs($file,$json_content.',');
+                } else {
+                    fputs($file, $json_content . ',');
                     fclose($file);
                 }
                 /*$filename = ROOT.'/db/seeds/contact.json';
@@ -100,7 +101,18 @@ class PostsController extends Controller
         if ($this->Request->post) {
             if ($this->Project->validates($this->Request->post)) {
                 //dd($this->Request->post);
-                $id_image = $this->Post->id;
+                $this->Request->post->online = 0;
+                $this->Project->save('works', [
+                    'title' => $this->Request->post->title,
+                    'subtitle' => $this->Request->post->subtitle,
+                    'techno' => $this->Request->post->techno,
+                    'content' => $this->Request->post->content,
+                    'url' => $this->Request->post->url,
+                    'link' => $this->Request->post->link,
+                    'date' => $this->Request->post->date,
+                    'online' => $this->Request->post->online
+                ]);
+                $id_image = $this->Project->id;
                 $img = $_FILES['image'];
                 $size = $img['size'];
                 $type = $img['type'];
@@ -120,7 +132,15 @@ class PostsController extends Controller
                         $file = ROOT . '/public/img/' . $folder . '/' . $img['name'][$i];
                         $resizedFile = ROOT . '/public/img/' . $folder . '/' . $filename;
                         $this->Img->resize($file, null, 240, 230, false, $resizedFile, false, false, 100);
-dd($this->Request->post);
+                        $this->Project->save('images', [
+                            'name' => $img['name'][0],
+                            'type' => $img['type'][0],
+                            'tmp_name' => $img['tmp_name'][0],
+                            'error' => $img['error'][0],
+                            'size' => $img['size'][0],
+                            'folder' => $this->Request->post->folder,
+                            'workID' => $id_image,
+                        ]);
                         $this->Session->setFlash('Travail sauvegarder!');
                         $this->Views->redirect(BASE_URL . '/admin/index');
                         die();

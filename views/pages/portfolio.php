@@ -4,7 +4,7 @@
         <?php foreach ($realisations as $realisation): ?>
             <div class="col-lg-3 col-sm-auto mb-3">
                 <div class="d-flex justify-content-center">
-                    <div class="card" role="tab" id="heading<?= $realisation->workID; ?>">
+                    <div class="card" role="tab" id="heading<?= $realisation->workID; ?>" style="width: 20rem; height: 25rem;">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $realisation->workID; ?>"
                            aria-expanded="true" aria-controls="collapse<?= $realisation->workID; ?>">
                             <div class="content-image d-flex" role="img" aria-label="archiduchesse">

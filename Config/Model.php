@@ -73,7 +73,7 @@ class Model
                         Form::$errors[$k] = $v['message'];
                     }
                 } elseif ($v['rule'] === 'img') {
-                    $ext = strtolower(substr($data->$k['name'], -3));
+                    $ext = strtolower(substr($data->$k['name'][0], -3));
                     if (!in_array($ext, $v['cond'])) {
                         Form::$errors[$k] = $v['message'];
                     }
@@ -176,6 +176,7 @@ class Model
             $sql .= ' LIMIT ' . $req['limit'];
         }
         //prepare request
+        //return $sql;
         $pre = $this->db->prepare($sql);
         //execute request
         $pre->execute();
@@ -232,6 +233,7 @@ class Model
             $action = 'insert';
         }
         //prepare request
+        //return $sql;
         $pre = $this->db->prepare($sql);
         //execute request
         $pre->execute($data);

@@ -1,7 +1,6 @@
 <h1>Create project</h1>
 <?php
 App\Form::open();
-App\Form::csrfInput();
 App\Form::input('title','Titre',['classDiv'=>'form-group','class'=>'form-control','place'=>'titre'],'Titre','','');
 App\Form::input('url','Url',['classDiv'=>'form-group','class'=>'form-control','place'=>'titre'],'Url','','');
 App\Form::input('folder','Dossier',['classDiv'=>'form-group','class'=>'form-control','place'=>'titre'],'Dossier','','');
