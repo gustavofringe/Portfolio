@@ -233,7 +233,7 @@ class Model
             $action = 'insert';
         }
         //prepare request
-        //return $sql;
+        return $data;
         $pre = $this->db->prepare($sql);
         //execute request
         $pre->execute($data);

@@ -289,10 +289,10 @@ card
   cursor: pointer;
   width: 250px;
   height: 250px;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 /* line 252, ../scss/screen.scss */
 .card .content-image .image {
@@ -301,10 +301,10 @@ card
 /* line 259, ../scss/screen.scss */
 .card .content-image:hover {
   opacity: 0.5;
-  -moz-transform: scale(0.5);
-  -ms-transform: scale(0.5);
-  -webkit-transform: scale(0.5);
-  transform: scale(0.5);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
 }
 /* line 262, ../scss/screen.scss */
 .card .content-image:hover .image {

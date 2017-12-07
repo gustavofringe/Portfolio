@@ -102,7 +102,7 @@ class PostsController extends Controller
             if ($this->Project->validates($this->Request->post)) {
                 //dd($this->Request->post);
                 $this->Request->post->online = 0;
-                $this->Project->save('works', [
+                /*$this->Project->save('works', [
                     'title' => $this->Request->post->title,
                     'subtitle' => $this->Request->post->subtitle,
                     'techno' => $this->Request->post->techno,
@@ -111,14 +111,14 @@ class PostsController extends Controller
                     'link' => $this->Request->post->link,
                     'date' => $this->Request->post->date,
                     'online' => $this->Request->post->online
-                ]);
+                ]);*/
                 $id_image = $this->Project->id;
                 $img = $_FILES['image'];
                 $size = $img['size'];
                 $type = $img['type'];
                 $tmp_name = $img['tmp_name'];
                 $fileSend = count($tmp_name);
-                for ($i = 0; $i < $fileSend; $i++) {
+                for ($i=0; $i<$fileSend; ++$i) {
                     $ext = strtolower(substr($img['name'][$i], -3));
                     $auto_ext = ['jpg', 'png', 'svg', 'gif'];
                     if (in_array($ext, $auto_ext)) {
@@ -128,22 +128,25 @@ class PostsController extends Controller
                             chmod(ROOT . "/public/img/" . $folder . DS, 0775);
                         }
                         $filename = $img['name'][$i];
-                        move_uploaded_file($tmp_name[$i], ROOT . '/public/img/' . $folder . '/' . $img['name'][$i]);
+                        move_uploaded_file($tmp_name[$i], ROOT . '/public/img/' . $folder . '/' . date('d-m-Y-H-i-s').'-'. $img['name'][$i]);
                         $file = ROOT . '/public/img/' . $folder . '/' . $img['name'][$i];
                         $resizedFile = ROOT . '/public/img/' . $folder . '/' . $filename;
                         $this->Img->resize($file, null, 240, 230, true, $resizedFile, false, false, 100);
-                        $this->Project->save('images', [
-                            'name' => $img['name'][0],
-                            'type' => $img['type'][0],
-                            'tmp_name' => $img['tmp_name'][0],
-                            'error' => $img['error'][0],
-                            'size' => $img['size'][0],
+                        $test = $this->Project->save('images', [
+                            'name' => $img['name'][$i],
+                            'type' => $img['type'][$i],
+                            'tmp_name' => $img['tmp_name'][$i],
+                            'error' => $img['error'][$i],
+                            'size' => $img['size'][$i],
                             'folder' => $this->Request->post->folder,
                             'workID' => $id_image,
                         ]);
-                        $this->Session->setFlash('Travail sauvegarder!');
-                        $this->Views->redirect(BASE_URL . '/admin/index');
+                        dd($i
+                        );
                         die();
+                        $this->Session->setFlash('Travail sauvegarder!');
+                        //$this->Views->redirect(BASE_URL . '/admin/index');
+                        //die();
                     }
                 }
             }

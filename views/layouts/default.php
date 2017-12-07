@@ -14,6 +14,7 @@
     <link rel="icon" href="<?= BASE_URL; ?>/public/img/favicon.ico"/>
     <link rel="stylesheet" href="<?= BASE_URL; ?>/public/css/bootstrap.css">
     <link rel="stylesheet" href="<?= BASE_URL; ?>/public/css/screen.css">
+    <!--<link rel="stylesheet" href="<?/*= BASE_URL; */?>/public/scss/stylesheets/screen.css">-->
 </head>
 <body>
 <div class="site-container">
