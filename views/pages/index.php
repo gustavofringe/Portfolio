@@ -66,9 +66,9 @@
                     <a href="<?php echo $realisation->getLink();?>">
                         <div class="first content-image d-flex" role="img" aria-label="archiduchesse">
                             <!--<img class="d-flex mr-3" src="img/archiduchesse_s.png" alt="archiduchesse">-->
-                            <div class="image">
+                            <div class="image" style="width:20rem">
                                 <img src="<?php echo BASE_URL; ?>/public/img/<?php echo $realisation->getFolder(); ?>/<?php echo $realisation->getName(); ?>"
-                                     alt="">
+                                     alt="<?php echo $realisation->getName(); ?>">
                             </div>
 
                         </div>

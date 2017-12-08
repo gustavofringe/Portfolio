@@ -232,8 +232,8 @@ class Model
             $sql = 'INSERT INTO ' . $table . ' SET ' . implode(',', $fields);
             $action = 'insert';
         }
-        //prepare request
-        return $data;
+        //prepare requet
+        //return $data;
         $pre = $this->db->prepare($sql);
         //execute request
         $pre->execute($data);
