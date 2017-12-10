@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  mer. 06 déc. 2017 à 17:29
+-- Généré le :  Dim 10 déc. 2017 à 17:23
 -- Version du serveur :  10.1.29-MariaDB
 -- Version de PHP :  7.2.0
 
@@ -82,7 +82,8 @@ INSERT INTO `competences` (`competenceID`, `titleCompetenceID`, `nameCompetence`
 (21, 6, 'CakePHP', 'framework', 34, '2017-12-14'),
 (22, 6, 'Laravel', 'framework', 35, '2017-12-06'),
 (23, 6, 'Symfony', 'framework', 36, '2017-12-21'),
-(24, 6, 'Slim', 'framework', 37, '2017-12-08');
+(24, 6, 'Slim', 'framework', 37, '2017-12-08'),
+(26, 2, 'Php', 'languages', 39, '2017-12-29');
 
 -- --------------------------------------------------------
 
@@ -95,7 +96,6 @@ CREATE TABLE `contacts` (
   `lastname` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `society` varchar(255) NOT NULL,
   `phone` int(11) NOT NULL,
   `msg` longtext NOT NULL,
   `date` date NOT NULL
@@ -105,9 +105,8 @@ CREATE TABLE `contacts` (
 -- Déchargement des données de la table `contacts`
 --
 
-INSERT INTO `contacts` (`contactID`, `lastname`, `firstname`, `email`, `society`, `phone`, `msg`, `date`) VALUES
-(1, 'Dussart', 'Guillaume', 'gdussart1@gmail.com', '1982', 669923390, 'hthrthu', '2017-11-03'),
-(2, 'Dussart', 'Guillaume', 'gdussart1@gmail.com', '1982', 669923390, 'dfbhdf', '2017-11-03');
+INSERT INTO `contacts` (`contactID`, `lastname`, `firstname`, `email`, `phone`, `msg`, `date`) VALUES
+(1, 'Dussart', 'Guillaume', 'gdussart1@gmail.com', 669923390, 'prout', '2017-12-09');
 
 -- --------------------------------------------------------
 
@@ -163,7 +162,9 @@ INSERT INTO `imageCompetences` (`imageCompetenceID`, `name`, `type`, `tmp_name`,
 (34, 'cakePHP.png', 'image/png', '/tmp/phpP6KA9C', 0, '14521'),
 (35, 'laravel.svg', 'image/svg+xml', '/tmp/phpSvMN1W', 0, '1891'),
 (36, 'symphony.svg', 'image/svg+xml', '/tmp/phpd3YyQd', 0, '3384'),
-(37, 'slim-logo.png', 'image/png', '/tmp/php5nVJIF', 0, '86406');
+(37, 'slim-logo.png', 'image/png', '/tmp/php5nVJIF', 0, '86406'),
+(38, 'php.png', 'image/png', '/tmp/php9GpQHv', 0, '13022'),
+(39, 'php.png', 'image/png', '/tmp/phptWJE22', 0, '13022');
 
 -- --------------------------------------------------------
 
@@ -187,11 +188,36 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`imageID`, `name`, `type`, `tmp_name`, `error`, `size`, `folder`, `workID`) VALUES
-(1, 'google.png', 'image/png', '/tmp/phpMtqLO4', 0, 56217, 'google', 1),
-(2, 'todoList.png', 'image/png', '/tmp/phpO3kWOA', 0, 44422, 'todolist', 2),
-(3, 'grosbill.png', 'image/png', '/tmp/phpm8QLTp', 0, 877123, 'grosbill', 3),
-(4, 'tatoo.png', 'image/png', '/tmp/phpsd0DhU', 0, 1811080, 'projectink', 4),
-(5, 'FireShot Capture 5 - Locations de vacances - https___gustavofringe.github.io_projectAirbnb_.png', 'image/png', '/tmp/phpEFYeZT', 0, 3113166, 'airbnb', 5);
+(10, 'google.png', 'image/png', '/tmp/phpNkKQH2', 0, 55005, 'google', 6),
+(19, 'coach1.png', 'image/png', '/tmp/phpQxE9ya', 0, 750891, 'coachsportif', 11),
+(20, 'coach2.png', 'image/png', '/tmp/php44hDgY', 0, 652776, 'coachsportif', 11),
+(21, 'coach3.png', 'image/png', '/tmp/phpGaMlYL', 0, 1204201, 'coachsportif', 11),
+(22, 'coach4.png', 'image/png', '/tmp/phpITvtGz', 0, 703452, 'coachsportif', 11),
+(24, 'airbnb1.png', 'image/png', '/tmp/phpjdq8XC', 0, 817129, 'airbnb', 7),
+(25, 'archi1.png', 'image/png', '/tmp/phpkGsLxT', 0, 1292513, '', 9),
+(26, 'archi2.png', 'image/png', '/tmp/phpe23fc1', 0, 566270, '', 9),
+(27, 'archi3.png', 'image/png', '/tmp/phpCJq7Q8', 0, 51503, '', 9),
+(28, 'leboncoin.png', 'image/png', '/tmp/phpMnZgcS', 0, 154486, 'leboncoin', 10),
+(33, 'ink1.png', 'image/png', '/tmp/phpU80AEf', 0, 2258731, 'ink', 5),
+(34, 'ink2.png', 'image/png', '/tmp/phpUpnD8C', 0, 882697, 'ink', 5),
+(35, 'ink3.png', 'image/png', '/tmp/phpl4s6C0', 0, 1580804, 'ink', 5),
+(36, 'ink4.png', 'image/png', '/tmp/phpFV3d8n', 0, 882421, 'ink', 5),
+(37, 'web1.png', 'image/png', '/tmp/phpfZRKvd', 0, 2502201, 'agenceweb', 8),
+(38, 'web2.png', 'image/png', '/tmp/php1ahBU2', 0, 524411, 'agenceweb', 8),
+(39, 'web3.png', 'image/png', '/tmp/phpgKpGjS', 0, 270099, 'agenceweb', 8),
+(40, 'web4.png', 'image/png', '/tmp/php1ssSIH', 0, 358807, 'agenceweb', 8),
+(41, 'pfc.png', 'image/png', '/tmp/phpBIA6Me', 0, 282028, 'pfc', 12),
+(42, 'jsutilities.png', 'image/png', '/tmp/phpy5iExk', 0, 480382, 'jsutilities', 13),
+(43, 'jsutilities2.png', 'image/png', '/tmp/phpw3Brqi', 0, 191584, 'jsutilities', 13),
+(44, 'paint.png', 'image/png', '/tmp/phphSdoUQ', 0, 41390, 'paintjquery', 14),
+(45, 'chat.png', 'image/png', '/tmp/phpb5CXL1', 0, 30704, 'chatjquery', 15),
+(46, 'pomodoro.png', 'image/png', '/tmp/phpB2MAiJ', 0, 49893, 'pomodoro', 16),
+(47, 'sort.png', 'image/png', '/tmp/phptTYhth', 0, 43662, 'sort', 17),
+(48, 'swapi1.png', 'image/png', '/tmp/phpXuaomZ', 0, 172240, 'starwars', 18),
+(49, 'swapi2.png', 'image/png', '/tmp/php4b0Q3B', 0, 83086, 'starwars', 18),
+(50, 'construct.png', 'image/png', '/tmp/phpD4kVn5', 0, 21518, 'construct', 19),
+(51, 'construct2.png', 'image/png', '/tmp/phpugl0Hy', 0, 35287, 'construct', 19),
+(52, 'construct3.png', 'image/png', '/tmp/phpNG8511', 0, 40974, 'construct', 19);
 
 -- --------------------------------------------------------
 
@@ -268,12 +294,21 @@ CREATE TABLE `works` (
 --
 
 INSERT INTO `works` (`workID`, `title`, `subtitle`, `techno`, `content`, `url`, `link`, `date`, `online`) VALUES
-(1, 'Google', 'Reproduction de la page d\'accueil Google', 'Projet réaliser en Html et Css', '', 'google', 'https://gustavofringe.github.io/projectGoogle/', '2017-03-07', 0),
-(2, 'todoList', 'Création d\'une todo list', 'Projet réaliser en Html et Css', '', 'todolist', 'https://gustavofringe.github.io/todo_list/', '2017-03-15', 0),
-(3, 'GrosBill', 'Création d\'un site de vente de matériel informatique', 'Projet réaliser en Html et Css', '', 'grosbill', 'https://gustavofringe.github.io/projectGrosbill/', '2017-04-04', 0),
-(4, 'ProjectInk', 'Création d\'un site de tatouage', 'Projet réaliser en Html et Css', '', 'projectink', 'https://gustavofringe.github.io/projectInk/', '2017-05-02', 0),
-(5, 'AirBnb', 'Reproduction du site AirBnb', 'Projet réaliser en Html et Css', '', 'airbnb', 'https://gustavofringe.github.io/projectAirbnb/', '2017-04-25', 0),
-(6, 'Googles', 'Reproduction de la page d\'accueil Google', 'Projet réaliser en Html et Css', '', 'google', '', '0000-00-00', 0);
+(5, 'Ink', 'Création d\'un site de tatoueur', 'Projet réalisé avec html et css', '', 'ink', 'https://gustavofringe.github.io/projectInk/', '2017-04-18', 0),
+(6, 'Google', 'Reproduction de la page d\'accueil google', 'Projet réalisé avec html et css', '', 'google', 'https://gustavofringe.github.io/projectGoogle/', '2017-04-04', 0),
+(7, 'Airbnb', 'Reproduction de la page d\'accueil d\'Airbnb', 'Projet réalisé en Html et Css', '', 'airbnb', 'https://gustavofringe.github.io/projectAirbnb/', '2017-05-02', 0),
+(8, 'Agence web', 'Création d\'un site d\'agence web', 'Projet réaliser en Html et Css', '', 'agenceweb', 'https://gustavofringe.github.io/projectWebAgency/index.html', '2017-05-09', 0),
+(9, 'Archiduchesse', 'Reproduction du site Archiduchesse', 'Projet réalisé en Html et Css', '', 'archiduchesse', 'https://gustavofringe.github.io/projectArchiduchesse/', '2017-05-16', 0),
+(10, 'Leboncoin', 'Reproduction de la page d\'accueil Leboncoin', 'Projet réalisé en Html et Css', '', 'leboncoin', 'https://gustavofringe.github.io/projectLeBonCoin/', '2017-05-23', 0),
+(11, 'Coach sportif', 'Création d\'un site de coach sportif', 'Projet réalisé en Html et Css', '', 'coachsportif', 'https://gustavofringe.github.io/projectSportsCoach/', '2017-05-22', 0),
+(12, 'Pierre feuille ciseaux', 'Création d\'un jeu en Javascript', 'Projet réalisé en Html, Css et Js', '', 'pfc', 'https://gustavofringe.github.io/projectStoneChiselSheet/', '2017-07-12', 0),
+(13, 'Utilitaires Js', 'Création d\'un slide, d\'une calculatrice et d\'un jeu de paires en Javascript', 'Projet réalisé en Html, Css et Js', '', 'jsutitlities', 'https://gustavofringe.github.io/jsUtilities/', '2017-07-18', 0),
+(14, 'Paint Jquery', 'Création d\'un paint en Javascript avec jquery', 'Projet réalisé en Html, Css et Js', '', 'paintjquery', 'https://gustavofringe.github.io/paintJquery/', '2017-07-25', 0),
+(15, 'Chat Jquery', 'Création d\'un mini-chat en Javascript avec jquery', 'Projet réalisé en Html, Css et Js', '', 'chatjquery', 'https://gustavofringe.github.io/chatJquery/', '2017-07-25', 0),
+(16, 'Pomodoro Jquery', 'Création d\'un pomodoro en Javascript avec jquery', 'Projet réalisé en Html, Css et Js', '', 'pomodoro', 'https://gustavofringe.github.io/pomodoroJquery/', '2017-08-31', 0),
+(17, 'Tableau de tri', 'Création d\'un tableau de tri en Ajax', 'Projet réalisé en Html, Css et Js', '', 'sort', 'https://gustavofringe.github.io/ajaxRequest/', '2017-08-23', 0),
+(18, 'Star wars', 'Création d\'une application angular', 'Projet réalisé avec angular et l\'api star wars', '', 'starwars', 'https://github.com/gustavofringe/swApi', '2017-08-24', 0),
+(19, 'Logiciel de gestion de chantier', 'Création d\'un logiciel de gestion de chantier de construction', 'Projet réalisé en Html, Css et Php', '', 'construct', 'https://github.com/gustavofringe/construction_management', '2017-10-03', 0);
 
 --
 -- Index pour les tables déchargées
@@ -344,25 +379,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT pour la table `competences`
 --
 ALTER TABLE `competences`
-  MODIFY `competenceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `competenceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT pour la table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `contactID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `contactID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `imageCompetences`
 --
 ALTER TABLE `imageCompetences`
-  MODIFY `imageCompetenceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `imageCompetenceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT pour la table `images`
 --
 ALTER TABLE `images`
-  MODIFY `imageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `imageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT pour la table `titleCompetences`
@@ -374,7 +409,7 @@ ALTER TABLE `titleCompetences`
 -- AUTO_INCREMENT pour la table `works`
 --
 ALTER TABLE `works`
-  MODIFY `workID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `workID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Contraintes pour les tables déchargées
