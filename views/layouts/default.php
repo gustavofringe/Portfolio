@@ -63,10 +63,11 @@
             <main class="container">
                 <?= $content; ?>
                 <p>Après plusieurs années en tant qu'électricien,
-                    J'ai commencé le développement
-                    web pour développer des petits sites perso et c'est très vite devenu une vraie
-                    vocation. J'aime expérimenter, découvrir et apprendre au fur des projets.
-                    Passionné et intrigué par l'informatique depuis toujours, j'ai entamé une reconversion professionnelle.</p>
+                    J'ai commencé le développement web en autodidacte et c'est très vite devenu une vraie vocation.
+                    J'aime expérimenter, découvrir et apprendre au fur et à mesure des nouveaux projets.
+                    Passionné et intrigué par l'informatique depuis toujours, j'ai entamé une reconversion professionnelle pour m'épanouir dans un métier d'avenir.
+                    Rigoureux et déterminé je mets du coeur à l'ouvrage dans tout ce que j'entreprend.
+                </p>
             </main>
             <?php else:?>
             <main class="container-fluid">
