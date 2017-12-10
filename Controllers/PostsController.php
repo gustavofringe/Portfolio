@@ -37,54 +37,13 @@ class PostsController extends Controller
                     'firstname' => $this->Request->post->firstname,
                     'email' => $this->Request->post->email,
                     'phone' => $this->Request->post->phone,
-                    'society' => $this->Request->post->society,
                     'message' => $this->Request->post->msg
-                ]);
+                ]);*/
                 $this->Request->post->date = date('Y-m-d');
-                $this->Contact->save('contacts', $this->Request->post);
+                $this->Contact->save('contacts', get_object_vars($this->Request->post));
                 $this->Session->setFlash('Votre message a été envoyé');
                 $this->Views->redirect(BASE_URL.'/');
-                die();*/
-                $contact = [];
-                $contact[] = [
-                    'contactID' => 1,
-                    'lastname' => $this->Request->post->lastname,
-                    'firstname' => $this->Request->post->firstname,
-                    'email' => $this->Request->post->email,
-                    'phone' => $this->Request->post->phone,
-                    'society' => $this->Request->post->society,
-                    'msg' => $this->Request->post->msg,
-                    'date' => date('Y-m-d')
-                ];
-                $json_content = json_encode($contact, JSON_PRETTY_PRINT);
-                $filename = ROOT . '/db/seeds/contact.json';
-                $file = fopen($filename, 'a');
-                if ($file == false) {
-                    echo 'echec';
-                } else {
-                    fputs($file, $json_content . ',');
-                    fclose($file);
-                }
-                /*$filename = ROOT.'/db/seeds/contact.json';
-                $file = fopen($filename,'a+');
-                $contents = fread($file, filesize($filename));
-                $cont = json_decode($contents,true);
-               //dd($cont);
-                //$contacts = [];
-                foreach($cont as $k=>$v){
-                    $contacts[] = [
-
-                        'contactID'=>$v['contactID'],
-                        'lastname'=>$v['lastname'],
-                        'firstname'=>$v['firstname'],
-                        'email'=>$v['email'],
-                        'phone'=>$v['phone'],
-                        'society'=>$v['society'],
-                        'msg'=>$v['msg'],
-                        'date'=>$v['date'],
-                    ];
-                }
-                dd($contacts);*/
+                die();
             }
         }
         $this->Views->render('posts', 'contact', $var);
@@ -125,14 +84,14 @@ class PostsController extends Controller
                     $auto_ext = ['jpg', 'png', 'svg', 'gif'];
                     if (in_array($ext, $auto_ext)) {
                         $folder = $_POST['folder'];
-                        if (!is_dir(ROOT . "/public/img/" . $folder . "/")) {
-                            mkdir(ROOT . "/public/img/" . $folder . "/", 0777, true);
-                            chmod(ROOT . "/public/img/" . $folder . DS, 0775);
+                        if (!is_dir(ROOT . "/public/img/sites/" . $folder . "/")) {
+                            mkdir(ROOT . "/public/img/sites/" . $folder . "/", 0777, true);
+                            chmod(ROOT . "/public/img/sites/" . $folder . DS, 0775);
                         }
                         $filename = $img['name'][$i];
-                        move_uploaded_file($tmp_name[$i], ROOT . '/public/img/' . $folder . DS. $img['name'][$i]);
-                        $file = ROOT . '/public/img/' . $folder . '/' . $img['name'][$i];
-                        $resizedFile = ROOT . '/public/img/' . $folder . '/' . $filename;
+                        move_uploaded_file($tmp_name[$i], ROOT . '/public/img/sites/' . $folder . DS. $img['name'][$i]);
+                        $file = ROOT . '/public/img/sites/' . $folder . '/' . $img['name'][$i];
+                        $resizedFile = ROOT . '/public/img/sites/' . $folder . '/' . $filename;
                         $this->Img->resize($file, null, 240, 350, true, $resizedFile, false, false, 100);
                         $this->Project->save('images', [
                             'name' => $img['name'][$i],
@@ -143,11 +102,9 @@ class PostsController extends Controller
                             'folder' => $this->Request->post->folder,
                             'workID' => $id_image,
                         ]);
-
                         $this->Session->setFlash('Travail sauvegarder!');
                         $this->Views->redirect(BASE_URL . '/admin/index');
                     }
-                    die();
                 }
             }
         }
@@ -177,10 +134,10 @@ class PostsController extends Controller
                 $tmp = $this->Request->file->image['tmp_name'];
                 move_uploaded_file($tmp, ROOT . '/public/img/competences/' . $name);
                 $file = ROOT . '/public/img/competences/' . $name;
-                $this->Img->resize($file, null, 150, 200, false, $file, false, false, 100);
+                $this->Img->resize($file, null, 150, 200, true, $file, false, false, 100);
                 $this->Post->save('imageCompetences', $this->Request->file->image);
                 $this->Request->post->imageCompetenceID = $this->Post->id;
-                $this->Post->save('competences', $this->Request->post);
+                $this->Post->save('competences', get_object_vars($this->Request->post));
                 $this->Views->redirect(BASE_URL . '/admin');
                 $this->Session->setFlash('Votre competence est enregistrer');
                 die();

@@ -15,6 +15,7 @@ return array(
     'Symfony\\Component\\Config\\' => array($vendorDir . '/symfony/config'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Phinx\\' => array($vendorDir . '/robmorgan/phinx/src/Phinx'),
+    'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
     'Http\\' => array($baseDir . '/Controllers'),
     'Entity\\' => array($baseDir . '/Entity'),
     'DebugBar\\' => array($vendorDir . '/maximebf/debugbar/src/DebugBar'),

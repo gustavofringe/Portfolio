@@ -23,7 +23,7 @@
             <div class="container-top">
                 <a href="" class="header_icon" id="header_icon"></a>
                 <a href="<?= BASE_URL; ?>" class="header_logo">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 943.9 1000" version="1.1" id="svg1499">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 943.9 1000" version="1.1" id="svg1499" height="25" width="25">
                         <g>
                             <path class="inside"
                                   d="M876.5 636.7h-392l254.8-254.8-12.6-12.6-260.9 260.8V60.3H448v272.9L189.6 74.8 177 87.4l252.2 252.2H67.4v17.8h367.7L177.3 615.2l12.6 12.6L448 369.7v570h17.8V664.1l257.9 257.8 12.6-12.6-254.8-254.8h395"/>
@@ -39,14 +39,14 @@
                     <nav class="menu">
 
                         <a href="<?= BASE_URL; ?>/pages/competences">mes compétences</a>
-                        <a href="<?= BASE_URL; ?>/pages/portfolio">mon portfolio</a>
+                        <a href="<?= BASE_URL; ?>/pages/portfolio">mes réalisations</a>
                         <a href="<?= BASE_URL; ?>/posts">me contacter</a>
                     </nav>
                     <!-- /.menu -->
                     <nav class="menu-desktop">
 
                         <a href="<?= BASE_URL; ?>/pages/competences">mes compétences</a>
-                        <a href="<?= BASE_URL; ?>/pages/portfolio">mon portfolio</a>
+                        <a href="<?= BASE_URL; ?>/pages/portfolio">mes réalisations</a>
                         <a href="<?= BASE_URL; ?>/posts">me contacter</a>
                     </nav>
                 <!-- /.menu-desktop -->
@@ -59,9 +59,20 @@
 
 
         <div class="site-content">
+            <?php if($_REQUEST['url'] !== "pages/portfolio"):?>
             <main class="container">
                 <?= $content; ?>
+                <p>Après plusieurs années en tant qu'électricien,
+                    J'ai commencé le développement
+                    web pour développer des petits sites perso et c'est très vite devenu une vraie
+                    vocation. J'aime expérimenter, découvrir et apprendre au fur des projets.
+                    Passionné et intrigué par l'informatique depuis toujours, j'ai entamé une reconversion professionnelle.</p>
             </main>
+            <?php else:?>
+            <main class="container-fluid">
+                <?php echo $content;?>
+            </main>
+            <?php endif;?>
             <div class="site-cache" id="site-cache"></div>
             <!-- /.site-cache -->
             <footer>
@@ -78,6 +89,8 @@
                         </div>
                         <div class="col-12 col-sm-6 col-xl-4 dashed pt-3">
                             <h4>Mes coordonées</h4>
+                            <p>06.69.92.33.90</p>
+                            <a href="mailto:dussartguillaume.dev@gmail.com">dussartguillaume.dev@gmail.com</a>
                         </div>
                         <!-- /.col-12 col-sm-6 col-xl-4 dashed pt-3 -->
                         <div class="col-12 col-sm-6 col-xl-4 dashed pb-3 pt-3">
@@ -87,15 +100,15 @@
                             <!-- /.d-inline -->
                             <a href="https://twitter.com/?lang=fr"><img
                                         src="<?= BASE_URL; ?>/public/img/social/twitter.svg" alt="twitter"
-                                        class="d-inline"></a>
+                                        class="d-inline ml-1"></a>
                             <!-- /.d-inline -->
                             <a href="https://www.facebook.com/"><img
                                         src="<?= BASE_URL; ?>/public/img/social/facebook.svg" alt="facebook"
-                                        class="d-inline"></a>
+                                        class="d-inline ml-1"></a>
                             <!-- /.d-inline -->
                             <a href="https://www.linkedin.com/"><img
                                         src="<?= BASE_URL; ?>/public/img/social/linkedin.svg" alt="linkedin"
-                                        class="d-inline"></a>
+                                        class="d-inline github ml-1"></a>
                             <!-- /.d-inline -->
                         </div>
                         <!-- /.col-xl-4 -->

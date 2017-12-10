@@ -29,8 +29,9 @@ class AdminController extends Controller
         $this->Session->isLogged('admin');
         $this->loadModel('Admin');
         $var['works'] = $this->Admin->findAll('works w', [
-            'innerjoin' => ['images i' => 'i.workID=w.workID'],
-            'group' => 'i.workID'
+            /*'innerjoin' => ['images i' => 'i.workID=w.workID'],
+            'group' => 'i.workID'*/
+            'order'=>'date DESC'
         ]);
         $var['images'] = $this->Admin->findAll('images', [
             'distinct' => 'workID,name,folder'
@@ -73,7 +74,7 @@ class AdminController extends Controller
         $this->Session->isLogged('admin');
         $this->loadModel('Admin');
         $var['work'] = $this->Admin->findFirst('works w', [
-            'fields' => 'w.workID,title,subtitle,techno,folder',
+            'fields' => 'w.workID,title,subtitle,techno,folder,imageID',
             'leftjoin' => ['images i' => 'i.workID=w.workID'],
             'conditions' => ['w.workID' => $id]
         ]);
@@ -87,7 +88,7 @@ class AdminController extends Controller
         }
         if($this->Request->post){
             if($this->Admin->validates($this->Request->post)){
-               // dd($this->Request->post);
+                //dd($this->Request->post);
                 $test = $this->Admin->save('works',[
                     'workID'=>$id,
                     'title'=>$this->Request->post->title,
@@ -110,27 +111,26 @@ class AdminController extends Controller
                     $auto_ext = ['jpg', 'png', 'svg', 'gif'];
                     if (in_array($ext, $auto_ext)) {
                         $folder = $_POST['folder'];
-                        if (!is_dir(ROOT . "/public/img/" . $folder . "/")) {
-                            mkdir(ROOT . "/public/img/" . $folder . "/", 0777, true);
-                            chmod(ROOT . "/public/img/" . $folder . DS, 0775);
+                        if (!is_dir(ROOT . "/public/img/sites/" . $folder . "/")) {
+                            mkdir(ROOT . "/public/img/sites/" . $folder . "/", 0777, true);
+                            chmod(ROOT . "/public/img/sites/" . $folder . DS, 0775);
                         }
                         $filename = $img['name'][$i];
-                        move_uploaded_file($tmp_name[$i], ROOT . '/public/img/' . $folder . '/' . $img['name'][$i]);
-                        $file = ROOT . '/public/img/' . $folder . '/' . $img['name'][$i];
-                        $resizedFile = ROOT . '/public/img/' . $folder . '/' . $filename;
+                        move_uploaded_file($tmp_name[$i], ROOT . '/public/img/sites/' . $folder . '/' . $img['name'][$i]);
+                        $file = ROOT . '/public/img/sites/' . $folder . '/' . $img['name'][$i];
+                        $resizedFile = ROOT . '/public/img/sites/' . $folder . '/' . $filename;
                         $this->Img->resize($file, null, 240, 230, true, $resizedFile, false, false, 100);
                         $this->Admin->save('images', [
-                            'name' => $img['name'][0],
-                            'type' => $img['type'][0],
-                            'tmp_name' => $img['tmp_name'][0],
-                            'error' => $img['error'][0],
-                            'size' => $img['size'][0],
+                            'name' => $img['name'][$i],
+                            'type' => $img['type'][$i],
+                            'tmp_name' => $img['tmp_name'][$i],
+                            'error' => $img['error'][$i],
+                            'size' => $img['size'][$i],
                             'folder' => $this->Request->post->folder,
                             'workID' => $id,
                         ]);
                         $this->Session->setFlash('Travail sauvegarder!');
                         $this->Views->redirect(BASE_URL . '/admin/index');
-                        die();
                     }
                 }
             }

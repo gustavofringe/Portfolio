@@ -64,9 +64,11 @@ class Session
     {
         if (isset($_SESSION['flash'])) {
             ?>
-            <div class="alert alert-<?= $_SESSION['flash']['type']; ?>">
+            <div class="alert alert-<?= $_SESSION['flash']['type']; ?>" id="alert" role="alert">
                 <?= $_SESSION['flash']['message']; ?>
-                <div class="close">X</div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <?php
         }

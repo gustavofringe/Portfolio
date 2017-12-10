@@ -27,6 +27,7 @@ class ComposerStaticInitfbe824ef7709e4971bc22eea8cee6fa2
         array (
             'Psr\\Log\\' => 8,
             'Phinx\\' => 6,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'H' => 
         array (
@@ -82,6 +83,10 @@ class ComposerStaticInitfbe824ef7709e4971bc22eea8cee6fa2
         'Phinx\\' => 
         array (
             0 => __DIR__ . '/..' . '/robmorgan/phinx/src/Phinx',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Http\\' => 
         array (

@@ -14,7 +14,7 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  background: url("../img/pc_portable1.jpg") !important;
+  background: url("../img/pc_portable2.jpg") !important;
   background-size: cover;
 }
 
@@ -33,7 +33,7 @@ header
   font-family: 'Maven Pro', sans-serif;
   height: 80px;
   position: static;
-  border-bottom: 1px solid #34667e;
+  border-bottom: 1px solid rgba(77, 77, 77, 0.8);
 }
 /* line 44, ../scss/screen.scss */
 .header .header_logo svg {
@@ -97,7 +97,7 @@ hidden menu
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: #34667e;
+  background-color: rgba(77, 77, 77, 0.8);
   width: 250px;
   -moz-transform: translateX(250px);
   -ms-transform: translateX(250px);
@@ -158,20 +158,20 @@ container
   position: absolute;
   content: '';
   background: url("../img/stripes.png-vsnd") repeat-x center center;
+  color: white;
   top: 10px;
   left: 0;
   right: 0;
   bottom: 0;
 }
 
-/* line 155, ../scss/screen.scss */
+/* line 156, ../scss/screen.scss */
 .site-pusher, .site-container {
-  font-family: 'Maven Pro', sans-serif;
   font-family: 'Didact Gothic', sans-serif;
   height: 100%;
 }
 
-/* line 166, ../scss/screen.scss */
+/* line 167, ../scss/screen.scss */
 .site-pusher {
   -moz-transition-duration: 0.4s;
   -o-transition-duration: 0.4s;
@@ -183,12 +183,12 @@ container
   transform: translateX(0px);
 }
 
-/* line 171, ../scss/screen.scss */
+/* line 172, ../scss/screen.scss */
 .site-container {
   overflow: hidden;
 }
 
-/* line 175, ../scss/screen.scss */
+/* line 176, ../scss/screen.scss */
 .site-content {
   color: #F0F0EE;
   position: absolute;
@@ -200,31 +200,27 @@ container
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
-/* line 177, ../scss/screen.scss */
-.site-content .grey {
-  color: #595963;
-}
 
-/* line 190, ../scss/screen.scss */
+/* line 191, ../scss/screen.scss */
 .container {
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 194, ../scss/screen.scss */
+/* line 195, ../scss/screen.scss */
 .site-content {
   padding-top: 30px;
 }
 
-/* line 198, ../scss/screen.scss */
+/* line 199, ../scss/screen.scss */
 .border {
-  border-bottom: 1px solid #34667e;
+  border-bottom: 1px solid rgba(77, 77, 77, 0.8);
 }
 
 /*===========================================================================================================
 my picture
 ==============================================================================================================*/
-/* line 205, ../scss/screen.scss */
+/* line 206, ../scss/screen.scss */
 .figure {
   display: none;
 }
@@ -232,7 +228,7 @@ my picture
 /*===========================================================================================================
 article
 =======================================================================================================*/
-/* line 212, ../scss/screen.scss */
+/* line 213, ../scss/screen.scss */
 .description {
   padding: 0;
   margin: 0;
@@ -240,37 +236,33 @@ article
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 216, ../scss/screen.scss */
+/* line 217, ../scss/screen.scss */
 .description h1 {
   font-size: 24px;
 }
-/* line 219, ../scss/screen.scss */
+/* line 220, ../scss/screen.scss */
 .description h2 {
   font-size: 24px;
 }
-/* line 221, ../scss/screen.scss */
+/* line 222, ../scss/screen.scss */
 .description h2 em {
   font-size: 16px;
   color: #C4B2FF;
 }
-/* line 226, ../scss/screen.scss */
+/* line 227, ../scss/screen.scss */
 .description img {
   width: 50px;
   margin: 30px;
 }
-/* line 230, ../scss/screen.scss */
-.description p {
-  color: #C4B2FF;
-}
-/* line 233, ../scss/screen.scss */
+/* line 231, ../scss/screen.scss */
 .description span {
   text-transform: uppercase;
 }
-/* line 236, ../scss/screen.scss */
+/* line 234, ../scss/screen.scss */
 .description .simplon {
   overflow: auto;
 }
-/* line 238, ../scss/screen.scss */
+/* line 236, ../scss/screen.scss */
 .description .simplon img {
   height: 50px;
   width: 50px;
@@ -280,25 +272,20 @@ article
 /*=============================================================================
 card
 ==============================================================================*/
-/* line 249, ../scss/screen.scss */
+/* line 247, ../scss/screen.scss */
 .card {
+  background-color: rgba(77, 77, 77, 0.8);
   color: #000;
 }
-/* line 251, ../scss/screen.scss */
+/* line 250, ../scss/screen.scss */
 .card .content-image {
   cursor: pointer;
-  width: 250px;
-  height: 250px;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-/* line 252, ../scss/screen.scss */
-.card .content-image .image {
-  width: 250px;
-}
-/* line 259, ../scss/screen.scss */
+/* line 253, ../scss/screen.scss */
 .card .content-image:hover {
   opacity: 0.5;
   -moz-transform: scale(1.2);
@@ -306,24 +293,42 @@ card
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
 }
-/* line 262, ../scss/screen.scss */
+/* line 256, ../scss/screen.scss */
 .card .content-image:hover .image {
-  content: url("../img/link-3.svg");
   margin: 0 auto;
   opacity: 1;
+}
+
+/* line 264, ../scss/screen.scss */
+.carousel-inner {
+  padding-left: 0;
+  width: 400px;
+}
+/* line 267, ../scss/screen.scss */
+.carousel-inner .d-block {
+  width: 100%;
+}
+
+/* line 271, ../scss/screen.scss */
+.media-back .carousel-item {
+  margin-top: 45px;
+  margin-left: 15px !important;
+  padding-bottom: 10px;
+  width: 370px;
+  height: 230px;
 }
 
 /*=======================================================================
 form
 ===========================================================================*/
-/* line 274, ../scss/screen.scss */
+/* line 282, ../scss/screen.scss */
 .field {
   position: relative;
   height: 72px;
   padding: 16px 0 8px 0;
 }
 
-/* line 280, ../scss/screen.scss */
+/* line 288, ../scss/screen.scss */
 .field-label {
   position: relative;
   margin: 0;
@@ -342,8 +347,9 @@ form
   transition-duration: 0.3s;
 }
 
-/* line 292, ../scss/screen.scss */
+/* line 300, ../scss/screen.scss */
 .field-input {
+  color: #f5f2f0;
   position: relative;
   display: block;
   width: 100%;
@@ -357,7 +363,7 @@ form
   outline: none;
 }
 
-/* line 306, ../scss/screen.scss */
+/* line 315, ../scss/screen.scss */
 .field::after, .field::before {
   content: '';
   height: 2px;
@@ -368,7 +374,7 @@ form
   background-color: #e7e7e7;
 }
 
-/* line 316, ../scss/screen.scss */
+/* line 325, ../scss/screen.scss */
 .field::after {
   background-color: #ff85a4;
   -moz-transform: scaleX(0);
@@ -381,7 +387,7 @@ form
   transition-duration: 0.3s;
 }
 
-/* line 322, ../scss/screen.scss */
+/* line 331, ../scss/screen.scss */
 .has-label .field-label {
   -moz-transform: translateY(0);
   -ms-transform: translateY(0);
@@ -389,13 +395,13 @@ form
   transform: translateY(0);
 }
 
-/* line 326, ../scss/screen.scss */
+/* line 335, ../scss/screen.scss */
 .is-focused .field-label {
   font-size: 12px;
   color: #ff85a4;
 }
 
-/* line 332, ../scss/screen.scss */
+/* line 341, ../scss/screen.scss */
 .field.is-focused::after {
   -moz-transform: scaleX(1);
   -ms-transform: scaleX(1);
@@ -403,41 +409,52 @@ form
   transform: scaleX(1);
 }
 
-/* line 336, ../scss/screen.scss */
+/* line 345, ../scss/screen.scss */
 .message {
   color: #bfbfbf;
+}
+
+/* line 348, ../scss/screen.scss */
+.github {
+  fill: black;
+}
+
+/* line 351, ../scss/screen.scss */
+#alert {
+  z-index: 1000;
 }
 
 /*=============================================================================
 competence
 ==============================================================================*/
-/* line 343, ../scss/screen.scss */
+/* line 357, ../scss/screen.scss */
 .language {
   height: 200px;
+  background-color: rgba(77, 77, 77, 0.8);
 }
 
 /*==============================================================================
 footer
 ================================================================================*/
-/* line 350, ../scss/screen.scss */
+/* line 365, ../scss/screen.scss */
 footer {
-  border-top: 1px solid #34667e;
+  border-top: 1px solid rgba(77, 77, 77, 0.8);
   color: #000;
-  background-color: #CCCCCC;
+  background-color: rgba(77, 77, 77, 0.8);
 }
-/* line 353, ../scss/screen.scss */
+/* line 368, ../scss/screen.scss */
 footer h4 {
   font-size: 20px;
 }
-/* line 357, ../scss/screen.scss */
+/* line 372, ../scss/screen.scss */
 footer .dashed {
-  border-left: 1px solid #34667e;
+  border-left: 1px solid rgba(77, 77, 77, 0.8);
 }
-/* line 360, ../scss/screen.scss */
+/* line 375, ../scss/screen.scss */
 footer img {
   height: 30px;
 }
-/* line 364, ../scss/screen.scss */
+/* line 379, ../scss/screen.scss */
 footer .article-footer p {
   font-size: 10px;
 }
@@ -491,14 +508,39 @@ header
     display: block;
   }
 
+  /* line 42, ../scss/_tablet.scss */
+  .linked {
+    width: 15px;
+    height: 15px;
+  }
+
+  /* line 46, ../scss/_tablet.scss */
+  .media-back {
+    background-image: url("../img/mac.png-vsnd");
+    background-size: cover;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    width: 400px;
+    height: 280px;
+  }
+  /* line 52, ../scss/_tablet.scss */
+  .media-back .carousel-item {
+    margin-top: 45px;
+    margin-left: 50px;
+    padding-bottom: 10px;
+    width: 370px;
+    height: 230px;
+  }
+
   /*============================================================================
 description
   ==============================================================================*/
-  /* line 46, ../scss/_tablet.scss */
+  /* line 64, ../scss/_tablet.scss */
   .title h1 {
     font-size: 45px;
   }
-  /* line 49, ../scss/_tablet.scss */
+  /* line 67, ../scss/_tablet.scss */
   .title p {
     font-size: 25px;
   }
@@ -572,6 +614,7 @@ desktop format
 
   /* line 53, ../scss/_desktop.scss */
   .photo {
+    background-color: rgba(0, 0, 0, 0.8);
     width: 300px;
     height: 300px;
   }

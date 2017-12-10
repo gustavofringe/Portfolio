@@ -1,4 +1,5 @@
-<table class="table table-inverse">
+<h1>Projets</h1>
+<table class="table table-inverse mt-5">
     <thead>
     <tr>
         <th>Title</th>
@@ -15,7 +16,7 @@
             <td><?= date('d/m/Y', strtotime($work->date)); ?></td>
             <td>
                 <a href="<?= BASE_URL;?>/admin/edit/<?=$work->workID;?>" class="btn btn-primary">edit</a>
-                <a href="<?= BASE_URL;?>/admin/delete/<?=$work->workID;?>" class="btn btn-danger">delete</a>
+                <a href="<?= BASE_URL;?>/admin/delete/<?=$work->workID;?>" class="btn btn-danger" onclick="return confirm('Sûr de vouloir supprimer?')">delete</a>
             </td>
         </tr>
     <?php endforeach; ?>

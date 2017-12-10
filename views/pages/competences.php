@@ -9,7 +9,7 @@
                          class="rounded-circle img-thumbnail w-75">
                     <!-- /.rounded-circle -->
                     <p class="text-center grey"><?= $sys->nameCompetence; ?></p>
-                    <p class="text-center font-italic text-muted"><?= $sys->sentence; ?></p>
+                    <p class="text-center font-italic"><?= $sys->sentence; ?></p>
                 </div>
                 <!-- /.block -->
             </div>
@@ -25,7 +25,7 @@
                 <?php for ($i = 0; $i < count($tab[$comp->titleCompetenceID]['image']); ++$i): ?>
                     <?php for ($i = 0; $i < count($tab[$comp->titleCompetenceID]['name']); ++$i): ?>
                         <div class="col-xl-2">
-                            <div class="block text-center">
+                            <div class="block text-center compet">
                                 <img src="<?= BASE_URL; ?>/public/img/competences/<?= $tab[$comp->titleCompetenceID]['image'][$i]; ?>"
                                      alt="<?= $tab[$comp->titleCompetenceID]['name'][$i]; ?>"
                                      class="img-thumbnail language">

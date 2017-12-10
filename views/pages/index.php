@@ -1,17 +1,17 @@
 <div class="border">
     <div class="row">
-        <!--<div class="col-xl-6 col-lg-6">
-            <!--<figure class="figure">
-                <img src="<?= BASE_URL; ?>/public/img/logo.svg" alt="ma photo" class="rounded-circle photo" style="background-color: grey;">
-                <!-- /.rounded-circle
-            </figure>-->
-        <!-- /.figure
-    </div>-->
+        <div class="col-xl-4 col-lg-6">
+            <figure class="figure">
+                <img src="<?= BASE_URL; ?>/public/img/logo.svg" alt="ma photo" class="rounded-circle photo">
+            </figure>
+    </div>
         <!-- /.col-xl-6 -->
-        <div class="col-xl-12 col-lg-12 mb-3">
+        <div class="col-xl-8 col-lg-12 mb-3">
             <article class="description title">
-                <h1 class="text-center mb-2">Dussart Guillaume</h1>
-                <h2 class="text-center mt-3">Développeur Web</h2>
+                <h1 class="text-center mb-4">Dussart Guillaume</h1>
+                <h2 class="text-center mt-3">Artisan du Web</h2>
+                <h3 class="text-center mt-5">Besoin de créer un site WEB ?</h3>
+                <p class="mt-3">N'attendez plus, je peux vous offrir mes services selon vos besoins</p>
             </article>
         </div>
         <!-- /.col-xl-6 -->
@@ -57,17 +57,17 @@
 <!-- /.border -->
 
 
-<h3 class="mt-3">Mes dernières réalisations</h3>
+<h3 class="mt-3 stripe">Mes dernières réalisations</h3>
 <div class="row mt-5 mb-3 justify-content-sm-center">
     <?php foreach ($realisations as $realisation): ?>
         <div class="col-lg-3 col-sm-auto mb-3">
             <div class="d-flex justify-content-center">
-                <div class="card" style="width: 20rem; height: 25rem;">
+                <div class="card" style="width: 15.1rem; height: 20rem;">
                     <a href="<?php echo $realisation->getLink();?>">
                         <div class="first content-image d-flex" role="img" aria-label="archiduchesse">
                             <!--<img class="d-flex mr-3" src="img/archiduchesse_s.png" alt="archiduchesse">-->
                             <div class="image" style="width:20rem">
-                                <img src="<?php echo BASE_URL; ?>/public/img/<?php echo $realisation->getFolder(); ?>/<?php echo $realisation->getName(); ?>"
+                                <img src="<?php echo BASE_URL; ?>/public/img/sites/<?php echo $realisation->getFolder(); ?>/<?php echo $realisation->getName(); ?>"
                                      alt="<?php echo $realisation->getName(); ?>">
                             </div>
 

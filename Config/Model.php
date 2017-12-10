@@ -73,7 +73,7 @@ class Model
                         Form::$errors[$k] = $v['message'];
                     }
                 } elseif ($v['rule'] === 'img') {
-                    $ext = strtolower(substr($data->$k['name'][0], -3));
+                    $ext = strtolower(substr($data->$k['name'], -3));
                     if (!in_array($ext, $v['cond'])) {
                         Form::$errors[$k] = $v['message'];
                     }
