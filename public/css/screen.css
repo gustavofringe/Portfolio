@@ -24,44 +24,67 @@ a {
   color: inherit;
   text-transform: uppercase;
 }
+/* line 29, ../scss/screen.scss */
+a:hover {
+  color: #DC6263;
+  text-decoration: none;
+}
+
+/* line 37, ../scss/screen.scss */
+#active {
+  color: #DC6263;
+}
 
 /*===========================================================================================================
 header
 ============================================================================================================*/
-/* line 38, ../scss/screen.scss */
+/* line 44, ../scss/screen.scss */
 .header {
   font-family: 'Maven Pro', sans-serif;
   height: 80px;
   position: static;
-  border-bottom: 1px solid rgba(77, 77, 77, 0.8);
+  border-bottom: 1px solid #DC6263;
 }
-/* line 44, ../scss/screen.scss */
+/* line 50, ../scss/screen.scss */
+.header .header_logo #logo {
+  width: 60px;
+  height: 60px;
+}
+/* line 54, ../scss/screen.scss */
 .header .header_logo svg {
   width: 100px;
   margin-top: 10px;
   padding: 0 25px;
   height: 50px;
 }
-/* line 49, ../scss/screen.scss */
+/* line 59, ../scss/screen.scss */
 .header .header_logo svg .inside {
   fill: #bcbcad;
   fill-opacity: 1;
 }
-/* line 53, ../scss/screen.scss */
+/* line 63, ../scss/screen.scss */
 .header .header_logo svg .init {
   fill: #595963;
   fill-opacity: 1;
 }
-/* line 58, ../scss/screen.scss */
+/* line 68, ../scss/screen.scss */
 .header .header_logo svg .init:hover, .header .header_logo svg .inside:hover {
   fill: #1f55ff;
   fill-opacity: 0.5;
 }
 
+/*===========================================================================================================
+title
+=============================================================================================================*/
+/* line 79, ../scss/screen.scss */
+h1, h2, h3, h4 {
+  font-weight: bold;
+}
+
 /*============================================================================================================
 hamburger icon
 =============================================================================================================*/
-/* line 70, ../scss/screen.scss */
+/* line 85, ../scss/screen.scss */
 .header_icon {
   position: relative;
   display: block;
@@ -70,7 +93,7 @@ hamburger icon
   width: 50px;
   cursor: pointer;
 }
-/* line 77, ../scss/screen.scss */
+/* line 92, ../scss/screen.scss */
 .header_icon:after {
   content: '';
   position: absolute;
@@ -87,11 +110,11 @@ hamburger icon
 /*=========================================================================================================
 hidden menu
 ===========================================================================================================*/
-/* line 92, ../scss/screen.scss */
+/* line 107, ../scss/screen.scss */
 .container-top {
   color: #F0F0EE;
 }
-/* line 95, ../scss/screen.scss */
+/* line 110, ../scss/screen.scss */
 .container-top .menu {
   position: absolute;
   right: 0;
@@ -108,7 +131,7 @@ hidden menu
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
 }
-/* line 104, ../scss/screen.scss */
+/* line 119, ../scss/screen.scss */
 .container-top .menu a {
   display: block;
   text-align: center;
@@ -116,11 +139,16 @@ hidden menu
   line-height: 40px;
   border-bottom: 1px solid grey;
 }
+/* line 120, ../scss/screen.scss */
+.container-top .menu a:hover {
+  color: #DC6263;
+  text-decoration: none;
+}
 
 /*============================================================================================================
 menu desktop
 ==============================================================================================================*/
-/* line 117, ../scss/screen.scss */
+/* line 136, ../scss/screen.scss */
 .menu-desktop {
   display: none;
 }
@@ -129,14 +157,14 @@ menu desktop
 visible menu
 when the body have a with side bar class
 ==================================================================================================================*/
-/* line 126, ../scss/screen.scss */
+/* line 145, ../scss/screen.scss */
 .with--sidebar .site-pusher {
   -moz-transform: translateX(-250px);
   -ms-transform: translateX(-250px);
   -webkit-transform: translateX(-250px);
   transform: translateX(-250px);
 }
-/* line 129, ../scss/screen.scss */
+/* line 148, ../scss/screen.scss */
 .with--sidebar .site-cache {
   position: absolute;
   left: 0;
@@ -149,11 +177,11 @@ when the body have a with side bar class
 /*============================================================================================================
 container
 ===============================================================================================================*/
-/* line 142, ../scss/screen.scss */
+/* line 161, ../scss/screen.scss */
 .stripe {
   position: relative;
 }
-/* line 144, ../scss/screen.scss */
+/* line 163, ../scss/screen.scss */
 .stripe:after {
   position: absolute;
   content: '';
@@ -165,13 +193,13 @@ container
   bottom: 0;
 }
 
-/* line 156, ../scss/screen.scss */
+/* line 175, ../scss/screen.scss */
 .site-pusher, .site-container {
   font-family: 'Didact Gothic', sans-serif;
   height: 100%;
 }
 
-/* line 167, ../scss/screen.scss */
+/* line 186, ../scss/screen.scss */
 .site-pusher {
   -moz-transition-duration: 0.4s;
   -o-transition-duration: 0.4s;
@@ -183,12 +211,12 @@ container
   transform: translateX(0px);
 }
 
-/* line 172, ../scss/screen.scss */
+/* line 191, ../scss/screen.scss */
 .site-container {
   overflow: hidden;
 }
 
-/* line 176, ../scss/screen.scss */
+/* line 195, ../scss/screen.scss */
 .site-content {
   color: #F0F0EE;
   position: absolute;
@@ -201,26 +229,26 @@ container
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 191, ../scss/screen.scss */
+/* line 210, ../scss/screen.scss */
 .container {
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 195, ../scss/screen.scss */
+/* line 214, ../scss/screen.scss */
 .site-content {
   padding-top: 30px;
 }
 
-/* line 199, ../scss/screen.scss */
+/* line 218, ../scss/screen.scss */
 .border {
-  border-bottom: 1px solid rgba(77, 77, 77, 0.8);
+  border-bottom: 1px solid #DC6263;
 }
 
 /*===========================================================================================================
 my picture
 ==============================================================================================================*/
-/* line 206, ../scss/screen.scss */
+/* line 225, ../scss/screen.scss */
 .figure {
   display: none;
 }
@@ -228,7 +256,7 @@ my picture
 /*===========================================================================================================
 article
 =======================================================================================================*/
-/* line 213, ../scss/screen.scss */
+/* line 232, ../scss/screen.scss */
 .description {
   padding: 0;
   margin: 0;
@@ -236,33 +264,33 @@ article
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 217, ../scss/screen.scss */
+/* line 236, ../scss/screen.scss */
 .description h1 {
   font-size: 24px;
 }
-/* line 220, ../scss/screen.scss */
+/* line 239, ../scss/screen.scss */
 .description h2 {
   font-size: 24px;
 }
-/* line 222, ../scss/screen.scss */
+/* line 241, ../scss/screen.scss */
 .description h2 em {
   font-size: 16px;
   color: #C4B2FF;
 }
-/* line 227, ../scss/screen.scss */
+/* line 246, ../scss/screen.scss */
 .description img {
   width: 50px;
   margin: 30px;
 }
-/* line 231, ../scss/screen.scss */
+/* line 250, ../scss/screen.scss */
 .description span {
   text-transform: uppercase;
 }
-/* line 234, ../scss/screen.scss */
+/* line 253, ../scss/screen.scss */
 .description .simplon {
   overflow: auto;
 }
-/* line 236, ../scss/screen.scss */
+/* line 255, ../scss/screen.scss */
 .description .simplon img {
   height: 50px;
   width: 50px;
@@ -272,12 +300,12 @@ article
 /*=============================================================================
 card
 ==============================================================================*/
-/* line 247, ../scss/screen.scss */
+/* line 266, ../scss/screen.scss */
 .card {
   background-color: rgba(77, 77, 77, 0.8);
-  color: #000;
+  color: #FFFFFE;
 }
-/* line 250, ../scss/screen.scss */
+/* line 269, ../scss/screen.scss */
 .card .content-image {
   cursor: pointer;
   -moz-transition: all 0.3s ease-in-out;
@@ -285,7 +313,7 @@ card
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-/* line 253, ../scss/screen.scss */
+/* line 272, ../scss/screen.scss */
 .card .content-image:hover {
   opacity: 0.5;
   -moz-transform: scale(1.2);
@@ -293,23 +321,23 @@ card
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
 }
-/* line 256, ../scss/screen.scss */
+/* line 275, ../scss/screen.scss */
 .card .content-image:hover .image {
   margin: 0 auto;
   opacity: 1;
 }
 
-/* line 264, ../scss/screen.scss */
+/* line 283, ../scss/screen.scss */
 .carousel-inner {
   padding-left: 0;
   width: 400px;
 }
-/* line 267, ../scss/screen.scss */
+/* line 286, ../scss/screen.scss */
 .carousel-inner .d-block {
   width: 100%;
 }
 
-/* line 271, ../scss/screen.scss */
+/* line 290, ../scss/screen.scss */
 .media-back .carousel-item {
   margin-top: 45px;
   margin-left: 15px !important;
@@ -321,14 +349,14 @@ card
 /*=======================================================================
 form
 ===========================================================================*/
-/* line 282, ../scss/screen.scss */
+/* line 301, ../scss/screen.scss */
 .field {
   position: relative;
   height: 72px;
   padding: 16px 0 8px 0;
 }
 
-/* line 288, ../scss/screen.scss */
+/* line 307, ../scss/screen.scss */
 .field-label {
   position: relative;
   margin: 0;
@@ -347,7 +375,7 @@ form
   transition-duration: 0.3s;
 }
 
-/* line 300, ../scss/screen.scss */
+/* line 319, ../scss/screen.scss */
 .field-input {
   color: #f5f2f0;
   position: relative;
@@ -363,7 +391,7 @@ form
   outline: none;
 }
 
-/* line 315, ../scss/screen.scss */
+/* line 334, ../scss/screen.scss */
 .field::after, .field::before {
   content: '';
   height: 2px;
@@ -374,7 +402,7 @@ form
   background-color: #e7e7e7;
 }
 
-/* line 325, ../scss/screen.scss */
+/* line 344, ../scss/screen.scss */
 .field::after {
   background-color: #ff85a4;
   -moz-transform: scaleX(0);
@@ -387,7 +415,7 @@ form
   transition-duration: 0.3s;
 }
 
-/* line 331, ../scss/screen.scss */
+/* line 350, ../scss/screen.scss */
 .has-label .field-label {
   -moz-transform: translateY(0);
   -ms-transform: translateY(0);
@@ -395,13 +423,13 @@ form
   transform: translateY(0);
 }
 
-/* line 335, ../scss/screen.scss */
+/* line 354, ../scss/screen.scss */
 .is-focused .field-label {
   font-size: 12px;
   color: #ff85a4;
 }
 
-/* line 341, ../scss/screen.scss */
+/* line 360, ../scss/screen.scss */
 .field.is-focused::after {
   -moz-transform: scaleX(1);
   -ms-transform: scaleX(1);
@@ -409,17 +437,19 @@ form
   transform: scaleX(1);
 }
 
-/* line 345, ../scss/screen.scss */
+/* line 364, ../scss/screen.scss */
 .message {
   color: #bfbfbf;
 }
 
-/* line 348, ../scss/screen.scss */
-.github {
+/* line 367, ../scss/screen.scss */
+.social {
   fill: black;
+  height: 35px;
+  width: 35px;
 }
 
-/* line 351, ../scss/screen.scss */
+/* line 372, ../scss/screen.scss */
 #alert {
   z-index: 1000;
 }
@@ -427,7 +457,7 @@ form
 /*=============================================================================
 competence
 ==============================================================================*/
-/* line 357, ../scss/screen.scss */
+/* line 378, ../scss/screen.scss */
 .language {
   height: 200px;
   background-color: rgba(77, 77, 77, 0.8);
@@ -436,27 +466,27 @@ competence
 /*==============================================================================
 footer
 ================================================================================*/
-/* line 365, ../scss/screen.scss */
+/* line 386, ../scss/screen.scss */
 footer {
   border-top: 1px solid rgba(77, 77, 77, 0.8);
   color: #000;
   background-color: rgba(77, 77, 77, 0.8);
 }
-/* line 368, ../scss/screen.scss */
+/* line 389, ../scss/screen.scss */
 footer h4 {
   font-size: 20px;
 }
-/* line 372, ../scss/screen.scss */
+/* line 393, ../scss/screen.scss */
 footer .dashed {
   border-left: 1px solid rgba(77, 77, 77, 0.8);
 }
-/* line 375, ../scss/screen.scss */
+/* line 396, ../scss/screen.scss */
 footer img {
   height: 30px;
 }
-/* line 379, ../scss/screen.scss */
+/* line 400, ../scss/screen.scss */
 footer .article-footer p {
-  font-size: 10px;
+  font-size: 13px;
 }
 
 /*===========================================================================
@@ -481,21 +511,25 @@ tablet landscape format
   .menu-desktop a {
     padding: 0 10px;
   }
+  /* line 21, ../scss/_tablet.scss */
+  .menu-desktop a:hover {
+    color: #DC6263;
+  }
 
   /*=====================================================================
 header
   ====================================================================*/
-  /* line 27, ../scss/_tablet.scss */
+  /* line 30, ../scss/_tablet.scss */
   .header {
-    border-bottom: 1px solid #34667e;
+    border-bottom: 1px solid #DC6263;
   }
 
-  /* line 30, ../scss/_tablet.scss */
+  /* line 33, ../scss/_tablet.scss */
   .header_logo {
     padding: 0 40px;
   }
 
-  /* line 33, ../scss/_tablet.scss */
+  /* line 36, ../scss/_tablet.scss */
   .header_icon {
     display: none;
   }
@@ -503,18 +537,18 @@ header
   /*=========================================================================
   my picture
   =============================================================================*/
-  /* line 39, ../scss/_tablet.scss */
+  /* line 42, ../scss/_tablet.scss */
   .figure {
     display: block;
   }
 
-  /* line 42, ../scss/_tablet.scss */
+  /* line 45, ../scss/_tablet.scss */
   .linked {
     width: 15px;
     height: 15px;
   }
 
-  /* line 46, ../scss/_tablet.scss */
+  /* line 49, ../scss/_tablet.scss */
   .media-back {
     background-image: url("../img/mac.png-vsnd");
     background-size: cover;
@@ -524,7 +558,7 @@ header
     width: 400px;
     height: 280px;
   }
-  /* line 52, ../scss/_tablet.scss */
+  /* line 55, ../scss/_tablet.scss */
   .media-back .carousel-item {
     margin-top: 45px;
     margin-left: 50px;
@@ -536,11 +570,11 @@ header
   /*============================================================================
 description
   ==============================================================================*/
-  /* line 64, ../scss/_tablet.scss */
+  /* line 67, ../scss/_tablet.scss */
   .title h1 {
     font-size: 45px;
   }
-  /* line 67, ../scss/_tablet.scss */
+  /* line 70, ../scss/_tablet.scss */
   .title p {
     font-size: 25px;
   }
@@ -557,7 +591,7 @@ desktop format
     right: 0;
     height: 80px;
     line-height: 66px;
-    border-bottom: 1px solid #34667e;
+    border-bottom: 1px solid #DC6263;
   }
 
   /* line 15, ../scss/_desktop.scss */
@@ -570,25 +604,31 @@ desktop format
     padding: 0 25px;
     float: left;
   }
-  /* line 22, ../scss/_desktop.scss */
+  /* line 21, ../scss/_desktop.scss */
+  .container-top .header_logo #logo {
+    width: 60px;
+    height: 60px;
+  }
+  /* line 26, ../scss/_desktop.scss */
   .container-top .header_icon {
     display: none;
   }
-  /* line 25, ../scss/_desktop.scss */
+  /* line 29, ../scss/_desktop.scss */
   .container-top .menu {
     float: right;
   }
-  /* line 27, ../scss/_desktop.scss */
+  /* line 31, ../scss/_desktop.scss */
   .container-top .menu a {
+    text-decoration: none;
     padding: 0 10px;
     text-transform: uppercase;
   }
-  /* line 30, ../scss/_desktop.scss */
+  /* line 35, ../scss/_desktop.scss */
   .container-top .menu a:hover {
-    color: grey;
+    color: #DC6263;
   }
 
-  /* line 36, ../scss/_desktop.scss */
+  /* line 41, ../scss/_desktop.scss */
   .media-back {
     background-image: url("../img/mac.png-vsnd");
     background-size: cover;
@@ -598,7 +638,7 @@ desktop format
     width: 400px;
     height: 280px;
   }
-  /* line 42, ../scss/_desktop.scss */
+  /* line 47, ../scss/_desktop.scss */
   .media-back .carousel-item {
     margin-top: 45px;
     margin-left: 50px;
@@ -607,12 +647,12 @@ desktop format
     height: 230px;
   }
 
-  /* line 50, ../scss/_desktop.scss */
+  /* line 55, ../scss/_desktop.scss */
   .link {
     width: 25px;
   }
 
-  /* line 53, ../scss/_desktop.scss */
+  /* line 58, ../scss/_desktop.scss */
   .photo {
     background-color: rgba(0, 0, 0, 0.8);
     width: 300px;

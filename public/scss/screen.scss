@@ -26,11 +26,17 @@ html, body {
 }
 
 a {
+    &:hover{
+        color:  #DC6263;
+        text-decoration: none;
+    }
     text-decoration: none;
     color: inherit;
     text-transform: uppercase;
 }
-
+#active{
+    color: #DC6263;
+}
 /*===========================================================================================================
 header
 ============================================================================================================*/
@@ -39,8 +45,12 @@ header
     font-family: 'Maven Pro', sans-serif;
     height: $height-header;
     position: static;
-    border-bottom: 1px solid $color1;
+    border-bottom: 1px solid #DC6263;
     .header_logo {
+        #logo{
+            width: 60px;
+            height: 60px;
+        }
         svg {
             width: 100px;
             margin-top: 10px;
@@ -63,7 +73,12 @@ header
         }
     }
 }
-
+/*===========================================================================================================
+title
+=============================================================================================================*/
+h1, h2, h3, h4{
+    font-weight: bold;
+}
 /*============================================================================================================
 hamburger icon
 =============================================================================================================*/
@@ -102,6 +117,10 @@ hidden menu
         @include transform (translateX($menu-width));
         @include transition-duration(0.4s);
         a {
+            &:hover{
+                color: #DC6263;
+                text-decoration: none;
+            }
             display: block;
             text-align: center;
             height: 40px;
@@ -197,7 +216,7 @@ container
 }
 
 .border {
-    border-bottom: 1px solid $color1;
+    border-bottom: 1px solid #DC6263;
 }
 
 /*===========================================================================================================
@@ -246,7 +265,7 @@ card
 ==============================================================================*/
 .card {
     background-color: $color1;
-    color: #000;
+    color: #FFFFFE;
     .content-image {
         cursor: pointer;
         @include transition(all 0.3s ease-in-out);
@@ -345,8 +364,10 @@ form
 .message {
     color: lighten(#000, 75);
 }
-.github{
+.social{
     fill:black;
+  height: 35px;
+  width: 35px;
 }
 #alert{
     z-index: 1000;
@@ -377,7 +398,7 @@ footer {
     }
     .article-footer {
         p {
-            font-size: 10px;
+            font-size: 13px;
         }
     }
 }

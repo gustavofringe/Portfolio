@@ -1,17 +1,12 @@
 <div class="border">
     <div class="row">
-        <div class="col-xl-4 col-lg-6">
-            <figure class="figure">
-                <img src="<?= BASE_URL; ?>/public/img/logo.svg" alt="ma photo" class="rounded-circle photo">
-            </figure>
-    </div>
         <!-- /.col-xl-6 -->
-        <div class="col-xl-8 col-lg-12 mb-3">
+        <div class="col-xl-12 col-lg-12 mb-3">
             <article class="description title">
                 <h1 class="text-center mb-4">Dussart Guillaume</h1>
                 <h2 class="text-center mt-3">Artisan du Web</h2>
                 <h3 class="text-center mt-5">Besoin de créer un site WEB ?</h3>
-                <p class="mt-3">N'attendez plus, je peux vous offrir mes services selon vos besoins</p>
+                <p class="mt-3 text-center">N'attendez plus, je peux vous offrir mes services selon vos besoins</p>
             </article>
         </div>
         <!-- /.col-xl-6 -->
@@ -62,7 +57,7 @@
     <?php foreach ($realisations as $realisation): ?>
         <div class="col-lg-3 col-sm-auto mb-3">
             <div class="d-flex justify-content-center">
-                <div class="card" style="width: 15.1rem; height: 20rem;">
+                <div class="card" style="width: 15.1rem; height: 18rem;">
                     <a href="<?php echo $realisation->getLink();?>">
                         <div class="first content-image d-flex" role="img" aria-label="archiduchesse">
                             <!--<img class="d-flex mr-3" src="img/archiduchesse_s.png" alt="archiduchesse">-->
@@ -75,7 +70,6 @@
                     </a>
                     <div class="card-block">
                         <h4 class="card-title"><?= $realisation->getTitle(); ?></h4>
-                        <p class="card-text"><?= $realisation->getSubtitle(); ?></p>
                     </div>
                 </div>
             </div>

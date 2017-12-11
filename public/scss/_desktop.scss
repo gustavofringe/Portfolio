@@ -10,7 +10,7 @@ desktop format
         right: 0;
         height: $height-header;
         line-height: 66px;
-        border-bottom: 1px solid #34667e;
+        border-bottom: 1px solid #DC6263;
     }
     .container-top {
         width: 80%;
@@ -18,6 +18,10 @@ desktop format
         .header_logo {
             padding: 0 25px;
             float: left;
+            #logo{
+                width: 60px;
+                height: 60px;
+            }
         }
         .header_icon {
             display: none;
@@ -25,10 +29,11 @@ desktop format
         .menu {
             float: right;
             a {
+                text-decoration: none;
                 padding: 0 10px;
                 text-transform: uppercase;
                 &:hover {
-                    color: grey;
+                    color:  #DC6263;
                 }
             }
         }

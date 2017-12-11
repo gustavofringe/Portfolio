@@ -8,7 +8,7 @@
             <!--
         ============================================================================ archiduchesse
             -->
-        <div class="col-md-3 col-sm-auto mb-3">
+        <div class="col-md-2 col-sm-auto mb-3">
             <div class="d-flex justify-content-center">
                 <div class="card" style="width: 15rem; height: 25rem" role="tab" id="heading<?php echo $v->workID; ?>">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $v->workID; ?>"
@@ -39,7 +39,7 @@
     ====================================================collapse & slider first level
     =============================== slide archiduchesse
     -->
-    <div class="card hidden-md-down" style="height: 22rem">
+    <div class="card hidden-md-down" style="height: 25rem">
         <div id="collapse<?= $v->workID; ?>" class="collapse" role="tabpanel" aria-labelledby="heading<?= $v->workID; ?>">
             <div class="card card-block">
                 <div class="image-card">

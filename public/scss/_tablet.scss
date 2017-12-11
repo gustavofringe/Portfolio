@@ -18,6 +18,9 @@ menu hidden
     float: right;
     padding: 0 25px;
     a{
+      &:hover{
+        color: #DC6263;
+      }
       padding: 0 10px;
     }
   }
@@ -25,7 +28,7 @@ menu hidden
 header
   ====================================================================*/
   .header{
-    border-bottom: 1px solid #34667e;
+    border-bottom: 1px solid #DC6263;
   }
   .header_logo{
     padding: 0 40px;
