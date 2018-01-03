@@ -1,7 +1,4 @@
 <h1 class="mt-3 stripe">Mes réalisations</h1>
-<!--
-=========================VIVE LES BOUCLES ;)
--->
 <div id="accordion" role="tablist" aria-multiselectable="true">
     <div class="row mt-5 mb-3 justify-content-sm-center">
         <?php foreach ($realisations as $k => $v): ?>
@@ -17,14 +14,14 @@
 
                             <div class="image">
                                 <img class="card-img-top image link" id="image"
-                                     src="<?php echo BASE_URL; ?>/public/img/sites/<?php echo $v->folder; ?>/<?php echo $v->name; ?>"
+                                     src="<?php echo BASE_URL; ?>/img/sites/<?php echo $v->folder; ?>/<?php echo $v->name; ?>"
                                      alt="<?php echo $v->name; ?>" style="width: 100%">
                             </div>
 
                         </div>
                     </a>
                     <div class="card-block">
-                        <h4 class="card-title"><?php echo $v->title; ?></h4>
+                        <h2 class="card-title"><?php echo $v->title; ?></h2>
                         <p class="card-text"><?= $v->subtitle; ?></p>
                         <p class="mt-3"><?= $v->techno; ?></p>
 
@@ -48,7 +45,7 @@
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active">
                                     <img class="d-block"
-                                         src="<?= BASE_URL; ?>/public/img/sites/<?= $v->folder; ?>/<?= $v->name; ?>"
+                                         src="<?= BASE_URL; ?>/img/sites/<?= $v->folder; ?>/<?= $v->name; ?>"
                                          alt="<?= $v->name; ?>">
                                 </div>
                                 <?php for ($i = 0; $i < count($tab[$v->workID]['name']); ++$i): ?>
@@ -61,7 +58,7 @@
 
                             </div>
                             <div class="mt-4"><a class="linkB mt-3" href="<?= $v->link; ?>">
-                                    <img class="link linked" src="<?= BASE_URL; ?>/public/img/link-3.svg" alt="lien">
+                                    <img class="link linked" src="<?= BASE_URL; ?>/img/link-3.svg" alt="lien">
                                     -><em>Lien
                                         projet</em>
                                 </a></div>

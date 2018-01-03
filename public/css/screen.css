@@ -35,39 +35,44 @@ a:hover {
   color: #DC6263;
 }
 
+/* line 40, ../scss/screen.scss */
+.lower {
+  text-transform: lowercase;
+}
+
 /*===========================================================================================================
 header
 ============================================================================================================*/
-/* line 44, ../scss/screen.scss */
+/* line 48, ../scss/screen.scss */
 .header {
   font-family: 'Maven Pro', sans-serif;
   height: 80px;
   position: static;
   border-bottom: 1px solid #DC6263;
 }
-/* line 50, ../scss/screen.scss */
+/* line 54, ../scss/screen.scss */
 .header .header_logo #logo {
   width: 60px;
   height: 60px;
 }
-/* line 54, ../scss/screen.scss */
+/* line 58, ../scss/screen.scss */
 .header .header_logo svg {
   width: 100px;
   margin-top: 10px;
   padding: 0 25px;
   height: 50px;
 }
-/* line 59, ../scss/screen.scss */
+/* line 63, ../scss/screen.scss */
 .header .header_logo svg .inside {
   fill: #bcbcad;
   fill-opacity: 1;
 }
-/* line 63, ../scss/screen.scss */
+/* line 67, ../scss/screen.scss */
 .header .header_logo svg .init {
   fill: #595963;
   fill-opacity: 1;
 }
-/* line 68, ../scss/screen.scss */
+/* line 72, ../scss/screen.scss */
 .header .header_logo svg .init:hover, .header .header_logo svg .inside:hover {
   fill: #1f55ff;
   fill-opacity: 0.5;
@@ -76,7 +81,7 @@ header
 /*===========================================================================================================
 title
 =============================================================================================================*/
-/* line 79, ../scss/screen.scss */
+/* line 83, ../scss/screen.scss */
 h1, h2, h3, h4 {
   font-weight: bold;
 }
@@ -84,7 +89,7 @@ h1, h2, h3, h4 {
 /*============================================================================================================
 hamburger icon
 =============================================================================================================*/
-/* line 85, ../scss/screen.scss */
+/* line 89, ../scss/screen.scss */
 .header_icon {
   position: relative;
   display: block;
@@ -93,7 +98,7 @@ hamburger icon
   width: 50px;
   cursor: pointer;
 }
-/* line 92, ../scss/screen.scss */
+/* line 96, ../scss/screen.scss */
 .header_icon:after {
   content: '';
   position: absolute;
@@ -110,11 +115,11 @@ hamburger icon
 /*=========================================================================================================
 hidden menu
 ===========================================================================================================*/
-/* line 107, ../scss/screen.scss */
+/* line 111, ../scss/screen.scss */
 .container-top {
   color: #F0F0EE;
 }
-/* line 110, ../scss/screen.scss */
+/* line 114, ../scss/screen.scss */
 .container-top .menu {
   position: absolute;
   right: 0;
@@ -131,7 +136,7 @@ hidden menu
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
 }
-/* line 119, ../scss/screen.scss */
+/* line 123, ../scss/screen.scss */
 .container-top .menu a {
   display: block;
   text-align: center;
@@ -139,7 +144,7 @@ hidden menu
   line-height: 40px;
   border-bottom: 1px solid grey;
 }
-/* line 120, ../scss/screen.scss */
+/* line 124, ../scss/screen.scss */
 .container-top .menu a:hover {
   color: #DC6263;
   text-decoration: none;
@@ -148,7 +153,7 @@ hidden menu
 /*============================================================================================================
 menu desktop
 ==============================================================================================================*/
-/* line 136, ../scss/screen.scss */
+/* line 140, ../scss/screen.scss */
 .menu-desktop {
   display: none;
 }
@@ -157,14 +162,14 @@ menu desktop
 visible menu
 when the body have a with side bar class
 ==================================================================================================================*/
-/* line 145, ../scss/screen.scss */
+/* line 149, ../scss/screen.scss */
 .with--sidebar .site-pusher {
   -moz-transform: translateX(-250px);
   -ms-transform: translateX(-250px);
   -webkit-transform: translateX(-250px);
   transform: translateX(-250px);
 }
-/* line 148, ../scss/screen.scss */
+/* line 152, ../scss/screen.scss */
 .with--sidebar .site-cache {
   position: absolute;
   left: 0;
@@ -177,11 +182,11 @@ when the body have a with side bar class
 /*============================================================================================================
 container
 ===============================================================================================================*/
-/* line 161, ../scss/screen.scss */
+/* line 165, ../scss/screen.scss */
 .stripe {
   position: relative;
 }
-/* line 163, ../scss/screen.scss */
+/* line 167, ../scss/screen.scss */
 .stripe:after {
   position: absolute;
   content: '';
@@ -193,13 +198,13 @@ container
   bottom: 0;
 }
 
-/* line 175, ../scss/screen.scss */
+/* line 179, ../scss/screen.scss */
 .site-pusher, .site-container {
   font-family: 'Didact Gothic', sans-serif;
   height: 100%;
 }
 
-/* line 186, ../scss/screen.scss */
+/* line 190, ../scss/screen.scss */
 .site-pusher {
   -moz-transition-duration: 0.4s;
   -o-transition-duration: 0.4s;
@@ -211,12 +216,12 @@ container
   transform: translateX(0px);
 }
 
-/* line 191, ../scss/screen.scss */
+/* line 195, ../scss/screen.scss */
 .site-container {
   overflow: hidden;
 }
 
-/* line 195, ../scss/screen.scss */
+/* line 199, ../scss/screen.scss */
 .site-content {
   color: #F0F0EE;
   position: absolute;
@@ -229,18 +234,18 @@ container
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 210, ../scss/screen.scss */
+/* line 214, ../scss/screen.scss */
 .container {
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 214, ../scss/screen.scss */
+/* line 218, ../scss/screen.scss */
 .site-content {
   padding-top: 30px;
 }
 
-/* line 218, ../scss/screen.scss */
+/* line 222, ../scss/screen.scss */
 .border {
   border-bottom: 1px solid #DC6263;
 }
@@ -248,7 +253,7 @@ container
 /*===========================================================================================================
 my picture
 ==============================================================================================================*/
-/* line 225, ../scss/screen.scss */
+/* line 229, ../scss/screen.scss */
 .figure {
   display: none;
 }
@@ -256,7 +261,7 @@ my picture
 /*===========================================================================================================
 article
 =======================================================================================================*/
-/* line 232, ../scss/screen.scss */
+/* line 236, ../scss/screen.scss */
 .description {
   padding: 0;
   margin: 0;
@@ -264,33 +269,33 @@ article
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 236, ../scss/screen.scss */
+/* line 240, ../scss/screen.scss */
 .description h1 {
   font-size: 24px;
 }
-/* line 239, ../scss/screen.scss */
+/* line 243, ../scss/screen.scss */
 .description h2 {
   font-size: 24px;
 }
-/* line 241, ../scss/screen.scss */
+/* line 245, ../scss/screen.scss */
 .description h2 em {
   font-size: 16px;
   color: #C4B2FF;
 }
-/* line 246, ../scss/screen.scss */
+/* line 250, ../scss/screen.scss */
 .description img {
   width: 50px;
   margin: 30px;
 }
-/* line 250, ../scss/screen.scss */
+/* line 254, ../scss/screen.scss */
 .description span {
   text-transform: uppercase;
 }
-/* line 253, ../scss/screen.scss */
+/* line 257, ../scss/screen.scss */
 .description .simplon {
   overflow: auto;
 }
-/* line 255, ../scss/screen.scss */
+/* line 259, ../scss/screen.scss */
 .description .simplon img {
   height: 50px;
   width: 50px;
@@ -300,12 +305,12 @@ article
 /*=============================================================================
 card
 ==============================================================================*/
-/* line 266, ../scss/screen.scss */
+/* line 270, ../scss/screen.scss */
 .card {
   background-color: rgba(77, 77, 77, 0.8);
   color: #FFFFFE;
 }
-/* line 269, ../scss/screen.scss */
+/* line 273, ../scss/screen.scss */
 .card .content-image {
   cursor: pointer;
   -moz-transition: all 0.3s ease-in-out;
@@ -313,7 +318,7 @@ card
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-/* line 272, ../scss/screen.scss */
+/* line 276, ../scss/screen.scss */
 .card .content-image:hover {
   opacity: 0.5;
   -moz-transform: scale(1.2);
@@ -321,23 +326,23 @@ card
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
 }
-/* line 275, ../scss/screen.scss */
+/* line 279, ../scss/screen.scss */
 .card .content-image:hover .image {
   margin: 0 auto;
   opacity: 1;
 }
 
-/* line 283, ../scss/screen.scss */
+/* line 287, ../scss/screen.scss */
 .carousel-inner {
   padding-left: 0;
   width: 400px;
 }
-/* line 286, ../scss/screen.scss */
+/* line 290, ../scss/screen.scss */
 .carousel-inner .d-block {
   width: 100%;
 }
 
-/* line 290, ../scss/screen.scss */
+/* line 294, ../scss/screen.scss */
 .media-back .carousel-item {
   margin-top: 45px;
   margin-left: 15px !important;
@@ -349,14 +354,14 @@ card
 /*=======================================================================
 form
 ===========================================================================*/
-/* line 301, ../scss/screen.scss */
+/* line 305, ../scss/screen.scss */
 .field {
   position: relative;
   height: 72px;
   padding: 16px 0 8px 0;
 }
 
-/* line 307, ../scss/screen.scss */
+/* line 311, ../scss/screen.scss */
 .field-label {
   position: relative;
   margin: 0;
@@ -375,7 +380,7 @@ form
   transition-duration: 0.3s;
 }
 
-/* line 319, ../scss/screen.scss */
+/* line 323, ../scss/screen.scss */
 .field-input {
   color: #f5f2f0;
   position: relative;
@@ -391,7 +396,7 @@ form
   outline: none;
 }
 
-/* line 334, ../scss/screen.scss */
+/* line 338, ../scss/screen.scss */
 .field::after, .field::before {
   content: '';
   height: 2px;
@@ -402,7 +407,7 @@ form
   background-color: #e7e7e7;
 }
 
-/* line 344, ../scss/screen.scss */
+/* line 348, ../scss/screen.scss */
 .field::after {
   background-color: #ff85a4;
   -moz-transform: scaleX(0);
@@ -415,7 +420,7 @@ form
   transition-duration: 0.3s;
 }
 
-/* line 350, ../scss/screen.scss */
+/* line 354, ../scss/screen.scss */
 .has-label .field-label {
   -moz-transform: translateY(0);
   -ms-transform: translateY(0);
@@ -423,13 +428,13 @@ form
   transform: translateY(0);
 }
 
-/* line 354, ../scss/screen.scss */
+/* line 358, ../scss/screen.scss */
 .is-focused .field-label {
   font-size: 12px;
   color: #ff85a4;
 }
 
-/* line 360, ../scss/screen.scss */
+/* line 364, ../scss/screen.scss */
 .field.is-focused::after {
   -moz-transform: scaleX(1);
   -ms-transform: scaleX(1);
@@ -437,19 +442,19 @@ form
   transform: scaleX(1);
 }
 
-/* line 364, ../scss/screen.scss */
+/* line 368, ../scss/screen.scss */
 .message {
   color: #bfbfbf;
 }
 
-/* line 367, ../scss/screen.scss */
+/* line 371, ../scss/screen.scss */
 .social {
   fill: black;
   height: 35px;
   width: 35px;
 }
 
-/* line 372, ../scss/screen.scss */
+/* line 376, ../scss/screen.scss */
 #alert {
   z-index: 1000;
 }
@@ -457,7 +462,7 @@ form
 /*=============================================================================
 competence
 ==============================================================================*/
-/* line 378, ../scss/screen.scss */
+/* line 382, ../scss/screen.scss */
 .language {
   height: 200px;
   background-color: rgba(77, 77, 77, 0.8);
@@ -466,25 +471,25 @@ competence
 /*==============================================================================
 footer
 ================================================================================*/
-/* line 386, ../scss/screen.scss */
+/* line 390, ../scss/screen.scss */
 footer {
   border-top: 1px solid rgba(77, 77, 77, 0.8);
   color: #000;
   background-color: rgba(77, 77, 77, 0.8);
 }
-/* line 389, ../scss/screen.scss */
+/* line 393, ../scss/screen.scss */
 footer h4 {
   font-size: 20px;
 }
-/* line 393, ../scss/screen.scss */
+/* line 397, ../scss/screen.scss */
 footer .dashed {
   border-left: 1px solid rgba(77, 77, 77, 0.8);
 }
-/* line 396, ../scss/screen.scss */
+/* line 400, ../scss/screen.scss */
 footer img {
   height: 30px;
 }
-/* line 400, ../scss/screen.scss */
+/* line 404, ../scss/screen.scss */
 footer .article-footer p {
   font-size: 13px;
 }

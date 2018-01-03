@@ -3,18 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?= $title; ?></title>
-    <meta name="description" content="">
+    <title><?php echo $title; ?></title>
+    <meta name="description" content="J'ai commencé le développement
+                                    web pour développer des petits sites perso et c'est très vite devenu une vraie
+                                    vocation">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Maven+Pro" rel="stylesheet">
 
     <!-- Place favicon.ico in the root directory -->
-    <link rel="icon" href="<?= BASE_URL; ?>/public/img/logo.ico"/>
-    <link rel="stylesheet" href="<?= BASE_URL; ?>/public/css/bootstrap.css">
-    <link rel="stylesheet" href="<?= BASE_URL; ?>/public/css/screen.css">
-    <!--<link rel="stylesheet" href="<?/*= BASE_URL; */?>/public/scss/stylesheets/screen.css">-->
+    <link rel="icon" href="<?php echo BASE_URL; ?>/img/logo.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>/css/screen.css">
 </head>
 <body>
 <div class="site-container">
@@ -22,22 +23,22 @@
         <header class="header">
             <div class="container-top">
                 <a href="" class="header_icon" id="header_icon"></a>
-                <a href="<?= BASE_URL; ?>" class="header_logo">
-                        <img src="<?= BASE_URL; ?>/public/img/logo.svg" alt="ma photo" id="logo">
+                <a href="/" class="header_logo">
+                    <img src="<?php echo BASE_URL; ?>/img/logo.svg" alt="mon logo" id="logo">
                 </a>
 
                     <nav class="menu">
-                        <a <?php if($_REQUEST['url'] == ''){echo "id='active'";}?> href="<?php echo BASE_URL; ?>">Accueil</a>
-                        <a <?php if($_REQUEST['url'] == 'pages/competences'){echo "id='active'";}?> href="<?= BASE_URL; ?>/pages/competences">mes compétences</a>
-                        <a <?php if($_REQUEST['url'] == 'pages/portfolio'){echo "id='active'";}?> href="<?= BASE_URL; ?>/pages/portfolio">mes réalisations</a>
-                        <a <?php if($_REQUEST['url'] == 'posts'){echo "id='active'";}?> href="<?= BASE_URL; ?>/posts">me contacter</a>
+                        <a href="<?php echo BASE_URL; ?>">Accueil</a>
+                        <a <?php if($_REQUEST['url'] == '/competences'){echo "id='active'";}?> href="<?php echo BASE_URL; ?>/competences">mes compétences</a>
+                        <a <?php if($_REQUEST['url'] == '/realisations'){echo "id='active'";}?> href="<?php echo BASE_URL; ?>/realisations">mes réalisations</a>
+                        <a <?php if($_REQUEST['url'] == '/contact'){echo "id='active'";}?> href="<?php echo BASE_URL; ?>/contact">me contacter</a>
                     </nav>
                     <!-- /.menu -->
                     <nav class="menu-desktop">
                         <a <?php if($_REQUEST['url'] == ''){echo "id='active'";}?> href="<?php echo BASE_URL; ?>">Accueil</a>
-                        <a <?php if($_REQUEST['url'] == 'pages/competences'){echo "id='active'";}?> href="<?= BASE_URL; ?>/pages/competences">mes compétences</a>
-                        <a <?php if($_REQUEST['url'] == 'pages/portfolio'){echo "id='active'";}?> href="<?= BASE_URL; ?>/pages/portfolio">mes réalisations</a>
-                        <a <?php if($_REQUEST['url'] == 'posts'){echo "id='active'";}?> href="<?= BASE_URL; ?>/posts">me contacter</a>
+                        <a <?php if($_REQUEST['url'] == '/competences'){echo "id='active'";}?> href="<?php echo BASE_URL; ?>/competences">mes compétences</a>
+                        <a <?php if($_REQUEST['url'] == '/realisations'){echo "id='active'";}?> href="<?php echo BASE_URL; ?>/realisations">mes réalisations</a>
+                        <a <?php if($_REQUEST['url'] == '/contact'){echo "id='active'";}?> href="<?php echo BASE_URL; ?>/contact">me contacter</a>
                     </nav>
                 <!-- /.menu-desktop -->
             </div>
@@ -49,21 +50,10 @@
 
 
         <div class="site-content">
-            <?php if($_REQUEST['url'] !== "pages/portfolio"):?>
+            <?php if($_REQUEST['url'] !== "/realisations"):?>
             <main class="container">
-                <?= $content; ?>
-                <!--<p>Après plusieurs années en tant qu'électricien,
-                    j'ai commencé le développement web en autodidacte et c'est très vite devenu une vraie vocation.
-                    J'aime expérimenter, découvrir et apprendre au fur et à mesure des nouveaux projets.
-                    Passionné et intrigué par l'informatique depuis toujours, j'ai entamé une reconversion professionnelle pour m'épanouir dans un métier d'avenir.
-                    Rigoureux et déterminé je mets du coeur à l'ouvrage dans tout ce que j'entreprends.
-                </p>-->
-            </main><!--<p>Après plusieurs années en tant qu'électricien,
-                    j'ai commencé le développement web en autodidacte et c'est très vite devenu une vraie vocation.
-                    J'aime expérimenter, découvrir et apprendre au fur et à mesure des nouveaux projets.
-                    Passionné et intrigué par l'informatique depuis toujours, j'ai entamé une reconversion professionnelle pour m'épanouir dans un métier d'avenir.
-                    Rigoureux et déterminé je mets du coeur à l'ouvrage dans tout ce que j'entreprends.
-                </p>-->
+                <?php echo $content; ?>
+            </main>
             <?php else:?>
             <main class="container-fluid">
                 <?php echo $content;?>
@@ -86,24 +76,24 @@
                         <div class="col-12 col-sm-6 col-xl-4 dashed pt-3">
                             <h4>Mes coordonées</h4>
                             <p class="mt-3">Téléphone: 06.69.92.33.90</p>
-                            Mail: <a href="mailto:dussartguillaume.dev@gmail.com">dussartguillaume.dev@gmail.com</a>
+                            Mail: <a class="lower" href="mailto:dussartguillaume.dev@gmail.com">dussartguillaume.dev@gmail.com</a>
                         </div>
                         <!-- /.col-12 col-sm-6 col-xl-4 dashed pt-3 -->
                         <div class="col-12 col-sm-6 col-xl-4 dashed pb-3 pt-3">
                             <h4>Où me trouver ?</h4>
-                            <a href="https://github.com/"><img src="<?= BASE_URL; ?>/public/img/social/github.svg"
+                            <a href="https://github.com/"><img src="<?php echo BASE_URL; ?>/img/social/github.svg"
                                                                alt="github" class="d-inline social"></a>
                             <!-- /.d-inline -->
                             <a href="https://twitter.com/?lang=fr"><img
-                                        src="<?= BASE_URL; ?>/public/img/social/twitter.svg" alt="twitter"
+                                        src="<?php echo BASE_URL; ?>/img/social/twitter.svg" alt="twitter"
                                         class="d-inline social ml-1"></a>
                             <!-- /.d-inline -->
                             <a href="https://www.facebook.com/"><img
-                                        src="<?= BASE_URL; ?>/public/img/social/facebook.svg" alt="facebook"
+                                        src="<?php echo BASE_URL; ?>/img/social/facebook.svg" alt="facebook"
                                         class="d-inline social ml-1"></a>
                             <!-- /.d-inline -->
                             <a href="https://www.linkedin.com/"><img
-                                        src="<?= BASE_URL; ?>/public/img/social/linkedin.svg" alt="linkedin"
+                                        src="<?php echo BASE_URL; ?>/img/social/linkedin.svg" alt="linkedin"
                                         class="d-inline social ml-1"></a>
                             <!-- /.d-inline -->
                         </div>
@@ -120,9 +110,9 @@
 </div>
 <!-- /.site-container -->
 
-<script src="<?= BASE_URL; ?>/public/js/jquery-3.2.1.min.js"></script>
-<script src="<?= BASE_URL; ?>/public/js/bootstrap.js"></script>
-<script src="<?= BASE_URL; ?>/public/js/main.js"></script>
+<script src="<?php echo BASE_URL; ?>/js/jquery-3.2.1.min.js"></script>
+<script src="<?php echo BASE_URL; ?>/js/bootstrap.js"></script>
+<script src="<?php echo BASE_URL; ?>/js/main.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>

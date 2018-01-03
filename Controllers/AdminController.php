@@ -59,7 +59,7 @@ class AdminController extends Controller
             if ($password === $admin[0]->password) {
                 $this->Session->write('admin', $admin[0]);
                 $this->Session->setFlash("Vous êtes maintenant connecté");
-                $this->Views->redirect(BASE_URL . '/admin');
+                $this->Views->redirect(BASE_URL . '/scleroseenplaque');
                 die();
             } else {
                 $this->Session->setFlash("Identifiant ou mot de passe incorrect", 'danger');
@@ -130,7 +130,7 @@ class AdminController extends Controller
                             'workID' => $id,
                         ]);
                         $this->Session->setFlash('Travail sauvegarder!');
-                        $this->Views->redirect(BASE_URL . '/admin/index');
+                        $this->Views->redirect(BASE_URL . '/scleroseenplaue');
                     }
                 }
             }
@@ -145,7 +145,7 @@ class AdminController extends Controller
         $this->loadModel('Admin');
         $this->Admin->delete('works',$id);
         $this->Session->setFlash('Travail supprimé', 'danger');
-        $this->Views->redirect(BASE_URL . '/admin');
+        $this->Views->redirect(BASE_URL . '/scleroseenplaque');
         die();
     }
 public function deleteImage($id){
@@ -153,7 +153,7 @@ public function deleteImage($id){
     $this->loadModel('Admin');
     $this->Admin->delete('images',$id);
     $this->Session->setFlash('Image supprimé', 'danger');
-    $this->Views->redirect(BASE_URL . '/admin');
+    $this->Views->redirect(BASE_URL . '/scleroseenplaque');
     die();
 }
 

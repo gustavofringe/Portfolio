@@ -15,8 +15,8 @@
             <td><?= $work->content; ?></td>
             <td><?= date('d/m/Y', strtotime($work->date)); ?></td>
             <td>
-                <a href="<?= BASE_URL;?>/admin/edit/<?=$work->workID;?>" class="btn btn-primary">edit</a>
-                <a href="<?= BASE_URL;?>/admin/delete/<?=$work->workID;?>" class="btn btn-danger" onclick="return confirm('Sûr de vouloir supprimer?')">delete</a>
+                <a href="<?= BASE_URL;?>/scleroseenplaque/edit/<?=$work->workID;?>" class="btn btn-primary">edit</a>
+                <a href="<?= BASE_URL;?>/scleroseenplaque/delete/<?=$work->workID;?>" class="btn btn-danger" onclick="return confirm('Sûr de vouloir supprimer?')">delete</a>
             </td>
         </tr>
     <?php endforeach; ?>

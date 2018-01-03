@@ -5,11 +5,11 @@
         <?php foreach ($system as $sys): ?>
             <div class="col-xl-3">
                 <div class="block text-center">
-                    <img src="<?= BASE_URL; ?>/public/img/competences/<?= $sys->name; ?>" alt="apple"
+                    <img src="<?php echo BASE_URL; ?>/img/competences/<?= $sys->name; ?>" alt="apple"
                          class="rounded-circle img-thumbnail w-75">
                     <!-- /.rounded-circle -->
-                    <p class="text-center grey"><?= $sys->nameCompetence; ?></p>
-                    <p class="text-center font-italic"><?= $sys->sentence; ?></p>
+                    <p class="text-center grey"><?php echo $sys->nameCompetence; ?></p>
+                    <p class="text-center font-italic"><?php echo $sys->sentence; ?></p>
                 </div>
                 <!-- /.block -->
             </div>
@@ -26,7 +26,7 @@
                     <?php for ($i = 0; $i < count($tab[$comp->titleCompetenceID]['name']); ++$i): ?>
                         <div class="col-xl-2">
                             <div class="block text-center compet">
-                                <img src="<?= BASE_URL; ?>/public/img/competences/<?= $tab[$comp->titleCompetenceID]['image'][$i]; ?>"
+                                <img src="<?= BASE_URL; ?>/img/competences/<?= $tab[$comp->titleCompetenceID]['image'][$i]; ?>"
                                      alt="<?= $tab[$comp->titleCompetenceID]['name'][$i]; ?>"
                                      class="img-thumbnail language">
                                 <!-- /.rounded-circle -->

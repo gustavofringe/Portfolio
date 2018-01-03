@@ -103,7 +103,7 @@ class PostsController extends Controller
                             'workID' => $id_image,
                         ]);
                         $this->Session->setFlash('Travail sauvegarder!');
-                        $this->Views->redirect(BASE_URL . '/admin/index');
+                        $this->Views->redirect(BASE_URL . '/scleroseenplaque');
                     }
                 }
             }
@@ -138,7 +138,7 @@ class PostsController extends Controller
                 $this->Post->save('imageCompetences', $this->Request->file->image);
                 $this->Request->post->imageCompetenceID = $this->Post->id;
                 $this->Post->save('competences', get_object_vars($this->Request->post));
-                $this->Views->redirect(BASE_URL . '/admin');
+                $this->Views->redirect(BASE_URL . '/scleroseenplaque');
                 $this->Session->setFlash('Votre competence est enregistrer');
                 die();
             }

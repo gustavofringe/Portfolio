@@ -9,11 +9,10 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     <!-- Place favicon.ico in the root directory -->
-    <link rel="icon" href="<?= BASE_URL; ?>/public/img/favicon.ico"/>
-    <link rel="stylesheet" href="<?= BASE_URL; ?>/public/css/bootstrap.css">
-    <link rel="stylesheet" href="<?= BASE_URL; ?>/public/css/screen.css">
+    <link rel="icon" href="<?= BASE_URL; ?>/img/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="<?= ROOT; ?>/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/css/screen.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
 <div class="site-container">
@@ -21,7 +20,7 @@
         <header class="header">
             <div class="container-top">
                 <a href="" class="header_icon" id="header_icon"></a>
-                <a href="<?=BASE_URL;?>/admin" class="header_logo">
+                <!--<a href="<?/*=BASE_URL;*/?>/admin" class="header_logo">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 943.9 1000" version="1.1" id="svg1499">
                         <g>
                             <path class="inside"
@@ -30,24 +29,24 @@
                                   d="M591.8 295.7H472.4c-2.4 0-5.7.5-9.1 1.2-2 .3-3.9.8-5.9 1.4-2.1.6-4.1 1.1-5.6 1.6-20.5 6.4-31.2 23.4-32.2 45.4-.1 1.2-.1 2.4-.1 3.7v250.9h-66.8c-136.2 0-247.1-110.8-247.1-247.1s110.9-247.1 247.1-247.1h119.6c29.2 0 52.9-23.7 52.9-52.8 0-29.2-23.7-52.9-52.8-52.9H352.8C158.3 0 0 158.3 0 352.8s158.3 352.8 352.8 352.8h119.6c29.1 0 52.8-23.7 52.8-52.9V401.3h66.5c131.7 0 239.7 103.8 246.3 233.9.2 4.2.3 8.4.3 12.7 0 8.5-.4 16.9-1.3 25.2-12.7 124.2-117.9 221.4-245.3 221.4H472.4c-29.1 0-52.8 23.7-52.8 52.7 0 23.6 15.6 43.7 37.1 50.4 5 1.5 10.2 2.4 15.7 2.4h119.4c194.2 0 352.1-158 352.1-352.1 0-194.2-157.9-352.2-352.1-352.2z"/>
                         </g>
                     </svg>
-                </a>
+                </a>-->
                     <nav class="menu">
-                        <a href="<?= BASE_URL; ?>/admin">Accueil</a>
-                        <a href="<?= BASE_URL; ?>/admin/create">Créer</a>
-                        <a href="<?= BASE_URL; ?>/admin/competence">Competences</a>
-                        <a href="<?= BASE_URL; ?>/admin/contacts">Contacts</a>
+                        <a href="<?= BASE_URL; ?>/scleroseenplaque">Accueil</a>
+                        <a href="<?= BASE_URL; ?>/scleroseenplaque/create">Créer</a>
+                        <a href="<?= BASE_URL; ?>/scleroseenplaque/competence">Competences</a>
+                        <a href="<?= BASE_URL; ?>/scleroseenplaque/contacts">Contacts</a>
                         <?php if(isset($_SESSION['admin'])):?>
-                        <a href="<?= BASE_URL; ?>/admin/logout">Se deconnecter</a>
+                        <a href="<?= BASE_URL; ?>/scleroseenplaque/logout">Se deconnecter</a>
                         <?php endif; ?>
                     </nav>
                     <!-- /.menu -->
                     <nav class="menu-desktop">
-                        <a href="<?= BASE_URL; ?>/admin">Accueil</a>
-                        <a href="<?= BASE_URL; ?>/posts/createproject">Créer</a>
-                        <a href="<?= BASE_URL; ?>/posts/createcompetence">Competences</a>
+                        <a href="<?= BASE_URL; ?>/scleroseenplaque">Accueil</a>
+                        <a href="<?= BASE_URL; ?>/scleroseenplaque/createproject">Créer</a>
+                        <a href="<?= BASE_URL; ?>/scleroseenplaque/createcompetence">Competences</a>
                         <a href="<?= BASE_URL; ?>/contacts">Contacts</a>
                         <?php if(isset($_SESSION['admin'])):?>
-                        <a href="<?= BASE_URL; ?>/admin/logout">Se deconnecter</a>
+                        <a href="<?= BASE_URL; ?>/scleroseenplaque/logout">Se deconnecter</a>
                         <?php endif;?>
                     </nav>
                 <!-- /.menu-desktop -->

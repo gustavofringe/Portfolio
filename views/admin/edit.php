@@ -12,7 +12,7 @@ App\Form::close();
 <form action="<?= BASE_URL;?>/admin" method="post">
     <?php if(isset($tab[$work->workID]['name'])):?>
 <?php for ($i = 0; $i < count($tab[$work->workID]['name']); ++$i): ?>
-    <a href="<?php echo BASE_URL;?>/admin/deleteImage/<?php echo $tab[$work->workID]['id'][$i];?>" onclick="return confirm('Sûr de vouloir supprimer?')">
+    <a href="<?php echo BASE_URL;?>/scleroseenplaque/deleteImage/<?php echo $tab[$work->workID]['id'][$i];?>" onclick="return confirm('Sûr de vouloir supprimer?')">
         <img class=""
              src="<?= BASE_URL; ?>/public/img/sites/<?= $work->folder; ?>/<?= $tab[$work->workID]['name'][$i]; ?>"
              alt="<?= $tab[$work->workID]['name'][$i]; ?>">
